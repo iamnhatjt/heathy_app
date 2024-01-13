@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:heathy_app/config/hive/hive_config.dart';
 import 'package:heathy_app/config/router.dart';
 
 import 'config/di.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   getItSetUp();
-
+  await HiveConfig().init();
   runApp(const MyApp());
 }
 

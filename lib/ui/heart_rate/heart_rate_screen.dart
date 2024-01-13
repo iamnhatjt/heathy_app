@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
 
 class HeartRateScreen extends StatelessWidget {
@@ -13,7 +14,10 @@ class HeartRateScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [],
+          children: [
+            BaseRoundedButton.all(child: Text("add")),
+            BaseRoundedButton.all(child: Text("change")),
+          ],
         ),
       ),
     );
