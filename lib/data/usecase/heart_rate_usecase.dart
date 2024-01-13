@@ -7,4 +7,12 @@ class HeartRateUseCase {
   HeartRateUseCase(this._localRepository);
 
   List<HeartRateModel> getAllHeartRate() => _localRepository.getAllHeartRate();
+
+  HeartRateModel getHeartRate(String id) => _localRepository.getHeartRate(id);
+
+  Future<void> updateHeartRate(String id, HeartRateModel heartRateModel) =>
+      _localRepository.updateHeartRate(id, heartRateModel);
+
+  Future<void> deleteHeartRate(String id) =>
+      _localRepository.deleteHeartRate(id);
 }
