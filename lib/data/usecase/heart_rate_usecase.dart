@@ -8,6 +8,10 @@ class HeartRateUseCase {
 
   List<HeartRateModel> getAllHeartRate() => _localRepository.getAllHeartRate();
 
+  Future<void> addHeartRate(HeartRateModel heartRateModel) {
+    return _localRepository.addHeartRate(heartRateModel);
+  }
+
   HeartRateModel getHeartRate(String id) => _localRepository.getHeartRate(id);
 
   Future<void> updateHeartRate(String id, HeartRateModel heartRateModel) =>

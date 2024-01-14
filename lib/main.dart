@@ -7,7 +7,7 @@ import 'config/di.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   getItSetUp();
-  await HiveConfig().init();
+  await getIt<HiveConfig>().init();
   runApp(const MyApp());
 }
 

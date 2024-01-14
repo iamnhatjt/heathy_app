@@ -21,7 +21,7 @@ class HeartRateModelAdapter extends TypeAdapter<HeartRateModel> {
       heartRate: fields[1] as int?,
       dateTime: fields[2] as DateTime?,
       age: fields[3] as int?,
-      sex: fields[4] as SexEnum?,
+      sex: fields[4] as String?,
     );
   }
 

@@ -19,7 +19,7 @@ class AppScaffold extends StatelessWidget {
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         body: background ??
-            Container(
+            SizedBox(
               width: double.maxFinite,
               height: double.maxFinite,
               // decoration: BoxDecoration(

@@ -1,5 +1,4 @@
 import 'package:heathy_app/config/hive/hive_constansts.dart';
-import 'package:heathy_app/data/enums/sex.dart';
 import 'package:hive/hive.dart';
 
 part 'heart_rate_model.g.dart';
@@ -15,7 +14,7 @@ class HeartRateModel extends HiveObject {
   @HiveField(3)
   int? age;
   @HiveField(4)
-  SexEnum? sex;
+  String? sex;
 
   HeartRateModel({
     this.id,

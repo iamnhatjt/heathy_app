@@ -1,4 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:heathy_app/bloc/heart_rate_bloc.dart';
 import 'package:heathy_app/res/util/navigation_service.dart';
 import 'package:heathy_app/ui/heart_rate/heart_rate_screen.dart';
 import 'package:heathy_app/ui/home/home_screen.dart';
@@ -20,8 +22,11 @@ class AppRouter {
     ),
     GoRoute(
       path: RouterUri.heartRate,
-      builder: (context, state) => HeartRateScreen(
-        key: state.pageKey,
+      builder: (context, state) => BlocProvider(
+        create: (context) => HeartRateBloc(),
+        child: HeartRateScreen(
+          key: state.pageKey,
+        ),
       ),
     ),
   ];
