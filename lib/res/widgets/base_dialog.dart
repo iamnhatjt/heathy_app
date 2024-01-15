@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:heathy_app/res/styles/Colors.dart';
 import 'package:heathy_app/res/styles/styles.dart';
@@ -17,7 +16,6 @@ class BaseDialog {
     _body = child;
   }
 
-  @mustBeOverridden
   void confirmAction(BuildContext context) {}
 
   void show() {

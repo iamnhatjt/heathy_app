@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:heathy_app/config/router.dart';
+import 'package:heathy_app/res/util/navigation_service.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
-import 'package:heathy_app/res/widgets/app_dialog.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,22 +10,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void onTap() {
-      AppDialog(
-        child: const Text("hello world"),
-        confirm: (date, age, sex) {
-          log('$date $age $sex');
-        },
-      ).show();
-    }
-
     return AppScaffold(
       appBar: AppBar(title: const Text("Home page")),
       body: SingleChildScrollView(
         child: Column(
           children: [
             BaseRoundedButton.all(
-              onTap: onTap,
+              onTap: () {
+                currentContext.go(RouterUri.heartRate);
+              },
               child: const Text("heart rate"),
             ),
             BaseRoundedButton.all(
@@ -36,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             ),
             BaseRoundedButton.all(
               child: const Text("heart rate"),
-            )
+            ),
           ],
         ),
       ),

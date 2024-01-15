@@ -7,10 +7,11 @@ import 'package:heathy_app/res/widgets/pick_age_widget.dart';
 import 'package:heathy_app/res/widgets/pick_sex_widget.dart';
 
 class AppDialog extends BaseDialog {
-  final DateTime? initDate;
+  DateTime? initDate;
   final int? initAge;
-  final SexEnum? sex;
+  SexEnum? sex;
   Widget? child;
+
   Function(DateTime, int age, SexEnum sex)? confirm;
 
   AppDialog({this.initDate, this.initAge, this.sex, this.child, this.confirm}) {
@@ -21,7 +22,7 @@ class AppDialog extends BaseDialog {
         const SizedBox(
           height: 30,
         ),
-        child ?? const SizedBox.shrink(),
+        child ?? const Text("Need to overide child"),
         const SizedBox(
           height: 30,
         ),
