@@ -145,16 +145,28 @@ class _HeartRateDialogComponentState extends State<_HeartRateDialogComponent> {
           Column(
             children: [
               AppButtonInner(
+                padding: const EdgeInsets.all(4),
+                radius: 8,
                 onTap: incrementHeartRate,
-                child: const Icon(Icons.arrow_circle_up_rounded),
+                child: const Icon(
+                  Icons.arrow_drop_up_rounded,
+                  color: Colors.lightBlueAccent,
+                  size: 28,
+                ),
               ),
+              const SizedBox(height: 8),
               AppButtonInner(
+                padding: const EdgeInsets.all(4),
+                radius: 8,
                 onTap: decrementHeartRate,
-                child: const Icon(Icons.arrow_back),
+                child: const Icon(
+                  Icons.arrow_drop_down_rounded,
+                  color: Colors.lightBlueAccent,
+                  size: 28,
+                ),
               ),
             ],
           ),
-          const SizedBox(width: 60),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
