@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heathy_app/gen/assets.gen.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold(
@@ -19,15 +20,15 @@ class AppScaffold extends StatelessWidget {
         extendBodyBehindAppBar: true,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         body: background ??
-            SizedBox(
+            Container(
               width: double.maxFinite,
               height: double.maxFinite,
-              // decoration: BoxDecoration(
-              //   image: DecorationImage(
-              //     // image: AssetImage(Assets.newAssets.images.backGround.path),
-              //     fit: BoxFit.fill,
-              //   ),
-              // ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(Assets.images.background.path),
+                  fit: BoxFit.fill,
+                ),
+              ),
               child: Padding(
                 padding: EdgeInsets.only(
                     top: (appBar?.preferredSize.height ?? 0) +

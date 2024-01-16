@@ -9,6 +9,7 @@ class _BaseRoundeButton extends StatelessWidget {
   final Color? backgroundColor;
   final VoidCallback? onTap;
   final List<BoxShadow>? boxShadow;
+  final Gradient? gradient;
 
   const _BaseRoundeButton({
     required this.child,
@@ -19,6 +20,7 @@ class _BaseRoundeButton extends StatelessWidget {
     this.backgroundColor,
     this.onTap,
     this.boxShadow,
+    this.gradient,
   });
 
   @override
@@ -29,6 +31,7 @@ class _BaseRoundeButton extends StatelessWidget {
         padding: padding,
         margin: margin,
         decoration: BoxDecoration(
+            gradient: gradient,
             color: backgroundColor,
             borderRadius: borderRadius,
             boxShadow: boxShadow),
@@ -48,10 +51,12 @@ class BaseRoundedButton extends _BaseRoundeButton {
     super.margin,
     super.onTap,
     super.boxShadow,
+    super.gradient,
   });
 
   factory BaseRoundedButton.all(
       {required Widget child,
+      Gradient? gradient,
       EdgeInsetsGeometry? padding,
       EdgeInsetsGeometry? margin,
       BorderRadiusGeometry? borderRadius,
@@ -80,44 +85,7 @@ class BaseRoundedButton extends _BaseRoundeButton {
       borderRadius: BorderRadius.circular(radius ?? 16.0),
       margin: margin,
       onTap: onTap,
-      child: child,
-    );
-  }
-
-  factory BaseRoundedButton.top(
-      {required Widget child,
-      EdgeInsetsGeometry? padding,
-      EdgeInsetsGeometry? margin,
-      BorderRadiusGeometry? borderRadius,
-      Color? backgroundColor,
-      double? radius,
-      VoidCallback? onTap,
-      List<BoxShadow>? boxShadow}) {
-    return BaseRoundedButton(
-      boxShadow: boxShadow,
-      padding: padding ?? const EdgeInsets.all(12.0),
-      backgroundColor: backgroundColor ?? Colors.white,
-      borderRadius: BorderRadius.vertical(top: Radius.circular(radius ?? 16.0)),
-      margin: margin,
-      onTap: onTap,
-      child: child,
-    );
-  }
-  factory BaseRoundedButton.bottom(
-      {required Widget child,
-      EdgeInsetsGeometry? padding,
-      EdgeInsetsGeometry? margin,
-      BorderRadiusGeometry? borderRadius,
-      Color? backgroundColor,
-      double? radius,
-      VoidCallback? onTap}) {
-    return BaseRoundedButton(
-      padding: padding ?? const EdgeInsets.all(12.0),
-      backgroundColor: backgroundColor ?? Colors.white,
-      borderRadius:
-          BorderRadius.vertical(bottom: Radius.circular(radius ?? 16.0)),
-      margin: margin,
-      onTap: onTap,
+      gradient: gradient,
       child: child,
     );
   }
