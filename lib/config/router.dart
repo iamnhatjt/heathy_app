@@ -11,6 +11,12 @@ class RouterUri {
   RouterUri._();
   static const home = '/';
   static const heartRate = '/heartRateScreen';
+  static const weightBMI = '/weightBMI';
+  static const bloodPressure = '/bloodPressure';
+  static const bloodSugar = '/bloodSugar';
+  static const foodScanner = '/foodScanner';
+  static const insights = '/insights';
+  static const alarm = '/alarm';
 }
 
 class AppRouter {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:heathy_app/config/router.dart';
 import 'package:heathy_app/gen/assets.gen.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
@@ -81,14 +83,38 @@ extension HeartRateActionWidget on HeartRateAction {
     }
   }
 
+  String get movePath {
+    switch (this) {
+      case HeartRateAction.heartRate:
+        return RouterUri.heartRate;
+      case HeartRateAction.weightBMI:
+        return RouterUri.weightBMI;
+      case HeartRateAction.bloodSugar:
+        return RouterUri.bloodSugar;
+      case HeartRateAction.bloodPressure:
+        return RouterUri.bloodPressure;
+      case HeartRateAction.foodScanner:
+        return RouterUri.foodScanner;
+      case HeartRateAction.insight:
+        return RouterUri.insights;
+      case HeartRateAction.alarm:
+        return RouterUri.alarm;
+    }
+  }
+
   Widget heartRateAction(BuildContext context) {
     final smallActon =
         HeartRateAction.values.getRange(4, HeartRateAction.values.length);
 
     final iconAnimation = Lottie.asset(pathAnimation);
 
+    void ontap() {
+      context.go(movePath);
+    }
+
     if (smallActon.contains(this)) {
       return BaseRoundedButton.all(
+          onTap: ontap,
           gradient: color,
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -109,6 +135,7 @@ extension HeartRateActionWidget on HeartRateAction {
 
     if (this == HeartRateAction.heartRate) {
       return BaseRoundedButton.all(
+          onTap: ontap,
           gradient: color,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -126,6 +153,7 @@ extension HeartRateActionWidget on HeartRateAction {
           ));
     }
     return BaseRoundedButton.all(
+        onTap: ontap,
         gradient: color,
         child: Row(
           children: [
