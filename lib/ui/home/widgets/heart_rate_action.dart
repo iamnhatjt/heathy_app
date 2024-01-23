@@ -109,7 +109,7 @@ extension HeartRateActionWidget on HeartRateAction {
     final iconAnimation = Lottie.asset(pathAnimation);
 
     void ontap() {
-      context.go(movePath);
+      context.push(movePath);
     }
 
     if (smallActon.contains(this)) {

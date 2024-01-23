@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
+import 'package:heathy_app/res/widgets/base_app_bar.dart';
 import 'package:heathy_app/ui/home/widgets/heart_rate_action.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,13 +13,17 @@ class HomeScreen extends StatelessWidget {
         HeartRateAction.values.getRange(4, HeartRateAction.values.length);
 
     return AppScaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
-          title: const Text(
-            "HEALTH CARE",
-            style: AppStyle.normalText,
-          )),
+      appBar: BaseAppBar(
+        title: "Health Care",
+        isDisplayBack: false,
+      ),
+      // appBar: AppBar(
+      //     backgroundColor: Colors.transparent,
+      //     centerTitle: true,
+      //     title: const Text(
+      //       "HEALTH CARE",
+      //       style: AppStyle.normalText,
+      //     )),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

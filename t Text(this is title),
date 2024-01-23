@@ -1,0 +1,55 @@
+[33mcommit 7029b7195ebae8d9e83cc6b2ef847c6bffe83159[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Wed Jan 17 12:20:01 2024 +0700
+
+    update path for home screen
+
+[33mcommit 89b841f7ab98d7f8a9da2cf8063914cf0ed22fc8[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Tue Jan 16 23:05:19 2024 +0700
+
+    home screen
+
+[33mcommit 2081023e6df46c19b2e4944e47640535dcc841c6[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Tue Jan 16 05:12:51 2024 +0700
+
+    update heart rate dialog
+
+[33mcommit 9b9dd2ce3606b60d609b7d40f33b5d962bea6a16[m
+Author: NhattdSelex <137748315+NhattdSelex@users.noreply.github.com>
+Date:   Mon Jan 15 21:50:20 2024 +0000
+
+    dialog heart rate (#1)
+    
+    Co-authored-by: jt trinh <Nhattd@selex.vn>
+
+[33mcommit be21eced2db1da6c910817074b016d8f77194fa8[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Sun Jan 14 21:13:26 2024 +0700
+
+    base dialog
+
+[33mcommit 604a771315a623e675aa6931370d4c2e1084bb0b[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Sat Jan 13 17:07:37 2024 +0700
+
+    headle heart rate
+
+[33mcommit a5b586917dfb960822ea735248318ee1f76d9716[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Sat Jan 13 16:56:44 2024 +0700
+
+    setup hive
+
+[33mcommit 2131ef19e9e40139811f20c5d65cb98037da7aff[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Sat Jan 13 15:43:40 2024 +0700
+
+    update base
+
+[33mcommit 3242a39f310dc672d07c7ec8cb9c639e90bdff03[m
+Author: jt trinh <Nhattd@selex.vn>
+Date:   Sat Jan 13 11:04:38 2024 +0700
+
+    init project

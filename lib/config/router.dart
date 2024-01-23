@@ -29,7 +29,8 @@ class AppRouter {
     GoRoute(
       path: RouterUri.heartRate,
       builder: (context, state) => BlocProvider(
-        create: (context) => HeartRateBloc(),
+        create: (context) =>
+            HeartRateBloc()..add(const HeartRateEvent.filterDate()),
         child: HeartRateScreen(
           key: state.pageKey,
         ),

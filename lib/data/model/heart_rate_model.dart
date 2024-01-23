@@ -1,5 +1,6 @@
 import 'package:heathy_app/config/hive/hive_constansts.dart';
 import 'package:hive/hive.dart';
+import 'package:uuid/uuid.dart';
 
 part 'heart_rate_model.g.dart';
 
@@ -17,10 +18,11 @@ class HeartRateModel extends HiveObject {
   String? sex;
 
   HeartRateModel({
-    this.id,
     this.heartRate,
     this.dateTime,
     this.age,
     this.sex,
-  });
+  }) {
+    id = const Uuid().v1();
+  }
 }

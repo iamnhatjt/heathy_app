@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:heathy_app/data/repository/local_repository.dart';
 
 import '../model/heart_rate_model.dart';
@@ -19,4 +20,18 @@ class HeartRateUseCase {
 
   Future<void> deleteHeartRate(String id) =>
       _localRepository.deleteHeartRate(id);
+
+  List<HeartRateModel> filterHeartRate(DateTimeRange dateTimeRange) {
+    final listHeartRates = getAllHeartRate();
+    final startDate = dateTimeRange.start.millisecondsSinceEpoch;
+    final endDate = dateTimeRange.end.millisecondsSinceEpoch;
+
+    return listHeartRates
+        .where(
+          (element) =>
+              element.dateTime!.millisecondsSinceEpoch > startDate ||
+              element.dateTime!.millisecondsSinceEpoch < endDate,
+        )
+        .toList();
+  }
 }

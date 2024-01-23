@@ -9,7 +9,10 @@ import 'package:heathy_app/res/widgets/dialog_info.dart';
 import 'package:heathy_app/ui/heart_rate/widgets/heart_rate_info.dart';
 
 AppDialog hearRateDialog(
-    {HeartRateModel? heartRateModel, required BuildContext context}) {
+    {HeartRateModel? heartRateModel,
+    required BuildContext context,
+    required Function(DateTime date, int age, SexEnum sex, int heartRate)
+        onTapConfirm}) {
   late int heartRate = heartRateModel?.heartRate ?? 70;
 
   void onChange(int value) {
@@ -17,6 +20,9 @@ AppDialog hearRateDialog(
   }
 
   return AppDialog(
+      confirm: (date, age, sex) {
+        onTapConfirm(date, age, sex, heartRate);
+      },
       initAge: heartRateModel?.age,
       initDate: heartRateModel?.dateTime,
       sex: getSex(heartRateModel?.sex),

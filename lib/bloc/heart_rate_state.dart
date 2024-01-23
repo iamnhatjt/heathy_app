@@ -4,6 +4,7 @@ part of 'heart_rate_bloc.dart';
 class HeartRateState with _$HeartRateState {
   const factory HeartRateState.initial() = _Initial;
   const factory HeartRateState.loading() = _loading;
-  const factory HeartRateState.loaded() = _loaded;
-  const factory HeartRateState.error() = _error;
+  const factory HeartRateState.loaded(
+      String message, List<HeartRateModel> listHeartRates) = _loaded;
+  const factory HeartRateState.error(String message) = _error;
 }

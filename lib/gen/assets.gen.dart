@@ -33,6 +33,12 @@ class $AssetsImagesGen {
 class $AssetsJsonsGen {
   const $AssetsJsonsGen();
 
+  /// File path: assets/jsons/alarm.json
+  String get alarm => 'assets/jsons/alarm.json';
+
+  /// File path: assets/jsons/alarm_home.json
+  String get alarmHome => 'assets/jsons/alarm_home.json';
+
   /// File path: assets/jsons/blood_pressure.json
   String get bloodPressure => 'assets/jsons/blood_pressure.json';
 
@@ -49,8 +55,15 @@ class $AssetsJsonsGen {
   String get weightBmi => 'assets/jsons/weight_bmi.json';
 
   /// List of all assets
-  List<String> get values =>
-      [bloodPressure, bloodSuggar, heartRateAnimation, qrScanner, weightBmi];
+  List<String> get values => [
+        alarm,
+        alarmHome,
+        bloodPressure,
+        bloodSuggar,
+        heartRateAnimation,
+        qrScanner,
+        weightBmi
+      ];
 }
 
 class Assets {

@@ -27,3 +27,15 @@ extension TimeExtension on TimeOfDay {
         .format(DateTime.now().copyWith(hour: hour, minute: minute));
   }
 }
+
+extension DateTimeRangExtension on DateTimeRange? {
+  String convertDate([String format = 'EEE, d MMM y']) {
+    if (this == null) {
+      return '';
+    }
+
+    final String start = this!.start.defaultFormat(format);
+    final String end = this!.end.defaultFormat(format);
+    return '$start - $end';
+  }
+}
