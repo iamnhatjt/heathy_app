@@ -23,6 +23,7 @@ mixin _$HeartRateEvent {
     required TResult Function(String id, HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$HeartRateEvent {
     TResult? Function(String id, HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$HeartRateEvent {
     TResult Function(String id, HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$HeartRateEvent {
     required TResult Function(_update value) update,
     required TResult Function(_delete value) delete,
     required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$HeartRateEvent {
     TResult? Function(_update value)? update,
     TResult? Function(_delete value)? delete,
     TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$HeartRateEvent {
     TResult Function(_update value)? update,
     TResult Function(_delete value)? delete,
     TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,6 +168,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(String id, HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
   }) {
     return addHeartRate(heartRateModel);
   }
@@ -174,6 +181,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(String id, HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
   }) {
     return addHeartRate?.call(heartRateModel);
   }
@@ -186,6 +194,7 @@ class _$StartedImpl implements _Started {
     TResult Function(String id, HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) {
     if (addHeartRate != null) {
@@ -202,6 +211,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_update value) update,
     required TResult Function(_delete value) delete,
     required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
   }) {
     return addHeartRate(this);
   }
@@ -214,6 +224,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_update value)? update,
     TResult? Function(_delete value)? delete,
     TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
   }) {
     return addHeartRate?.call(this);
   }
@@ -226,6 +237,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_update value)? update,
     TResult Function(_delete value)? delete,
     TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
     required TResult orElse(),
   }) {
     if (addHeartRate != null) {
@@ -313,6 +325,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     required TResult Function(String id, HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
   }) {
     return getHeartRate(id);
   }
@@ -325,6 +338,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     TResult? Function(String id, HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
   }) {
     return getHeartRate?.call(id);
   }
@@ -337,6 +351,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     TResult Function(String id, HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) {
     if (getHeartRate != null) {
@@ -353,6 +368,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     required TResult Function(_update value) update,
     required TResult Function(_delete value) delete,
     required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
   }) {
     return getHeartRate(this);
   }
@@ -365,6 +381,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     TResult? Function(_update value)? update,
     TResult? Function(_delete value)? delete,
     TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
   }) {
     return getHeartRate?.call(this);
   }
@@ -377,6 +394,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     TResult Function(_update value)? update,
     TResult Function(_delete value)? delete,
     TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
     required TResult orElse(),
   }) {
     if (getHeartRate != null) {
@@ -473,6 +491,7 @@ class _$updateImpl implements _update {
     required TResult Function(String id, HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
   }) {
     return update(id, heartRateModel);
   }
@@ -485,6 +504,7 @@ class _$updateImpl implements _update {
     TResult? Function(String id, HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
   }) {
     return update?.call(id, heartRateModel);
   }
@@ -497,6 +517,7 @@ class _$updateImpl implements _update {
     TResult Function(String id, HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -513,6 +534,7 @@ class _$updateImpl implements _update {
     required TResult Function(_update value) update,
     required TResult Function(_delete value) delete,
     required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
   }) {
     return update(this);
   }
@@ -525,6 +547,7 @@ class _$updateImpl implements _update {
     TResult? Function(_update value)? update,
     TResult? Function(_delete value)? delete,
     TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
   }) {
     return update?.call(this);
   }
@@ -537,6 +560,7 @@ class _$updateImpl implements _update {
     TResult Function(_update value)? update,
     TResult Function(_delete value)? delete,
     TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -626,6 +650,7 @@ class _$deleteImpl implements _delete {
     required TResult Function(String id, HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
   }) {
     return delete(id);
   }
@@ -638,6 +663,7 @@ class _$deleteImpl implements _delete {
     TResult? Function(String id, HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
   }) {
     return delete?.call(id);
   }
@@ -650,6 +676,7 @@ class _$deleteImpl implements _delete {
     TResult Function(String id, HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -666,6 +693,7 @@ class _$deleteImpl implements _delete {
     required TResult Function(_update value) update,
     required TResult Function(_delete value) delete,
     required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
   }) {
     return delete(this);
   }
@@ -678,6 +706,7 @@ class _$deleteImpl implements _delete {
     TResult? Function(_update value)? update,
     TResult? Function(_delete value)? delete,
     TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
   }) {
     return delete?.call(this);
   }
@@ -690,6 +719,7 @@ class _$deleteImpl implements _delete {
     TResult Function(_update value)? update,
     TResult Function(_delete value)? delete,
     TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -778,6 +808,7 @@ class _$filterDateImpl implements _filterDate {
     required TResult Function(String id, HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
   }) {
     return filterDate(dateRange);
   }
@@ -790,6 +821,7 @@ class _$filterDateImpl implements _filterDate {
     TResult? Function(String id, HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
   }) {
     return filterDate?.call(dateRange);
   }
@@ -802,6 +834,7 @@ class _$filterDateImpl implements _filterDate {
     TResult Function(String id, HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) {
     if (filterDate != null) {
@@ -818,6 +851,7 @@ class _$filterDateImpl implements _filterDate {
     required TResult Function(_update value) update,
     required TResult Function(_delete value) delete,
     required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
   }) {
     return filterDate(this);
   }
@@ -830,6 +864,7 @@ class _$filterDateImpl implements _filterDate {
     TResult? Function(_update value)? update,
     TResult? Function(_delete value)? delete,
     TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
   }) {
     return filterDate?.call(this);
   }
@@ -842,6 +877,7 @@ class _$filterDateImpl implements _filterDate {
     TResult Function(_update value)? update,
     TResult Function(_delete value)? delete,
     TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
     required TResult orElse(),
   }) {
     if (filterDate != null) {
@@ -858,6 +894,174 @@ abstract class _filterDate implements HeartRateEvent {
   DateTimeRange? get dateRange;
   @JsonKey(ignore: true)
   _$$filterDateImplCopyWith<_$filterDateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$changeSelectedImplCopyWith<$Res> {
+  factory _$$changeSelectedImplCopyWith(_$changeSelectedImpl value,
+          $Res Function(_$changeSelectedImpl) then) =
+      __$$changeSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double date, double value});
+}
+
+/// @nodoc
+class __$$changeSelectedImplCopyWithImpl<$Res>
+    extends _$HeartRateEventCopyWithImpl<$Res, _$changeSelectedImpl>
+    implements _$$changeSelectedImplCopyWith<$Res> {
+  __$$changeSelectedImplCopyWithImpl(
+      _$changeSelectedImpl _value, $Res Function(_$changeSelectedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+    Object? value = null,
+  }) {
+    return _then(_$changeSelectedImpl(
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as double,
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$changeSelectedImpl implements _changeSelected {
+  const _$changeSelectedImpl(this.date, this.value);
+
+  @override
+  final double date;
+  @override
+  final double value;
+
+  @override
+  String toString() {
+    return 'HeartRateEvent.changeSelected(date: $date, value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$changeSelectedImpl &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$changeSelectedImplCopyWith<_$changeSelectedImpl> get copyWith =>
+      __$$changeSelectedImplCopyWithImpl<_$changeSelectedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HeartRateModel heartRateModel) addHeartRate,
+    required TResult Function(String id) getHeartRate,
+    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(String id) delete,
+    required TResult Function(DateTimeRange? dateRange) filterDate,
+    required TResult Function(double date, double value) changeSelected,
+  }) {
+    return changeSelected(date, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
+    TResult? Function(String id)? getHeartRate,
+    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(String id)? delete,
+    TResult? Function(DateTimeRange? dateRange)? filterDate,
+    TResult? Function(double date, double value)? changeSelected,
+  }) {
+    return changeSelected?.call(date, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HeartRateModel heartRateModel)? addHeartRate,
+    TResult Function(String id)? getHeartRate,
+    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(String id)? delete,
+    TResult Function(DateTimeRange? dateRange)? filterDate,
+    TResult Function(double date, double value)? changeSelected,
+    required TResult orElse(),
+  }) {
+    if (changeSelected != null) {
+      return changeSelected(date, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) addHeartRate,
+    required TResult Function(_getHeartRate value) getHeartRate,
+    required TResult Function(_update value) update,
+    required TResult Function(_delete value) delete,
+    required TResult Function(_filterDate value) filterDate,
+    required TResult Function(_changeSelected value) changeSelected,
+  }) {
+    return changeSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? addHeartRate,
+    TResult? Function(_getHeartRate value)? getHeartRate,
+    TResult? Function(_update value)? update,
+    TResult? Function(_delete value)? delete,
+    TResult? Function(_filterDate value)? filterDate,
+    TResult? Function(_changeSelected value)? changeSelected,
+  }) {
+    return changeSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? addHeartRate,
+    TResult Function(_getHeartRate value)? getHeartRate,
+    TResult Function(_update value)? update,
+    TResult Function(_delete value)? delete,
+    TResult Function(_filterDate value)? filterDate,
+    TResult Function(_changeSelected value)? changeSelected,
+    required TResult orElse(),
+  }) {
+    if (changeSelected != null) {
+      return changeSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _changeSelected implements HeartRateEvent {
+  const factory _changeSelected(final double date, final double value) =
+      _$changeSelectedImpl;
+
+  double get date;
+  double get value;
+  @JsonKey(ignore: true)
+  _$$changeSelectedImplCopyWith<_$changeSelectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:heathy_app/bloc/heart_rate_bloc.dart';
+import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/data/enums/sex.dart';
 import 'package:heathy_app/data/model/heart_rate_model.dart';
 import 'package:heathy_app/gen/assets.gen.dart';
@@ -13,6 +13,7 @@ import 'package:heathy_app/res/widgets/app_button_inner.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
 import 'package:heathy_app/res/widgets/base_app_bar.dart';
 import 'package:heathy_app/ui/heart_rate/widgets/heart_rate_chart.dart';
+import 'package:heathy_app/ui/heart_rate/widgets/heart_rate_selected_widget.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../res/widgets/base_body_feature.dart';
@@ -41,9 +42,7 @@ class _HeartRateScreen extends StatelessWidget {
           state.when(
             initial: () {},
             loading: () {},
-            loaded: (message, value) {
-              currentContext.showSuccessSnackBar(message: message);
-            },
+            loaded: (message, value) {},
             error: (message) {
               currentContext.showSuccessSnackBar(message: message);
             },
@@ -72,6 +71,8 @@ class _Body extends StatelessWidget {
 
   BaseBody loadedState(
       BuildContext context, List<HeartRateModel> listHeartRates) {
+    final HeartRateBloc heartRateBloc = context.read<HeartRateBloc>();
+
     void onTapConfirm(DateTime date, int age, SexEnum sex, int value) {
       final HeartRateModel newHeartRate = HeartRateModel(
         age: age,
@@ -79,9 +80,7 @@ class _Body extends StatelessWidget {
         heartRate: value,
         sex: sex.toString(),
       );
-      context
-          .read<HeartRateBloc>()
-          .add(HeartRateEvent.addHeartRate(newHeartRate));
+      heartRateBloc.add(HeartRateEvent.addHeartRate(newHeartRate));
       context.pop();
     }
 
@@ -90,7 +89,9 @@ class _Body extends StatelessWidget {
       onTapAdd: () {
         hearRateDialog(context: context, onTapConfirm: onTapConfirm).show();
       },
-      onChangeDateRange: (value) {},
+      onChangeDateRange: (value) {
+        heartRateBloc.add(HeartRateEvent.filterDate(dateRange: value));
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -146,6 +147,12 @@ class _Body extends StatelessWidget {
                 listHeartRate: listHeartRates,
               ),
             ),
+          ),
+          context.watch<HeartRateBloc>().isShowSelected
+              ? const HeartRateSeletectedWidget()
+              : const SizedBox.shrink(),
+          const SizedBox(
+            height: 20,
           ),
           BaseRoundedButton.all(
               onTap: () => context.showSuccessSnackBar(message: 'Helll world'),

@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,6 +16,8 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
   HeartRateBloc() : super(const HeartRateState.initial()) {
     on<_Started>(_addHeartRate);
     on<_filterDate>(getListHeartRate);
+    on<_changeSelected>(changeHeartRateSelected);
+    on<_delete>(_onDeleteHeartRate);
   }
 
   final HeartRateUseCase _heartRateUseCase = getIt();
@@ -22,6 +27,9 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
       start: DateTime.now().subtract(const Duration(days: 7)));
 
   List<HeartRateModel> listHeartRate = [];
+
+  late HeartRateModel heartRateSelected =
+      listHeartRate.lastOrNull ?? HeartRateModel();
 
   Future<void> _addHeartRate(
       HeartRateEvent event, Emitter<HeartRateState> emit) async {
@@ -34,11 +42,6 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
       emit(const HeartRateState.error("Add heart rate fail, try again"));
     }
   }
-
-  // void getHeartRatelist() {
-  //   final listHeartRate = _heartRateUseCase.getAllHeartRate();
-  //   log(listHeartRate.length.toString());
-  // }
 
   void getListHeartRate(HeartRateEvent event, Emitter<HeartRateState> emit) {
     emit(const HeartRateState.loading());
@@ -75,5 +78,35 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     }
 
     return total ~/ listHeartRate.length;
+  }
+
+  void changeHeartRateSelected(
+      HeartRateEvent event, Emitter<HeartRateState> emit) {
+    emit(const HeartRateState.loading());
+    final dateTime = DateTime.fromMicrosecondsSinceEpoch(
+        (event as _changeSelected).date.toInt());
+    final heartRate = (event).value.toInt();
+
+    heartRateSelected = listHeartRate.firstWhere((element) =>
+        element.dateTime == dateTime || element.heartRate == heartRate);
+    emit(HeartRateState.loaded("update date success", listHeartRate));
+  }
+
+  bool get isShowSelected {
+    return listHeartRate.isNotEmpty;
+  }
+
+  Future _onDeleteHeartRate(
+      HeartRateEvent event, Emitter<HeartRateState> emit) async {
+    emit(const HeartRateState.loading());
+    final String id = (event as _delete).id;
+    try {
+      await _heartRateUseCase.deleteHeartRate(id);
+      listHeartRate = _heartRateUseCase.getAllHeartRate();
+      heartRateSelected = listHeartRate.first;
+      emit(HeartRateState.loaded("Deleted heart rate", listHeartRate));
+    } catch (e) {
+      emit(const HeartRateState.error("Delete failure, try again"));
+    }
   }
 }

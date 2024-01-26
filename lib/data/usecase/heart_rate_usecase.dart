@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:heathy_app/data/repository/local_repository.dart';
 
@@ -23,13 +25,15 @@ class HeartRateUseCase {
 
   List<HeartRateModel> filterHeartRate(DateTimeRange dateTimeRange) {
     final listHeartRates = getAllHeartRate();
-    final startDate = dateTimeRange.start.millisecondsSinceEpoch;
-    final endDate = dateTimeRange.end.millisecondsSinceEpoch;
+    final startDate =
+        dateTimeRange.start.copyWith(hour: 0, minute: 0).millisecondsSinceEpoch;
+    final endDate =
+        dateTimeRange.end.copyWith(hour: 23, minute: 59).millisecondsSinceEpoch;
 
     return listHeartRates
         .where(
           (element) =>
-              element.dateTime!.millisecondsSinceEpoch > startDate ||
+              element.dateTime!.millisecondsSinceEpoch > startDate &&
               element.dateTime!.millisecondsSinceEpoch < endDate,
         )
         .toList();

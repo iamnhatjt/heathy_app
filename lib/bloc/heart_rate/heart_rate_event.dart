@@ -11,4 +11,7 @@ class HeartRateEvent with _$HeartRateEvent {
   const factory HeartRateEvent.delete(String id) = _delete;
   const factory HeartRateEvent.filterDate({DateTimeRange? dateRange}) =
       _filterDate;
+
+  const factory HeartRateEvent.changeSelected(double date, double value) =
+      _changeSelected;
 }

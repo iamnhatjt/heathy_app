@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/data/model/heart_rate_model.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:intl/intl.dart';
@@ -13,7 +15,7 @@ final class HeartRateChartDialog extends StatelessWidget {
   });
   final List<HeartRateModel> listHeartRate;
 
-  LineTouchData lineTouchData() {
+  LineTouchData lineTouchData(BuildContext context) {
     return LineTouchData(
       enabled: false,
       handleBuiltInTouches: false,
@@ -22,7 +24,11 @@ final class HeartRateChartDialog extends StatelessWidget {
       ),
       touchCallback: (flTouchEvent, touchResponse) {
         if ((touchResponse?.lineBarSpots ?? []).isNotEmpty) {
-          log(touchResponse!.lineBarSpots!.first.y.toString());
+          TouchLineBarSpot touchLineBarSpot =
+              touchResponse!.lineBarSpots!.first;
+
+          context.read<HeartRateBloc>().add(HeartRateEvent.changeSelected(
+              touchLineBarSpot.x, touchLineBarSpot.y));
         }
       },
       getTouchedSpotIndicator: (barData, spotIndexes) {
@@ -58,6 +64,7 @@ final class HeartRateChartDialog extends StatelessWidget {
   FlTitlesData get titleData1 => FlTitlesData(
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
+            interval: 86400000,
             showTitles: true,
             getTitlesWidget: bottomTitleWidget,
           ),
@@ -133,6 +140,8 @@ final class HeartRateChartDialog extends StatelessWidget {
       ));
     }
 
+    log(listFlSpot.toString());
+
     return [
       LineChartBarData(
         isCurved: true,
@@ -141,10 +150,11 @@ final class HeartRateChartDialog extends StatelessWidget {
           getDotPainter: (p0, p1, p2, p3) {
             return FlDotCirclePainter(
               radius: 7,
+              color: Colors.blueAccent,
             );
           },
         ),
-        color: Colors.blueAccent,
+        color: Colors.transparent,
         spots: listFlSpot,
       )
     ];
@@ -154,7 +164,7 @@ final class HeartRateChartDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return LineChart(
       LineChartData(
-          lineTouchData: lineTouchData(),
+          lineTouchData: lineTouchData(context),
           titlesData: titleData1,
           gridData: gridDate,
           lineBarsData: lineBarsData(),
