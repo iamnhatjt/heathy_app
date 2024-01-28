@@ -29,6 +29,8 @@ dependencies:
   fl_chart: ^0.66.0
   motion_toast: ^2.7.10
   collection: ^1.18.0
+  camera: ^0.10.5+9
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
+import 'package:heathy_app/config/router.dart';
 import 'package:heathy_app/data/enums/sex.dart';
 import 'package:heathy_app/data/model/heart_rate_model.dart';
 import 'package:heathy_app/gen/assets.gen.dart';
@@ -155,7 +156,7 @@ class _Body extends StatelessWidget {
             height: 20,
           ),
           BaseRoundedButton.all(
-              onTap: () => context.showSuccessSnackBar(message: 'Helll world'),
+              onTap: () => context.push(RouterUri.measureHeartRate),
               gradient: const LinearGradient(colors: [
                 Colors.greenAccent,
                 Colors.green,
