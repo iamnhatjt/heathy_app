@@ -18,6 +18,7 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     on<_filterDate>(getListHeartRate);
     on<_changeSelected>(changeHeartRateSelected);
     on<_delete>(_onDeleteHeartRate);
+    on<_update>(_onUpdateHeartRate);
   }
 
   final HeartRateUseCase _heartRateUseCase = getIt();
@@ -107,6 +108,20 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
       emit(HeartRateState.loaded("Deleted heart rate", listHeartRate));
     } catch (e) {
       emit(const HeartRateState.error("Delete failure, try again"));
+    }
+  }
+
+  void _onUpdateHeartRate(HeartRateEvent event, Emitter emit) async {
+    final HeartRateModel newHeatRate = (event as _update).heartRateModel;
+    try {
+      emit(const HeartRateState.loading());
+      await _heartRateUseCase.updateHeartRate(
+          heartRateSelected.id!, newHeatRate);
+      listHeartRate = _heartRateUseCase.filterHeartRate(dateRange);
+      heartRateSelected = event.heartRateModel;
+      emit(HeartRateState.loaded("Update success", listHeartRate));
+    } catch (e) {
+      emit(const HeartRateState.error("Update failure, try again"));
     }
   }
 }

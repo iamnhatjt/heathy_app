@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 enum SexEnum {
   male,
   female,
@@ -9,6 +11,6 @@ SexEnum? getSex(String? value) {
   if (value == null) {
     return null;
   } else {
-    return SexEnum.values.firstWhere((element) => element.name == value);
+    return SexEnum.values.firstWhere((element) => element.toString() == value);
   }
 }

@@ -6,8 +6,7 @@ class HeartRateEvent with _$HeartRateEvent {
       _Started;
   const factory HeartRateEvent.getHeartRate(String id) = _getHeartRate;
 
-  const factory HeartRateEvent.update(
-      String id, HeartRateModel heartRateModel) = _update;
+  const factory HeartRateEvent.update(HeartRateModel heartRateModel) = _update;
   const factory HeartRateEvent.delete(String id) = _delete;
   const factory HeartRateEvent.filterDate({DateTimeRange? dateRange}) =
       _filterDate;

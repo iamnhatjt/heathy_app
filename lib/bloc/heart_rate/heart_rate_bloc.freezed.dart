@@ -20,7 +20,7 @@ mixin _$HeartRateEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
@@ -30,7 +30,7 @@ mixin _$HeartRateEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
@@ -40,7 +40,7 @@ mixin _$HeartRateEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
@@ -165,7 +165,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
@@ -178,7 +178,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
@@ -191,7 +191,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
@@ -322,7 +322,7 @@ class _$getHeartRateImpl implements _getHeartRate {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
@@ -335,7 +335,7 @@ class _$getHeartRateImpl implements _getHeartRate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
@@ -348,7 +348,7 @@ class _$getHeartRateImpl implements _getHeartRate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
@@ -419,7 +419,7 @@ abstract class _$$updateImplCopyWith<$Res> {
           _$updateImpl value, $Res Function(_$updateImpl) then) =
       __$$updateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id, HeartRateModel heartRateModel});
+  $Res call({HeartRateModel heartRateModel});
 }
 
 /// @nodoc
@@ -433,14 +433,9 @@ class __$$updateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? heartRateModel = null,
   }) {
     return _then(_$updateImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       null == heartRateModel
           ? _value.heartRateModel
           : heartRateModel // ignore: cast_nullable_to_non_nullable
@@ -452,16 +447,14 @@ class __$$updateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$updateImpl implements _update {
-  const _$updateImpl(this.id, this.heartRateModel);
+  const _$updateImpl(this.heartRateModel);
 
-  @override
-  final String id;
   @override
   final HeartRateModel heartRateModel;
 
   @override
   String toString() {
-    return 'HeartRateEvent.update(id: $id, heartRateModel: $heartRateModel)';
+    return 'HeartRateEvent.update(heartRateModel: $heartRateModel)';
   }
 
   @override
@@ -469,13 +462,12 @@ class _$updateImpl implements _update {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$updateImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.heartRateModel, heartRateModel) ||
                 other.heartRateModel == heartRateModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, heartRateModel);
+  int get hashCode => Object.hash(runtimeType, heartRateModel);
 
   @JsonKey(ignore: true)
   @override
@@ -488,12 +480,12 @@ class _$updateImpl implements _update {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
   }) {
-    return update(id, heartRateModel);
+    return update(heartRateModel);
   }
 
   @override
@@ -501,12 +493,12 @@ class _$updateImpl implements _update {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
   }) {
-    return update?.call(id, heartRateModel);
+    return update?.call(heartRateModel);
   }
 
   @override
@@ -514,14 +506,14 @@ class _$updateImpl implements _update {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
     required TResult orElse(),
   }) {
     if (update != null) {
-      return update(id, heartRateModel);
+      return update(heartRateModel);
     }
     return orElse();
   }
@@ -571,10 +563,8 @@ class _$updateImpl implements _update {
 }
 
 abstract class _update implements HeartRateEvent {
-  const factory _update(final String id, final HeartRateModel heartRateModel) =
-      _$updateImpl;
+  const factory _update(final HeartRateModel heartRateModel) = _$updateImpl;
 
-  String get id;
   HeartRateModel get heartRateModel;
   @JsonKey(ignore: true)
   _$$updateImplCopyWith<_$updateImpl> get copyWith =>
@@ -647,7 +637,7 @@ class _$deleteImpl implements _delete {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
@@ -660,7 +650,7 @@ class _$deleteImpl implements _delete {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
@@ -673,7 +663,7 @@ class _$deleteImpl implements _delete {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
@@ -805,7 +795,7 @@ class _$filterDateImpl implements _filterDate {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
@@ -818,7 +808,7 @@ class _$filterDateImpl implements _filterDate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
@@ -831,7 +821,7 @@ class _$filterDateImpl implements _filterDate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
@@ -972,7 +962,7 @@ class _$changeSelectedImpl implements _changeSelected {
   TResult when<TResult extends Object?>({
     required TResult Function(HeartRateModel heartRateModel) addHeartRate,
     required TResult Function(String id) getHeartRate,
-    required TResult Function(String id, HeartRateModel heartRateModel) update,
+    required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
     required TResult Function(double date, double value) changeSelected,
@@ -985,7 +975,7 @@ class _$changeSelectedImpl implements _changeSelected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult? Function(String id)? getHeartRate,
-    TResult? Function(String id, HeartRateModel heartRateModel)? update,
+    TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
     TResult? Function(double date, double value)? changeSelected,
@@ -998,7 +988,7 @@ class _$changeSelectedImpl implements _changeSelected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(HeartRateModel heartRateModel)? addHeartRate,
     TResult Function(String id)? getHeartRate,
-    TResult Function(String id, HeartRateModel heartRateModel)? update,
+    TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
     TResult Function(double date, double value)? changeSelected,
