@@ -916,3 +916,426 @@ class _$LoopEventImpl implements _LoopEvent {
 abstract class _LoopEvent implements MeasureHeartRateEvent {
   const factory _LoopEvent() = _$LoopEventImpl;
 }
+
+/// @nodoc
+mixin _$MeasureHeartRateState {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progress) measuring,
+    required TResult Function() measured,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(double progress)? measuring,
+    TResult? Function()? measured,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progress)? measuring,
+    TResult Function()? measured,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Measuring value) measuring,
+    required TResult Function(_Measured value) measured,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Measuring value)? measuring,
+    TResult? Function(_Measured value)? measured,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Measuring value)? measuring,
+    TResult Function(_Measured value)? measured,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MeasureHeartRateStateCopyWith<$Res> {
+  factory $MeasureHeartRateStateCopyWith(MeasureHeartRateState value,
+          $Res Function(MeasureHeartRateState) then) =
+      _$MeasureHeartRateStateCopyWithImpl<$Res, MeasureHeartRateState>;
+}
+
+/// @nodoc
+class _$MeasureHeartRateStateCopyWithImpl<$Res,
+        $Val extends MeasureHeartRateState>
+    implements $MeasureHeartRateStateCopyWith<$Res> {
+  _$MeasureHeartRateStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$MeasureHeartRateStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
+
+  @override
+  String toString() {
+    return 'MeasureHeartRateState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progress) measuring,
+    required TResult Function() measured,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(double progress)? measuring,
+    TResult? Function()? measured,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progress)? measuring,
+    TResult Function()? measured,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Measuring value) measuring,
+    required TResult Function(_Measured value) measured,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Measuring value)? measuring,
+    TResult? Function(_Measured value)? measured,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Measuring value)? measuring,
+    TResult Function(_Measured value)? measured,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements MeasureHeartRateState {
+  const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$MeasuringImplCopyWith<$Res> {
+  factory _$$MeasuringImplCopyWith(
+          _$MeasuringImpl value, $Res Function(_$MeasuringImpl) then) =
+      __$$MeasuringImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double progress});
+}
+
+/// @nodoc
+class __$$MeasuringImplCopyWithImpl<$Res>
+    extends _$MeasureHeartRateStateCopyWithImpl<$Res, _$MeasuringImpl>
+    implements _$$MeasuringImplCopyWith<$Res> {
+  __$$MeasuringImplCopyWithImpl(
+      _$MeasuringImpl _value, $Res Function(_$MeasuringImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? progress = null,
+  }) {
+    return _then(_$MeasuringImpl(
+      null == progress
+          ? _value.progress
+          : progress // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MeasuringImpl implements _Measuring {
+  const _$MeasuringImpl(this.progress);
+
+  @override
+  final double progress;
+
+  @override
+  String toString() {
+    return 'MeasureHeartRateState.measuring(progress: $progress)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MeasuringImpl &&
+            (identical(other.progress, progress) ||
+                other.progress == progress));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, progress);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MeasuringImplCopyWith<_$MeasuringImpl> get copyWith =>
+      __$$MeasuringImplCopyWithImpl<_$MeasuringImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progress) measuring,
+    required TResult Function() measured,
+  }) {
+    return measuring(progress);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(double progress)? measuring,
+    TResult? Function()? measured,
+  }) {
+    return measuring?.call(progress);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progress)? measuring,
+    TResult Function()? measured,
+    required TResult orElse(),
+  }) {
+    if (measuring != null) {
+      return measuring(progress);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Measuring value) measuring,
+    required TResult Function(_Measured value) measured,
+  }) {
+    return measuring(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Measuring value)? measuring,
+    TResult? Function(_Measured value)? measured,
+  }) {
+    return measuring?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Measuring value)? measuring,
+    TResult Function(_Measured value)? measured,
+    required TResult orElse(),
+  }) {
+    if (measuring != null) {
+      return measuring(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Measuring implements MeasureHeartRateState {
+  const factory _Measuring(final double progress) = _$MeasuringImpl;
+
+  double get progress;
+  @JsonKey(ignore: true)
+  _$$MeasuringImplCopyWith<_$MeasuringImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MeasuredImplCopyWith<$Res> {
+  factory _$$MeasuredImplCopyWith(
+          _$MeasuredImpl value, $Res Function(_$MeasuredImpl) then) =
+      __$$MeasuredImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MeasuredImplCopyWithImpl<$Res>
+    extends _$MeasureHeartRateStateCopyWithImpl<$Res, _$MeasuredImpl>
+    implements _$$MeasuredImplCopyWith<$Res> {
+  __$$MeasuredImplCopyWithImpl(
+      _$MeasuredImpl _value, $Res Function(_$MeasuredImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MeasuredImpl implements _Measured {
+  const _$MeasuredImpl();
+
+  @override
+  String toString() {
+    return 'MeasureHeartRateState.measured()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$MeasuredImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(double progress) measuring,
+    required TResult Function() measured,
+  }) {
+    return measured();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(double progress)? measuring,
+    TResult? Function()? measured,
+  }) {
+    return measured?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(double progress)? measuring,
+    TResult Function()? measured,
+    required TResult orElse(),
+  }) {
+    if (measured != null) {
+      return measured();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Measuring value) measuring,
+    required TResult Function(_Measured value) measured,
+  }) {
+    return measured(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Measuring value)? measuring,
+    TResult? Function(_Measured value)? measured,
+  }) {
+    return measured?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Measuring value)? measuring,
+    TResult Function(_Measured value)? measured,
+    required TResult orElse(),
+  }) {
+    if (measured != null) {
+      return measured(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Measured implements MeasureHeartRateState {
+  const factory _Measured() = _$MeasuredImpl;
+}

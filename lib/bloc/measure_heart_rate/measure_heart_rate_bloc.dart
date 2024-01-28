@@ -12,7 +12,7 @@ part 'measure_heart_rate_bloc.freezed.dart';
 
 class MeasureHeartRateBloc
     extends Bloc<MeasureHeartRateEvent, MeasureHeartRateState> {
-  MeasureHeartRateBloc() : super(MeasureHeartRateInitialState()) {
+  MeasureHeartRateBloc() : super(const MeasureHeartRateState.initial()) {
     on<_OnBpm>((event, emit) async => onBPM(event.value));
     on<_OnRawData>((event, emit) => onRawData(event.value, emit));
     on<_OnStop>((event, emit) async => close());
@@ -36,7 +36,7 @@ class MeasureHeartRateBloc
     }
     currentMiniSecond = currentMiniSecond + 200;
     progress = currentMiniSecond / totalMiniSecondsToMeasure;
-    emit(MeasureHeartRateMeasuring(progress: progress));
+    emit(MeasureHeartRateState.measuring(progress));
     log("$progress");
   }
 
@@ -49,7 +49,7 @@ class MeasureHeartRateBloc
 
   void onRawData(SensorValue value, Emitter emit) {
     if (progress >= 0.96) {
-      emit(MeasureHeartRateMeasured());
+      emit(MeasureHeartRateState.measured());
       log("done");
     }
     if (value.value > 100 || value.value < 60) {
@@ -62,7 +62,7 @@ class MeasureHeartRateBloc
       progress = 0.0;
       currentMiniSecond = 0;
 
-      emit(MeasureHeartRateMeasuring(progress: progress));
+      emit(MeasureHeartRateState.measuring(progress));
     } else {
       // finger ok
       if (timer == null || timer?.isActive != true) {
