@@ -12,10 +12,12 @@ part 'measure_heart_rate_bloc.freezed.dart';
 
 class MeasureHeartRateBloc
     extends Bloc<MeasureHeartRateEvent, MeasureHeartRateState> {
-  MeasureHeartRateBloc() : super(const MeasureHeartRateState.initial()) {
-    on<_OnBpm>((event, emit) => onBPM(event.value));
-    on<_OnRawData>(onRawData);
-    on<_OnStop>((event, emit) => onStop());
+  MeasureHeartRateBloc() : super(MeasureHeartRateInitialState()) {
+    on<_OnBpm>((event, emit) async => onBPM(event.value));
+    on<_OnRawData>((event, emit) => onRawData(event.value, emit));
+    on<_OnStop>((event, emit) async => close());
+    on<_InitState>(initTimer);
+    on<_LoopEvent>(loopEvent);
   }
 
   Timer? timer;
@@ -26,26 +28,30 @@ class MeasureHeartRateBloc
   int currentMiniSecond = 0;
   int totalMiniSecondsToMeasure = 20000;
 
-  void initTimer(MeasureHeartRateEvent event, Emitter emit) {
-    if (state is _Measuring) return;
+  void loopEvent(MeasureHeartRateEvent event, Emitter emit) {
+    if (currentMiniSecond > totalMiniSecondsToMeasure) {
+      timer?.cancel();
+      currentMiniSecond = 0;
+      return;
+    }
+    currentMiniSecond = currentMiniSecond + 200;
+    progress = currentMiniSecond / totalMiniSecondsToMeasure;
+    emit(MeasureHeartRateMeasuring(progress: progress));
+    log("$progress");
+  }
 
+  void initTimer(MeasureHeartRateEvent event, Emitter emit) {
     timer?.cancel();
     timer = Timer.periodic(const Duration(milliseconds: 200), (timer) async {
-      if (currentMiniSecond > totalMiniSecondsToMeasure) {
-        emit(const MeasureHeartRateState.measured());
-        timer.cancel();
-        currentMiniSecond = 0;
-        return;
-      }
-      currentMiniSecond = currentMiniSecond + 200;
-      progress = currentMiniSecond / totalMiniSecondsToMeasure;
-      log("$progress");
+      add(const MeasureHeartRateEvent.loopEvent());
     });
   }
 
-  void onRawData(
-      MeasureHeartRateEvent event, Emitter<MeasureHeartRateState> emit) {
-    final value = (event as _OnRawData).value;
+  void onRawData(SensorValue value, Emitter emit) {
+    if (progress >= 0.96) {
+      emit(MeasureHeartRateMeasured());
+      log("done");
+    }
     if (value.value > 100 || value.value < 60) {
       // finger out
       timer?.cancel();
@@ -55,10 +61,12 @@ class MeasureHeartRateBloc
       recentBPM = 0;
       progress = 0.0;
       currentMiniSecond = 0;
+
+      emit(MeasureHeartRateMeasuring(progress: progress));
     } else {
       // finger ok
       if (timer == null || timer?.isActive != true) {
-        initTimer(event, emit);
+        add(const MeasureHeartRateEvent.initEvent());
       }
     }
   }
@@ -77,14 +85,9 @@ class MeasureHeartRateBloc
     recentBPM = bpmAverage;
   }
 
-  void onStop() {
-    close();
-    timer!.cancel();
-  }
-
   @override
   Future<void> close() async {
     timer?.cancel();
-    super.close();
+    await super.close();
   }
 }

@@ -22,6 +22,8 @@ mixin _$MeasureHeartRateEvent {
     required TResult Function(int value) onBpm,
     required TResult Function() loaded,
     required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$MeasureHeartRateEvent {
     TResult? Function(int value)? onBpm,
     TResult? Function()? loaded,
     TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$MeasureHeartRateEvent {
     TResult Function(int value)? onBpm,
     TResult Function()? loaded,
     TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,8 @@ mixin _$MeasureHeartRateEvent {
     required TResult Function(_OnBpm value) onBpm,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,8 @@ mixin _$MeasureHeartRateEvent {
     TResult? Function(_OnBpm value)? onBpm,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$MeasureHeartRateEvent {
     TResult Function(_OnBpm value)? onBpm,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +167,8 @@ class _$OnRawDataImpl implements _OnRawData {
     required TResult Function(int value) onBpm,
     required TResult Function() loaded,
     required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) {
     return onRawData(value);
   }
@@ -166,6 +180,8 @@ class _$OnRawDataImpl implements _OnRawData {
     TResult? Function(int value)? onBpm,
     TResult? Function()? loaded,
     TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) {
     return onRawData?.call(value);
   }
@@ -177,6 +193,8 @@ class _$OnRawDataImpl implements _OnRawData {
     TResult Function(int value)? onBpm,
     TResult Function()? loaded,
     TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) {
     if (onRawData != null) {
@@ -192,6 +210,8 @@ class _$OnRawDataImpl implements _OnRawData {
     required TResult Function(_OnBpm value) onBpm,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) {
     return onRawData(this);
   }
@@ -203,6 +223,8 @@ class _$OnRawDataImpl implements _OnRawData {
     TResult? Function(_OnBpm value)? onBpm,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) {
     return onRawData?.call(this);
   }
@@ -214,6 +236,8 @@ class _$OnRawDataImpl implements _OnRawData {
     TResult Function(_OnBpm value)? onBpm,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) {
     if (onRawData != null) {
@@ -300,6 +324,8 @@ class _$OnBpmImpl implements _OnBpm {
     required TResult Function(int value) onBpm,
     required TResult Function() loaded,
     required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) {
     return onBpm(value);
   }
@@ -311,6 +337,8 @@ class _$OnBpmImpl implements _OnBpm {
     TResult? Function(int value)? onBpm,
     TResult? Function()? loaded,
     TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) {
     return onBpm?.call(value);
   }
@@ -322,6 +350,8 @@ class _$OnBpmImpl implements _OnBpm {
     TResult Function(int value)? onBpm,
     TResult Function()? loaded,
     TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) {
     if (onBpm != null) {
@@ -337,6 +367,8 @@ class _$OnBpmImpl implements _OnBpm {
     required TResult Function(_OnBpm value) onBpm,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) {
     return onBpm(this);
   }
@@ -348,6 +380,8 @@ class _$OnBpmImpl implements _OnBpm {
     TResult? Function(_OnBpm value)? onBpm,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) {
     return onBpm?.call(this);
   }
@@ -359,6 +393,8 @@ class _$OnBpmImpl implements _OnBpm {
     TResult Function(_OnBpm value)? onBpm,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) {
     if (onBpm != null) {
@@ -419,6 +455,8 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(int value) onBpm,
     required TResult Function() loaded,
     required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) {
     return loaded();
   }
@@ -430,6 +468,8 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(int value)? onBpm,
     TResult? Function()? loaded,
     TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) {
     return loaded?.call();
   }
@@ -441,6 +481,8 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(int value)? onBpm,
     TResult Function()? loaded,
     TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -456,6 +498,8 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_OnBpm value) onBpm,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) {
     return loaded(this);
   }
@@ -467,6 +511,8 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_OnBpm value)? onBpm,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) {
     return loaded?.call(this);
   }
@@ -478,6 +524,8 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_OnBpm value)? onBpm,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -533,6 +581,8 @@ class _$OnStopImpl implements _OnStop {
     required TResult Function(int value) onBpm,
     required TResult Function() loaded,
     required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) {
     return onStop();
   }
@@ -544,6 +594,8 @@ class _$OnStopImpl implements _OnStop {
     TResult? Function(int value)? onBpm,
     TResult? Function()? loaded,
     TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) {
     return onStop?.call();
   }
@@ -555,6 +607,8 @@ class _$OnStopImpl implements _OnStop {
     TResult Function(int value)? onBpm,
     TResult Function()? loaded,
     TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) {
     if (onStop != null) {
@@ -570,6 +624,8 @@ class _$OnStopImpl implements _OnStop {
     required TResult Function(_OnBpm value) onBpm,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) {
     return onStop(this);
   }
@@ -581,6 +637,8 @@ class _$OnStopImpl implements _OnStop {
     TResult? Function(_OnBpm value)? onBpm,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) {
     return onStop?.call(this);
   }
@@ -592,6 +650,8 @@ class _$OnStopImpl implements _OnStop {
     TResult Function(_OnBpm value)? onBpm,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) {
     if (onStop != null) {
@@ -606,123 +666,79 @@ abstract class _OnStop implements MeasureHeartRateEvent {
 }
 
 /// @nodoc
-mixin _$MeasureHeartRateState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(double progress) measuring,
-    required TResult Function() measured,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(double progress)? measuring,
-    TResult Function()? measured,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Measuring value) measuring,
-    required TResult Function(_Measured value) measured,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Measuring value)? measuring,
-    TResult? Function(_Measured value)? measured,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Measuring value)? measuring,
-    TResult Function(_Measured value)? measured,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+abstract class _$$InitStateImplCopyWith<$Res> {
+  factory _$$InitStateImplCopyWith(
+          _$InitStateImpl value, $Res Function(_$InitStateImpl) then) =
+      __$$InitStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-abstract class $MeasureHeartRateStateCopyWith<$Res> {
-  factory $MeasureHeartRateStateCopyWith(MeasureHeartRateState value,
-          $Res Function(MeasureHeartRateState) then) =
-      _$MeasureHeartRateStateCopyWithImpl<$Res, MeasureHeartRateState>;
-}
-
-/// @nodoc
-class _$MeasureHeartRateStateCopyWithImpl<$Res,
-        $Val extends MeasureHeartRateState>
-    implements $MeasureHeartRateStateCopyWith<$Res> {
-  _$MeasureHeartRateStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$MeasureHeartRateStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$InitStateImplCopyWithImpl<$Res>
+    extends _$MeasureHeartRateEventCopyWithImpl<$Res, _$InitStateImpl>
+    implements _$$InitStateImplCopyWith<$Res> {
+  __$$InitStateImplCopyWithImpl(
+      _$InitStateImpl _value, $Res Function(_$InitStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$InitStateImpl implements _InitState {
+  const _$InitStateImpl();
+
+  @override
+  String toString() {
+    return 'MeasureHeartRateEvent.initEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(double progress) measuring,
-    required TResult Function() measured,
+    required TResult Function(SensorValue value) onRawData,
+    required TResult Function(int value) onBpm,
+    required TResult Function() loaded,
+    required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) {
-    return initial();
+    return initEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
+    TResult? Function(SensorValue value)? onRawData,
+    TResult? Function(int value)? onBpm,
+    TResult? Function()? loaded,
+    TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) {
-    return initial?.call();
+    return initEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(double progress)? measuring,
-    TResult Function()? measured,
+    TResult Function(SensorValue value)? onRawData,
+    TResult Function(int value)? onBpm,
+    TResult Function()? loaded,
+    TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (initEvent != null) {
+      return initEvent();
     }
     return orElse();
   }
@@ -730,216 +746,125 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Measuring value) measuring,
-    required TResult Function(_Measured value) measured,
+    required TResult Function(_OnRawData value) onRawData,
+    required TResult Function(_OnBpm value) onBpm,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) {
-    return initial(this);
+    return initEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Measuring value)? measuring,
-    TResult? Function(_Measured value)? measured,
+    TResult? Function(_OnRawData value)? onRawData,
+    TResult? Function(_OnBpm value)? onBpm,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) {
-    return initial?.call(this);
+    return initEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Measuring value)? measuring,
-    TResult Function(_Measured value)? measured,
+    TResult Function(_OnRawData value)? onRawData,
+    TResult Function(_OnBpm value)? onBpm,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (initEvent != null) {
+      return initEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements MeasureHeartRateState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _InitState implements MeasureHeartRateEvent {
+  const factory _InitState() = _$InitStateImpl;
 }
 
 /// @nodoc
-abstract class _$$MeasuringImplCopyWith<$Res> {
-  factory _$$MeasuringImplCopyWith(
-          _$MeasuringImpl value, $Res Function(_$MeasuringImpl) then) =
-      __$$MeasuringImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({double progress});
+abstract class _$$LoopEventImplCopyWith<$Res> {
+  factory _$$LoopEventImplCopyWith(
+          _$LoopEventImpl value, $Res Function(_$LoopEventImpl) then) =
+      __$$LoopEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$MeasuringImplCopyWithImpl<$Res>
-    extends _$MeasureHeartRateStateCopyWithImpl<$Res, _$MeasuringImpl>
-    implements _$$MeasuringImplCopyWith<$Res> {
-  __$$MeasuringImplCopyWithImpl(
-      _$MeasuringImpl _value, $Res Function(_$MeasuringImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? progress = null,
-  }) {
-    return _then(_$MeasuringImpl(
-      null == progress
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$MeasuringImpl implements _Measuring {
-  const _$MeasuringImpl(this.progress);
-
-  @override
-  final double progress;
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$MeasuringImplCopyWith<_$MeasuringImpl> get copyWith =>
-      __$$MeasuringImplCopyWithImpl<_$MeasuringImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(double progress) measuring,
-    required TResult Function() measured,
-  }) {
-    return measuring(progress);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
-  }) {
-    return measuring?.call(progress);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(double progress)? measuring,
-    TResult Function()? measured,
-    required TResult orElse(),
-  }) {
-    if (measuring != null) {
-      return measuring(progress);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Measuring value) measuring,
-    required TResult Function(_Measured value) measured,
-  }) {
-    return measuring(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Measuring value)? measuring,
-    TResult? Function(_Measured value)? measured,
-  }) {
-    return measuring?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Measuring value)? measuring,
-    TResult Function(_Measured value)? measured,
-    required TResult orElse(),
-  }) {
-    if (measuring != null) {
-      return measuring(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Measuring implements MeasureHeartRateState {
-  const factory _Measuring(final double progress) = _$MeasuringImpl;
-
-  double get progress;
-  @JsonKey(ignore: true)
-  _$$MeasuringImplCopyWith<_$MeasuringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$MeasuredImplCopyWith<$Res> {
-  factory _$$MeasuredImplCopyWith(
-          _$MeasuredImpl value, $Res Function(_$MeasuredImpl) then) =
-      __$$MeasuredImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$MeasuredImplCopyWithImpl<$Res>
-    extends _$MeasureHeartRateStateCopyWithImpl<$Res, _$MeasuredImpl>
-    implements _$$MeasuredImplCopyWith<$Res> {
-  __$$MeasuredImplCopyWithImpl(
-      _$MeasuredImpl _value, $Res Function(_$MeasuredImpl) _then)
+class __$$LoopEventImplCopyWithImpl<$Res>
+    extends _$MeasureHeartRateEventCopyWithImpl<$Res, _$LoopEventImpl>
+    implements _$$LoopEventImplCopyWith<$Res> {
+  __$$LoopEventImplCopyWithImpl(
+      _$LoopEventImpl _value, $Res Function(_$LoopEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$MeasuredImpl implements _Measured {
-  const _$MeasuredImpl();
+class _$LoopEventImpl implements _LoopEvent {
+  const _$LoopEventImpl();
+
+  @override
+  String toString() {
+    return 'MeasureHeartRateEvent.loopEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoopEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(double progress) measuring,
-    required TResult Function() measured,
+    required TResult Function(SensorValue value) onRawData,
+    required TResult Function(int value) onBpm,
+    required TResult Function() loaded,
+    required TResult Function() onStop,
+    required TResult Function() initEvent,
+    required TResult Function() loopEvent,
   }) {
-    return measured();
+    return loopEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
+    TResult? Function(SensorValue value)? onRawData,
+    TResult? Function(int value)? onBpm,
+    TResult? Function()? loaded,
+    TResult? Function()? onStop,
+    TResult? Function()? initEvent,
+    TResult? Function()? loopEvent,
   }) {
-    return measured?.call();
+    return loopEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(double progress)? measuring,
-    TResult Function()? measured,
+    TResult Function(SensorValue value)? onRawData,
+    TResult Function(int value)? onBpm,
+    TResult Function()? loaded,
+    TResult Function()? onStop,
+    TResult Function()? initEvent,
+    TResult Function()? loopEvent,
     required TResult orElse(),
   }) {
-    if (measured != null) {
-      return measured();
+    if (loopEvent != null) {
+      return loopEvent();
     }
     return orElse();
   }
@@ -947,38 +872,47 @@ class _$MeasuredImpl implements _Measured {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Measuring value) measuring,
-    required TResult Function(_Measured value) measured,
+    required TResult Function(_OnRawData value) onRawData,
+    required TResult Function(_OnBpm value) onBpm,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_OnStop value) onStop,
+    required TResult Function(_InitState value) initEvent,
+    required TResult Function(_LoopEvent value) loopEvent,
   }) {
-    return measured(this);
+    return loopEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Measuring value)? measuring,
-    TResult? Function(_Measured value)? measured,
+    TResult? Function(_OnRawData value)? onRawData,
+    TResult? Function(_OnBpm value)? onBpm,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_OnStop value)? onStop,
+    TResult? Function(_InitState value)? initEvent,
+    TResult? Function(_LoopEvent value)? loopEvent,
   }) {
-    return measured?.call(this);
+    return loopEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Measuring value)? measuring,
-    TResult Function(_Measured value)? measured,
+    TResult Function(_OnRawData value)? onRawData,
+    TResult Function(_OnBpm value)? onBpm,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_OnStop value)? onStop,
+    TResult Function(_InitState value)? initEvent,
+    TResult Function(_LoopEvent value)? loopEvent,
     required TResult orElse(),
   }) {
-    if (measured != null) {
-      return measured(this);
+    if (loopEvent != null) {
+      return loopEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class _Measured implements MeasureHeartRateState {
-  const factory _Measured() = _$MeasuredImpl;
+abstract class _LoopEvent implements MeasureHeartRateEvent {
+  const factory _LoopEvent() = _$LoopEventImpl;
 }

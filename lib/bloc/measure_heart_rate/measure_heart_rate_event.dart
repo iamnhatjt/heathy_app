@@ -6,4 +6,6 @@ class MeasureHeartRateEvent with _$MeasureHeartRateEvent {
   const factory MeasureHeartRateEvent.onBpm(int value) = _OnBpm;
   const factory MeasureHeartRateEvent.loaded() = _Loaded;
   const factory MeasureHeartRateEvent.onStop() = _OnStop;
+  const factory MeasureHeartRateEvent.initEvent() = _InitState;
+  const factory MeasureHeartRateEvent.loopEvent() = _LoopEvent;
 }

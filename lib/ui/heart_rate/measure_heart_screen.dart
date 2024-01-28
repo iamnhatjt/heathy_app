@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,7 +5,6 @@ import 'package:heathy_app/bloc/measure_heart_rate/measure_heart_rate_bloc.dart'
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
-import 'package:heathy_app/res/widgets/base_app_bar.dart';
 import 'package:heathy_app/res/widgets/heart_bpm.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -16,25 +13,25 @@ class MeasureHeartRateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentTime = DateTime.now();
     return AppScaffold(
-      appBar: BaseAppBar(
-        title: "Heart rate",
-        centerTitle: true,
-      ),
       body: Column(
         children: [
+          const SizedBox(height: 50),
           const CircleProcessing(),
-          HeartBPMDialog(
-            context: context,
-            alpha: 0.5,
-            onBPM: (value) => context
-                .read<MeasureHeartRateBloc>()
-                .add(MeasureHeartRateEvent.onBpm(value)),
-            onRawData: (value) => context
-                .read<MeasureHeartRateBloc>()
-                .add(MeasureHeartRateEvent.onRawData(value)),
-            child: const Text("haha 123"),
+          BaseRoundedButton.all(
+            padding: const EdgeInsets.all(20),
+            radius: 1000,
+            child: HeartBPMDialog(
+              context: context,
+              alpha: 0.5,
+              onBPM: (value) => context
+                  .read<MeasureHeartRateBloc>()
+                  .add(MeasureHeartRateEvent.onBpm(value)),
+              onRawData: (value) => context
+                  .read<MeasureHeartRateBloc>()
+                  .add(MeasureHeartRateEvent.onRawData(value)),
+              child: const Text("haha 123"),
+            ),
           ),
           const Spacer(),
           handleButton(context),
@@ -85,37 +82,38 @@ class CircleProcessing extends StatelessWidget {
     final sizeWidth = MediaQuery.of(context).size.width / 3;
     return BlocBuilder<MeasureHeartRateBloc, MeasureHeartRateState>(
       builder: (context, state) {
-        state.maybeWhen(
-          orElse: () {},
-          measuring: (value) {
-            // progress = value;
-            log(progress.toString());
-          },
-        );
-
-        return CircularPercentIndicator(
-          animation: true,
-          animationDuration: 200,
-          radius: sizeWidth,
-          lineWidth: 10.0,
-          percent: progress < 0.0
-              ? 0.0
-              : progress > 1.0
-                  ? 1.0
-                  : progress,
-          circularStrokeCap: CircularStrokeCap.round,
-          animateFromLastPercent: true,
-          center: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(17.0, 0, 17.0, 0),
-                child: Text(progress.toString()),
-              ),
-            ],
+        return BaseRoundedButton.all(
+          padding: const EdgeInsets.all(12),
+          radius: 10000,
+          backgroundColor: Colors.white,
+          child: CircularPercentIndicator(
+            animation: true,
+            animationDuration: 200,
+            radius: sizeWidth,
+            lineWidth: 10.0,
+            percent: progress < 0.0
+                ? 0.0
+                : progress > 1.0
+                    ? 1.0
+                    : progress,
+            circularStrokeCap: CircularStrokeCap.round,
+            animateFromLastPercent: true,
+            center: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(17.0, 0, 17.0, 0),
+                  child: Text(
+                    "Measuring...",
+                    style:
+                        AppStyle.buttonLarge.copyWith(color: Colors.redAccent),
+                  ),
+                ),
+              ],
+            ),
+            backgroundColor: Colors.grey,
+            progressColor: Colors.redAccent,
           ),
-          backgroundColor: Colors.grey,
-          progressColor: Colors.redAccent,
         );
       },
     );
