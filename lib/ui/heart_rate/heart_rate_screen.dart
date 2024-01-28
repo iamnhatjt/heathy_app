@@ -156,7 +156,14 @@ class _Body extends StatelessWidget {
             height: 20,
           ),
           BaseRoundedButton.all(
-              onTap: () => context.push(RouterUri.measureHeartRate),
+              onTap: () async {
+                await context.push(RouterUri.measureHeartRate);
+                if (context.mounted) {
+                  context
+                      .read<HeartRateBloc>()
+                      .add(const HeartRateEvent.filterDate());
+                }
+              },
               gradient: const LinearGradient(colors: [
                 Colors.greenAccent,
                 Colors.green,

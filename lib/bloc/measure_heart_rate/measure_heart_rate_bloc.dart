@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:heathy_app/res/widgets/heart_bpm.dart';
@@ -48,9 +47,11 @@ class MeasureHeartRateBloc
   }
 
   void onRawData(SensorValue value, Emitter emit) {
-    if (progress >= 0.96) {
-      emit(MeasureHeartRateState.measured());
-      log("done");
+    if (progress == 0.98) {
+      progress = 0;
+
+      emit(MeasureHeartRateState.measured(bpmAverage));
+      return;
     }
     if (value.value > 100 || value.value < 60) {
       // finger out

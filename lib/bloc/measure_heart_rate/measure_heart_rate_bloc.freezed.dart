@@ -923,21 +923,21 @@ mixin _$MeasureHeartRateState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(double progress) measuring,
-    required TResult Function() measured,
+    required TResult Function(int value) measured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
+    TResult? Function(int value)? measured,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(double progress)? measuring,
-    TResult Function()? measured,
+    TResult Function(int value)? measured,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1024,7 +1024,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(double progress) measuring,
-    required TResult Function() measured,
+    required TResult Function(int value) measured,
   }) {
     return initial();
   }
@@ -1034,7 +1034,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
+    TResult? Function(int value)? measured,
   }) {
     return initial?.call();
   }
@@ -1044,7 +1044,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(double progress)? measuring,
-    TResult Function()? measured,
+    TResult Function(int value)? measured,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1159,7 +1159,7 @@ class _$MeasuringImpl implements _Measuring {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(double progress) measuring,
-    required TResult Function() measured,
+    required TResult Function(int value) measured,
   }) {
     return measuring(progress);
   }
@@ -1169,7 +1169,7 @@ class _$MeasuringImpl implements _Measuring {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
+    TResult? Function(int value)? measured,
   }) {
     return measuring?.call(progress);
   }
@@ -1179,7 +1179,7 @@ class _$MeasuringImpl implements _Measuring {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(double progress)? measuring,
-    TResult Function()? measured,
+    TResult Function(int value)? measured,
     required TResult orElse(),
   }) {
     if (measuring != null) {
@@ -1237,6 +1237,8 @@ abstract class _$$MeasuredImplCopyWith<$Res> {
   factory _$$MeasuredImplCopyWith(
           _$MeasuredImpl value, $Res Function(_$MeasuredImpl) then) =
       __$$MeasuredImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int value});
 }
 
 /// @nodoc
@@ -1246,35 +1248,59 @@ class __$$MeasuredImplCopyWithImpl<$Res>
   __$$MeasuredImplCopyWithImpl(
       _$MeasuredImpl _value, $Res Function(_$MeasuredImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$MeasuredImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$MeasuredImpl implements _Measured {
-  const _$MeasuredImpl();
+  const _$MeasuredImpl(this.value);
+
+  @override
+  final int value;
 
   @override
   String toString() {
-    return 'MeasureHeartRateState.measured()';
+    return 'MeasureHeartRateState.measured(value: $value)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$MeasuredImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$MeasuredImpl &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MeasuredImplCopyWith<_$MeasuredImpl> get copyWith =>
+      __$$MeasuredImplCopyWithImpl<_$MeasuredImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(double progress) measuring,
-    required TResult Function() measured,
+    required TResult Function(int value) measured,
   }) {
-    return measured();
+    return measured(value);
   }
 
   @override
@@ -1282,9 +1308,9 @@ class _$MeasuredImpl implements _Measured {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(double progress)? measuring,
-    TResult? Function()? measured,
+    TResult? Function(int value)? measured,
   }) {
-    return measured?.call();
+    return measured?.call(value);
   }
 
   @override
@@ -1292,11 +1318,11 @@ class _$MeasuredImpl implements _Measured {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(double progress)? measuring,
-    TResult Function()? measured,
+    TResult Function(int value)? measured,
     required TResult orElse(),
   }) {
     if (measured != null) {
-      return measured();
+      return measured(value);
     }
     return orElse();
   }
@@ -1337,5 +1363,10 @@ class _$MeasuredImpl implements _Measured {
 }
 
 abstract class _Measured implements MeasureHeartRateState {
-  const factory _Measured() = _$MeasuredImpl;
+  const factory _Measured(final int value) = _$MeasuredImpl;
+
+  int get value;
+  @JsonKey(ignore: true)
+  _$$MeasuredImplCopyWith<_$MeasuredImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,11 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/bloc/measure_heart_rate/measure_heart_rate_bloc.dart';
+import 'package:heathy_app/data/model/heart_rate_model.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
 import 'package:heathy_app/res/widgets/heart_bpm.dart';
+import 'package:heathy_app/ui/heart_rate/widgets/heart_rate_dialog.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class MeasureHeartRateScreen extends StatelessWidget {
@@ -14,28 +19,51 @@ class MeasureHeartRateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 50),
-          const CircleProcessing(),
-          BaseRoundedButton.all(
-            padding: const EdgeInsets.all(20),
-            radius: 1000,
-            child: HeartBPMDialog(
-              context: context,
-              alpha: 0.5,
-              onBPM: (value) => context
-                  .read<MeasureHeartRateBloc>()
-                  .add(MeasureHeartRateEvent.onBpm(value)),
-              onRawData: (value) => context
-                  .read<MeasureHeartRateBloc>()
-                  .add(MeasureHeartRateEvent.onRawData(value)),
-              child: const Text("haha 123"),
+      body: BlocListener<MeasureHeartRateBloc, MeasureHeartRateState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            measured: (value) {
+              log("showing");
+              hearRateDialog(
+                      context: context,
+                      onTapConfirm: (date, age, sex, heartRate) {
+                        final currentHeartRate = HeartRateModel(
+                            heartRate: heartRate,
+                            age: age,
+                            sex: sex.toString(),
+                            dateTime: date);
+                        HeartRateBloc()
+                            .add(HeartRateEvent.addHeartRate(currentHeartRate));
+                        context.pop();
+                      },
+                      heartRateModel: HeartRateModel(heartRate: value))
+                  .show();
+            },
+          );
+        },
+        child: Column(
+          children: [
+            const SizedBox(height: 50),
+            const CircleProcessing(),
+            BaseRoundedButton.all(
+              padding: const EdgeInsets.all(20),
+              radius: 1000,
+              child: HeartBPMDialog(
+                context: context,
+                alpha: 0.5,
+                onBPM: (value) => context
+                    .read<MeasureHeartRateBloc>()
+                    .add(MeasureHeartRateEvent.onBpm(value)),
+                onRawData: (value) => context
+                    .read<MeasureHeartRateBloc>()
+                    .add(MeasureHeartRateEvent.onRawData(value)),
+                child: const Text("haha 123"),
+              ),
             ),
-          ),
-          const Spacer(),
-          handleButton(context),
-        ],
+            const Spacer(),
+            handleButton(context),
+          ],
+        ),
       ),
     );
   }
