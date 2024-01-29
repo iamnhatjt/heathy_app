@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 enum SexEnum {
   male,
   female,

@@ -8,7 +8,6 @@ import 'package:heathy_app/data/enums/heart_rate.dart';
 import 'package:heathy_app/data/model/heart_rate_model.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/util/extensions/datetime_extension.dart';
-import 'package:heathy_app/res/util/navigation_service.dart';
 import 'package:heathy_app/res/widgets/app_button_inner.dart';
 import 'package:heathy_app/res/widgets/confirm_dialog.dart';
 import 'package:heathy_app/ui/heart_rate/widgets/heart_rate_dialog.dart';
