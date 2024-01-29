@@ -34,8 +34,8 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
       HeartRateEvent event, Emitter<HeartRateState> emit) async {
     try {
       emit(const HeartRateState.loading());
-      await _heartRateUseCase.addHeartRate((event as _Started).heartRateModel);
-      listHeartRate = _heartRateUseCase.filterHeartRate(dateRange);
+      await _heartRateUseCase.add((event as _Started).heartRateModel);
+      listHeartRate = _heartRateUseCase.filter(dateRange);
       emit(HeartRateState.loaded("Add heart rate success", listHeartRate));
     } catch (e) {
       emit(const HeartRateState.error("Add heart rate fail, try again"));
@@ -45,7 +45,7 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
   void getListHeartRate(HeartRateEvent event, Emitter<HeartRateState> emit) {
     emit(const HeartRateState.loading());
     dateRange = (event as _filterDate).dateRange ?? dateRange;
-    listHeartRate = _heartRateUseCase.filterHeartRate(dateRange);
+    listHeartRate = _heartRateUseCase.filter(dateRange);
     emit(HeartRateState.loaded("Filter success", listHeartRate));
   }
 
@@ -100,8 +100,8 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     emit(const HeartRateState.loading());
     final String id = (event as _delete).id;
     try {
-      await _heartRateUseCase.deleteHeartRate(id);
-      listHeartRate = _heartRateUseCase.getAllHeartRate();
+      await _heartRateUseCase.delete(id);
+      listHeartRate = _heartRateUseCase.getAll();
       heartRateSelected = listHeartRate.first;
       emit(HeartRateState.loaded("Deleted heart rate", listHeartRate));
     } catch (e) {
@@ -113,9 +113,8 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     final HeartRateModel newHeatRate = (event as _update).heartRateModel;
     try {
       emit(const HeartRateState.loading());
-      await _heartRateUseCase.updateHeartRate(
-          heartRateSelected.id!, newHeatRate);
-      listHeartRate = _heartRateUseCase.filterHeartRate(dateRange);
+      await _heartRateUseCase.update(heartRateSelected.id!, newHeatRate);
+      listHeartRate = _heartRateUseCase.filter(dateRange);
       heartRateSelected = event.heartRateModel;
       emit(HeartRateState.loaded("Update success", listHeartRate));
     } catch (e) {

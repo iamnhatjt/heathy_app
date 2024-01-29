@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:heathy_app/data/repository/local_repository.dart';
+import 'package:heathy_app/data/usecase/usecase_interface.dart';
 
 import '../model/heart_rate_model.dart';
 
-class HeartRateUseCase {
+class HeartRateUseCase implements IUseCase<HeartRateModel> {
   final LocalRepository _localRepository;
   HeartRateUseCase(this._localRepository);
 
-  List<HeartRateModel> getAllHeartRate() => _localRepository.getAllHeartRate();
+  @override
+  List<HeartRateModel> getAll() => _localRepository.getAllHeartRate();
 
-  Future<void> addHeartRate(HeartRateModel heartRateModel) {
+  @override
+  Future<void> add(HeartRateModel heartRateModel) {
     return _localRepository.addHeartRate(heartRateModel);
   }
 
-  HeartRateModel getHeartRate(String id) => _localRepository.getHeartRate(id);
+  @override
+  HeartRateModel get(String id) => _localRepository.getHeartRate(id);
 
-  Future<void> updateHeartRate(String id, HeartRateModel heartRateModel) =>
+  @override
+  Future<void> update(String id, HeartRateModel heartRateModel) =>
       _localRepository.updateHeartRate(id, heartRateModel);
 
-  Future<void> deleteHeartRate(String id) =>
-      _localRepository.deleteHeartRate(id);
+  @override
+  Future<void> delete(String id) => _localRepository.deleteHeartRate(id);
 
-  List<HeartRateModel> filterHeartRate(DateTimeRange dateTimeRange) {
-    final listHeartRates = getAllHeartRate();
+  @override
+  List<HeartRateModel> filter(DateTimeRange dateTimeRange) {
+    final listHeartRates = getAll();
     final startDate =
         dateTimeRange.start.copyWith(hour: 0, minute: 0).millisecondsSinceEpoch;
     final endDate =

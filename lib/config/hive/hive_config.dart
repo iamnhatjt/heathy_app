@@ -11,7 +11,7 @@ class HiveConfig {
     await Hive.initFlutter();
     Hive.registerAdapter(HeartRateModelAdapter());
     heartRateBox = await Hive.openBox(HiveBox.heartRate);
-    Hive.registerAdapter(BlooSugarModelAdapter());
-    heartRateBox = await Hive.openBox(HiveBox.bloodSugar);
+    Hive.registerAdapter(BloodSugarModelAdapter());
+    bloodSugarBox = await Hive.openBox(HiveBox.bloodSugar);
   }
 }

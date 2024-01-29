@@ -6,7 +6,7 @@ part of 'blood_sugar_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BlooSugarModelAdapter extends TypeAdapter<BloodSugarModel> {
+class BloodSugarModelAdapter extends TypeAdapter<BloodSugarModel> {
   @override
   final int typeId = 1;
 
@@ -47,7 +47,7 @@ class BlooSugarModelAdapter extends TypeAdapter<BloodSugarModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BlooSugarModelAdapter &&
+      other is BloodSugarModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

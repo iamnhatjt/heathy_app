@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/bloc/measure_heart_rate/measure_heart_rate_bloc.dart';
 import 'package:heathy_app/res/util/navigation_service.dart';
+import 'package:heathy_app/ui/blood_sugar/blood_sugar_screen.dart';
 import 'package:heathy_app/ui/heart_rate/heart_rate_screen.dart';
 import 'package:heathy_app/ui/heart_rate/measure_heart_screen.dart';
 import 'package:heathy_app/ui/home/home_screen.dart';
@@ -46,6 +47,12 @@ class AppRouter {
         child: MeasureHeartRateScreen(
           key: state.pageKey,
         ),
+      ),
+    ),
+    GoRoute(
+      path: RouterUri.bloodSugar,
+      builder: (context, state) => BloodSugarScreen(
+        key: state.pageKey,
       ),
     ),
   ];
