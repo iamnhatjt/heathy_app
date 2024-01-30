@@ -1,7 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:heathy_app/config/di.dart';
+import 'package:heathy_app/data/enums/blood_sugar.dart';
 import 'package:heathy_app/data/model/blood_sugar_model.dart';
 import 'package:heathy_app/data/usecase/blood_sugar_usecase.dart';
 
@@ -14,24 +15,29 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     on<_Started>((event, emit) => _filter(event.value, emit));
     on<_Delete>((event, emit) => _delete(emit));
     on<_Change>((event, emit) => _update(event.newModel, emit));
+    on<_OnChangeType>((event, emit) => _onChangetype(event.value, emit));
   }
 
   final BloodSugarUseCase _bloodSugarUseCase = getIt();
 
   DateTimeRange dateFilter = DateTimeRange(
-      start: DateTime.now(),
-      end: DateTime.now().subtract(const Duration(days: 7)));
+      end: DateTime.now(),
+      start: DateTime.now().subtract(const Duration(days: 7)));
 
   late List<BloodSugarModel> listBloodSugars = [];
-  late BloodSugarModel bloodSugarSelected = listBloodSugars.first;
+  late BloodSugarModel bloodSugarSelected = listBloodSugars.last;
+  late BloodSugarTypeState typeSelected = BloodSugarTypeState.allType;
 
   void _filter(DateTimeRange? dateRange, Emitter emit) {
     dateFilter = dateRange ?? dateFilter;
     try {
       emit(const BloodSugarState.loading());
-
-      _bloodSugarUseCase.filter(dateFilter);
-      emit(const BloodSugarState.loaded());
+      listBloodSugars = _bloodSugarUseCase.filter(dateFilter);
+      if (listBloodSugars.isEmpty) {
+        emit(const BloodSugarState.empty());
+      } else {
+        emit(const BloodSugarState.loaded());
+      }
     } catch (e) {
       emit(const BloodSugarState.error("Filter error, try again"));
     }
@@ -55,5 +61,41 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     } catch (e) {
       emit(const BloodSugarState.error("Delete error, try again"));
     }
+  }
+
+  double get min {
+    if (listBloodSugars.isEmpty) {
+      return 0;
+    }
+    final List<double> list =
+        listBloodSugars.map((e) => e.bloodSugar ?? 0).toList();
+    list.sort();
+    return list.first;
+  }
+
+  double get max {
+    if (listBloodSugars.isEmpty) {
+      return 0;
+    }
+    final List<double> list =
+        listBloodSugars.map((e) => e.bloodSugar ?? 0).toList();
+    list.sort();
+    return list.last;
+  }
+
+  double get average {
+    if (listBloodSugars.isEmpty) {
+      return 0;
+    }
+    double total = 0;
+    for (var e in listBloodSugars) {
+      total += e.bloodSugar!;
+    }
+    return total;
+  }
+
+  void _onChangetype(BloodSugarTypeState type, Emitter emit) {
+    typeSelected = type;
+    _filter(dateFilter, emit);
   }
 }

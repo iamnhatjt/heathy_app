@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:heathy_app/bloc/blood_sugar/blood_sugar_bloc.dart';
 import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/bloc/measure_heart_rate/measure_heart_rate_bloc.dart';
 import 'package:heathy_app/res/util/navigation_service.dart';
@@ -51,8 +52,11 @@ class AppRouter {
     ),
     GoRoute(
       path: RouterUri.bloodSugar,
-      builder: (context, state) => BloodSugarScreen(
-        key: state.pageKey,
+      builder: (context, state) => BlocProvider(
+        create: (context) => BloodSugarBloc(),
+        child: BloodSugarScreen(
+          key: state.pageKey,
+        ),
       ),
     ),
   ];

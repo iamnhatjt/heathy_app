@@ -20,6 +20,7 @@ class BloodSugarModel extends HiveObject {
   @HiveField(4)
   String? sex;
   @HiveField(5)
+  double? bloodSugar; // default mmg/l
   BloodSugarModel({
     this.id,
     this.dateTime,

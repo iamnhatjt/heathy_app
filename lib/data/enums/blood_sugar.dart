@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-enum BloodSugarState {
+enum BloodSugarTypeState {
+  allType,
   duringFasting,
   beforeEating,
   afterEating,
@@ -9,20 +10,22 @@ enum BloodSugarState {
   afterWorkout,
 }
 
-extension ExtendsionBloodSugarState on BloodSugarState {
+extension ExtendsionBloodSugarState on BloodSugarTypeState {
   String get toText {
     switch (this) {
-      case BloodSugarState.duringFasting:
+      case BloodSugarTypeState.allType:
+        return "All type";
+      case BloodSugarTypeState.duringFasting:
         return "During fasting";
-      case BloodSugarState.beforeEating:
+      case BloodSugarTypeState.beforeEating:
         return "Before eating";
-      case BloodSugarState.afterEating:
+      case BloodSugarTypeState.afterEating:
         return "After eating";
-      case BloodSugarState.beforeBedTime:
+      case BloodSugarTypeState.beforeBedTime:
         return "Before bed time";
-      case BloodSugarState.beforeWorkout:
+      case BloodSugarTypeState.beforeWorkout:
         return "Before workout";
-      case BloodSugarState.afterWorkout:
+      case BloodSugarTypeState.afterWorkout:
         return "After workout";
     }
   }
