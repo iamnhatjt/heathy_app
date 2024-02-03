@@ -18,29 +18,35 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BloodSugarEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTimeRange value) started,
+    required TResult Function(DateTimeRange? value) started,
     required TResult Function(BloodSugarModel model) add,
     required TResult Function(BloodSugarModel newModel) change,
     required TResult Function() delete,
     required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTimeRange value)? started,
+    TResult? Function(DateTimeRange? value)? started,
     TResult? Function(BloodSugarModel model)? add,
     TResult? Function(BloodSugarModel newModel)? change,
     TResult? Function()? delete,
     TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTimeRange value)? started,
+    TResult Function(DateTimeRange? value)? started,
     TResult Function(BloodSugarModel model)? add,
     TResult Function(BloodSugarModel newModel)? change,
     TResult Function()? delete,
     TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +57,8 @@ mixin _$BloodSugarEvent {
     required TResult Function(_Change value) change,
     required TResult Function(_Delete value) delete,
     required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +68,8 @@ mixin _$BloodSugarEvent {
     TResult? Function(_Change value)? change,
     TResult? Function(_Delete value)? delete,
     TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +79,8 @@ mixin _$BloodSugarEvent {
     TResult Function(_Change value)? change,
     TResult Function(_Delete value)? delete,
     TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,7 +110,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
           _$StartedImpl value, $Res Function(_$StartedImpl) then) =
       __$$StartedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DateTimeRange value});
+  $Res call({DateTimeRange? value});
 }
 
 /// @nodoc
@@ -112,13 +124,13 @@ class __$$StartedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = null,
+    Object? value = freezed,
   }) {
     return _then(_$StartedImpl(
-      null == value
+      freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as DateTimeRange,
+              as DateTimeRange?,
     ));
   }
 }
@@ -129,7 +141,7 @@ class _$StartedImpl implements _Started {
   const _$StartedImpl(this.value);
 
   @override
-  final DateTimeRange value;
+  final DateTimeRange? value;
 
   @override
   String toString() {
@@ -156,11 +168,13 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTimeRange value) started,
+    required TResult Function(DateTimeRange? value) started,
     required TResult Function(BloodSugarModel model) add,
     required TResult Function(BloodSugarModel newModel) change,
     required TResult Function() delete,
     required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
   }) {
     return started(value);
   }
@@ -168,11 +182,13 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTimeRange value)? started,
+    TResult? Function(DateTimeRange? value)? started,
     TResult? Function(BloodSugarModel model)? add,
     TResult? Function(BloodSugarModel newModel)? change,
     TResult? Function()? delete,
     TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
   }) {
     return started?.call(value);
   }
@@ -180,11 +196,13 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTimeRange value)? started,
+    TResult Function(DateTimeRange? value)? started,
     TResult Function(BloodSugarModel model)? add,
     TResult Function(BloodSugarModel newModel)? change,
     TResult Function()? delete,
     TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -201,6 +219,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Change value) change,
     required TResult Function(_Delete value) delete,
     required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
   }) {
     return started(this);
   }
@@ -213,6 +233,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Change value)? change,
     TResult? Function(_Delete value)? delete,
     TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
   }) {
     return started?.call(this);
   }
@@ -225,6 +247,8 @@ class _$StartedImpl implements _Started {
     TResult Function(_Change value)? change,
     TResult Function(_Delete value)? delete,
     TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -235,9 +259,9 @@ class _$StartedImpl implements _Started {
 }
 
 abstract class _Started implements BloodSugarEvent {
-  const factory _Started(final DateTimeRange value) = _$StartedImpl;
+  const factory _Started(final DateTimeRange? value) = _$StartedImpl;
 
-  DateTimeRange get value;
+  DateTimeRange? get value;
   @JsonKey(ignore: true)
   _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -305,11 +329,13 @@ class _$AddImpl implements _Add {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTimeRange value) started,
+    required TResult Function(DateTimeRange? value) started,
     required TResult Function(BloodSugarModel model) add,
     required TResult Function(BloodSugarModel newModel) change,
     required TResult Function() delete,
     required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
   }) {
     return add(model);
   }
@@ -317,11 +343,13 @@ class _$AddImpl implements _Add {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTimeRange value)? started,
+    TResult? Function(DateTimeRange? value)? started,
     TResult? Function(BloodSugarModel model)? add,
     TResult? Function(BloodSugarModel newModel)? change,
     TResult? Function()? delete,
     TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
   }) {
     return add?.call(model);
   }
@@ -329,11 +357,13 @@ class _$AddImpl implements _Add {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTimeRange value)? started,
+    TResult Function(DateTimeRange? value)? started,
     TResult Function(BloodSugarModel model)? add,
     TResult Function(BloodSugarModel newModel)? change,
     TResult Function()? delete,
     TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -350,6 +380,8 @@ class _$AddImpl implements _Add {
     required TResult Function(_Change value) change,
     required TResult Function(_Delete value) delete,
     required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
   }) {
     return add(this);
   }
@@ -362,6 +394,8 @@ class _$AddImpl implements _Add {
     TResult? Function(_Change value)? change,
     TResult? Function(_Delete value)? delete,
     TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
   }) {
     return add?.call(this);
   }
@@ -374,6 +408,8 @@ class _$AddImpl implements _Add {
     TResult Function(_Change value)? change,
     TResult Function(_Delete value)? delete,
     TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -457,11 +493,13 @@ class _$ChangeImpl implements _Change {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTimeRange value) started,
+    required TResult Function(DateTimeRange? value) started,
     required TResult Function(BloodSugarModel model) add,
     required TResult Function(BloodSugarModel newModel) change,
     required TResult Function() delete,
     required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
   }) {
     return change(newModel);
   }
@@ -469,11 +507,13 @@ class _$ChangeImpl implements _Change {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTimeRange value)? started,
+    TResult? Function(DateTimeRange? value)? started,
     TResult? Function(BloodSugarModel model)? add,
     TResult? Function(BloodSugarModel newModel)? change,
     TResult? Function()? delete,
     TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
   }) {
     return change?.call(newModel);
   }
@@ -481,11 +521,13 @@ class _$ChangeImpl implements _Change {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTimeRange value)? started,
+    TResult Function(DateTimeRange? value)? started,
     TResult Function(BloodSugarModel model)? add,
     TResult Function(BloodSugarModel newModel)? change,
     TResult Function()? delete,
     TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (change != null) {
@@ -502,6 +544,8 @@ class _$ChangeImpl implements _Change {
     required TResult Function(_Change value) change,
     required TResult Function(_Delete value) delete,
     required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
   }) {
     return change(this);
   }
@@ -514,6 +558,8 @@ class _$ChangeImpl implements _Change {
     TResult? Function(_Change value)? change,
     TResult? Function(_Delete value)? delete,
     TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
   }) {
     return change?.call(this);
   }
@@ -526,6 +572,8 @@ class _$ChangeImpl implements _Change {
     TResult Function(_Change value)? change,
     TResult Function(_Delete value)? delete,
     TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (change != null) {
@@ -582,11 +630,13 @@ class _$DeleteImpl implements _Delete {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTimeRange value) started,
+    required TResult Function(DateTimeRange? value) started,
     required TResult Function(BloodSugarModel model) add,
     required TResult Function(BloodSugarModel newModel) change,
     required TResult Function() delete,
     required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
   }) {
     return delete();
   }
@@ -594,11 +644,13 @@ class _$DeleteImpl implements _Delete {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTimeRange value)? started,
+    TResult? Function(DateTimeRange? value)? started,
     TResult? Function(BloodSugarModel model)? add,
     TResult? Function(BloodSugarModel newModel)? change,
     TResult? Function()? delete,
     TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
   }) {
     return delete?.call();
   }
@@ -606,11 +658,13 @@ class _$DeleteImpl implements _Delete {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTimeRange value)? started,
+    TResult Function(DateTimeRange? value)? started,
     TResult Function(BloodSugarModel model)? add,
     TResult Function(BloodSugarModel newModel)? change,
     TResult Function()? delete,
     TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -627,6 +681,8 @@ class _$DeleteImpl implements _Delete {
     required TResult Function(_Change value) change,
     required TResult Function(_Delete value) delete,
     required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
   }) {
     return delete(this);
   }
@@ -639,6 +695,8 @@ class _$DeleteImpl implements _Delete {
     TResult? Function(_Change value)? change,
     TResult? Function(_Delete value)? delete,
     TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
   }) {
     return delete?.call(this);
   }
@@ -651,6 +709,8 @@ class _$DeleteImpl implements _Delete {
     TResult Function(_Change value)? change,
     TResult Function(_Delete value)? delete,
     TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -728,11 +788,13 @@ class _$OnChangeTypeImpl implements _OnChangeType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTimeRange value) started,
+    required TResult Function(DateTimeRange? value) started,
     required TResult Function(BloodSugarModel model) add,
     required TResult Function(BloodSugarModel newModel) change,
     required TResult Function() delete,
     required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
   }) {
     return onChangeType(value);
   }
@@ -740,11 +802,13 @@ class _$OnChangeTypeImpl implements _OnChangeType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTimeRange value)? started,
+    TResult? Function(DateTimeRange? value)? started,
     TResult? Function(BloodSugarModel model)? add,
     TResult? Function(BloodSugarModel newModel)? change,
     TResult? Function()? delete,
     TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
   }) {
     return onChangeType?.call(value);
   }
@@ -752,11 +816,13 @@ class _$OnChangeTypeImpl implements _OnChangeType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTimeRange value)? started,
+    TResult Function(DateTimeRange? value)? started,
     TResult Function(BloodSugarModel model)? add,
     TResult Function(BloodSugarModel newModel)? change,
     TResult Function()? delete,
     TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (onChangeType != null) {
@@ -773,6 +839,8 @@ class _$OnChangeTypeImpl implements _OnChangeType {
     required TResult Function(_Change value) change,
     required TResult Function(_Delete value) delete,
     required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
   }) {
     return onChangeType(this);
   }
@@ -785,6 +853,8 @@ class _$OnChangeTypeImpl implements _OnChangeType {
     TResult? Function(_Change value)? change,
     TResult? Function(_Delete value)? delete,
     TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
   }) {
     return onChangeType?.call(this);
   }
@@ -797,6 +867,8 @@ class _$OnChangeTypeImpl implements _OnChangeType {
     TResult Function(_Change value)? change,
     TResult Function(_Delete value)? delete,
     TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
     required TResult orElse(),
   }) {
     if (onChangeType != null) {
@@ -813,6 +885,301 @@ abstract class _OnChangeType implements BloodSugarEvent {
   BloodSugarTypeState get value;
   @JsonKey(ignore: true)
   _$$OnChangeTypeImplCopyWith<_$OnChangeTypeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OnChangModeImplCopyWith<$Res> {
+  factory _$$OnChangModeImplCopyWith(
+          _$OnChangModeImpl value, $Res Function(_$OnChangModeImpl) then) =
+      __$$OnChangModeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnChangModeImplCopyWithImpl<$Res>
+    extends _$BloodSugarEventCopyWithImpl<$Res, _$OnChangModeImpl>
+    implements _$$OnChangModeImplCopyWith<$Res> {
+  __$$OnChangModeImplCopyWithImpl(
+      _$OnChangModeImpl _value, $Res Function(_$OnChangModeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnChangModeImpl implements _OnChangMode {
+  const _$OnChangModeImpl();
+
+  @override
+  String toString() {
+    return 'BloodSugarEvent.onChangMode()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnChangModeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTimeRange? value) started,
+    required TResult Function(BloodSugarModel model) add,
+    required TResult Function(BloodSugarModel newModel) change,
+    required TResult Function() delete,
+    required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
+  }) {
+    return onChangMode();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTimeRange? value)? started,
+    TResult? Function(BloodSugarModel model)? add,
+    TResult? Function(BloodSugarModel newModel)? change,
+    TResult? Function()? delete,
+    TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
+  }) {
+    return onChangMode?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTimeRange? value)? started,
+    TResult Function(BloodSugarModel model)? add,
+    TResult Function(BloodSugarModel newModel)? change,
+    TResult Function()? delete,
+    TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
+    required TResult orElse(),
+  }) {
+    if (onChangMode != null) {
+      return onChangMode();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Add value) add,
+    required TResult Function(_Change value) change,
+    required TResult Function(_Delete value) delete,
+    required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
+  }) {
+    return onChangMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Change value)? change,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
+  }) {
+    return onChangMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Add value)? add,
+    TResult Function(_Change value)? change,
+    TResult Function(_Delete value)? delete,
+    TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
+    required TResult orElse(),
+  }) {
+    if (onChangMode != null) {
+      return onChangMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnChangMode implements BloodSugarEvent {
+  const factory _OnChangMode() = _$OnChangModeImpl;
+}
+
+/// @nodoc
+abstract class _$$OnChangBloodImplCopyWith<$Res> {
+  factory _$$OnChangBloodImplCopyWith(
+          _$OnChangBloodImpl value, $Res Function(_$OnChangBloodImpl) then) =
+      __$$OnChangBloodImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$OnChangBloodImplCopyWithImpl<$Res>
+    extends _$BloodSugarEventCopyWithImpl<$Res, _$OnChangBloodImpl>
+    implements _$$OnChangBloodImplCopyWith<$Res> {
+  __$$OnChangBloodImplCopyWithImpl(
+      _$OnChangBloodImpl _value, $Res Function(_$OnChangBloodImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$OnChangBloodImpl(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnChangBloodImpl implements _OnChangBlood {
+  const _$OnChangBloodImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'BloodSugarEvent.onChangeBlood(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnChangBloodImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnChangBloodImplCopyWith<_$OnChangBloodImpl> get copyWith =>
+      __$$OnChangBloodImplCopyWithImpl<_$OnChangBloodImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTimeRange? value) started,
+    required TResult Function(BloodSugarModel model) add,
+    required TResult Function(BloodSugarModel newModel) change,
+    required TResult Function() delete,
+    required TResult Function(BloodSugarTypeState value) onChangeType,
+    required TResult Function() onChangMode,
+    required TResult Function(String value) onChangeBlood,
+  }) {
+    return onChangeBlood(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTimeRange? value)? started,
+    TResult? Function(BloodSugarModel model)? add,
+    TResult? Function(BloodSugarModel newModel)? change,
+    TResult? Function()? delete,
+    TResult? Function(BloodSugarTypeState value)? onChangeType,
+    TResult? Function()? onChangMode,
+    TResult? Function(String value)? onChangeBlood,
+  }) {
+    return onChangeBlood?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTimeRange? value)? started,
+    TResult Function(BloodSugarModel model)? add,
+    TResult Function(BloodSugarModel newModel)? change,
+    TResult Function()? delete,
+    TResult Function(BloodSugarTypeState value)? onChangeType,
+    TResult Function()? onChangMode,
+    TResult Function(String value)? onChangeBlood,
+    required TResult orElse(),
+  }) {
+    if (onChangeBlood != null) {
+      return onChangeBlood(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Add value) add,
+    required TResult Function(_Change value) change,
+    required TResult Function(_Delete value) delete,
+    required TResult Function(_OnChangeType value) onChangeType,
+    required TResult Function(_OnChangMode value) onChangMode,
+    required TResult Function(_OnChangBlood value) onChangeBlood,
+  }) {
+    return onChangeBlood(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Add value)? add,
+    TResult? Function(_Change value)? change,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_OnChangeType value)? onChangeType,
+    TResult? Function(_OnChangMode value)? onChangMode,
+    TResult? Function(_OnChangBlood value)? onChangeBlood,
+  }) {
+    return onChangeBlood?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Add value)? add,
+    TResult Function(_Change value)? change,
+    TResult Function(_Delete value)? delete,
+    TResult Function(_OnChangeType value)? onChangeType,
+    TResult Function(_OnChangMode value)? onChangMode,
+    TResult Function(_OnChangBlood value)? onChangeBlood,
+    required TResult orElse(),
+  }) {
+    if (onChangeBlood != null) {
+      return onChangeBlood(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnChangBlood implements BloodSugarEvent {
+  const factory _OnChangBlood(final String value) = _$OnChangBloodImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$OnChangBloodImplCopyWith<_$OnChangBloodImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

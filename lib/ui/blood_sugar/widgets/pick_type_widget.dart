@@ -39,7 +39,7 @@ class PickTypeWidget extends StatelessWidget {
 }
 
 class _PickTypeDialog extends StatelessWidget {
-  const _PickTypeDialog({super.key});
+  const _PickTypeDialog();
 
   @override
   Widget build(BuildContext context) {

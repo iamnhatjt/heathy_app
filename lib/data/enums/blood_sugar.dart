@@ -53,6 +53,20 @@ extension ExtensionBloodSugarType on BloodSugarType {
     }
   }
 
+  Color get getColorText {
+    switch (this) {
+      case BloodSugarType.low:
+        return Colors.purple;
+
+      case BloodSugarType.normal:
+        return Colors.green;
+      case BloodSugarType.preDiabetes:
+        return Colors.yellow;
+      case BloodSugarType.diabetes:
+        return Colors.red;
+    }
+  }
+
   String get toText {
     switch (this) {
       case BloodSugarType.low:
@@ -90,5 +104,31 @@ extension ExtensionBloodSugarType on BloodSugarType {
       case BloodSugarType.diabetes:
         return ">126";
     }
+  }
+}
+
+BloodSugarType convertTypeMm(double value) {
+  switch (value) {
+    case <= 4.0:
+      return BloodSugarType.low;
+    case <= 5.5:
+      return BloodSugarType.normal;
+    case <= 7.0:
+      return BloodSugarType.preDiabetes;
+    default:
+      return BloodSugarType.diabetes;
+  }
+}
+
+BloodSugarType convertTypeMg(double value) {
+  switch (value) {
+    case <= 72:
+      return BloodSugarType.low;
+    case <= 99:
+      return BloodSugarType.normal;
+    case <= 126:
+      return BloodSugarType.preDiabetes;
+    default:
+      return BloodSugarType.diabetes;
   }
 }

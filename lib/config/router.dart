@@ -53,7 +53,8 @@ class AppRouter {
     GoRoute(
       path: RouterUri.bloodSugar,
       builder: (context, state) => BlocProvider(
-        create: (context) => BloodSugarBloc(),
+        create: (context) =>
+            BloodSugarBloc()..add(const BloodSugarEvent.started(null)),
         child: BloodSugarScreen(
           key: state.pageKey,
         ),

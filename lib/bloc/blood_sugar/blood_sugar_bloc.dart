@@ -5,6 +5,7 @@ import 'package:heathy_app/config/di.dart';
 import 'package:heathy_app/data/enums/blood_sugar.dart';
 import 'package:heathy_app/data/model/blood_sugar_model.dart';
 import 'package:heathy_app/data/usecase/blood_sugar_usecase.dart';
+import 'package:heathy_app/res/util/extensions/number_extension.dart';
 
 part 'blood_sugar_bloc.freezed.dart';
 part 'blood_sugar_event.dart';
@@ -14,8 +15,11 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
   BloodSugarBloc() : super(const BloodSugarState.initial()) {
     on<_Started>((event, emit) => _filter(event.value, emit));
     on<_Delete>((event, emit) => _delete(emit));
+    on<_Add>((event, emit) => _add(event.model, emit));
     on<_Change>((event, emit) => _update(event.newModel, emit));
     on<_OnChangeType>((event, emit) => _onChangetype(event.value, emit));
+    on<_OnChangMode>((event, emit) => _onChangeMode(emit));
+    on<_OnChangBlood>((event, emit) => _onchangeBlood(event.value, emit));
   }
 
   final BloodSugarUseCase _bloodSugarUseCase = getIt();
@@ -27,15 +31,19 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
   late List<BloodSugarModel> listBloodSugars = [];
   late BloodSugarModel bloodSugarSelected = listBloodSugars.last;
   late BloodSugarTypeState typeSelected = BloodSugarTypeState.allType;
+  late double currentBlood = 80.0;
+  late bool isMgDl = true;
 
   void _filter(DateTimeRange? dateRange, Emitter emit) {
     dateFilter = dateRange ?? dateFilter;
     try {
       emit(const BloodSugarState.loading());
       listBloodSugars = _bloodSugarUseCase.filter(dateFilter);
+
       if (listBloodSugars.isEmpty) {
         emit(const BloodSugarState.empty());
       } else {
+        bloodSugarSelected = listBloodSugars.last;
         emit(const BloodSugarState.loaded());
       }
     } catch (e) {
@@ -89,7 +97,7 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     }
     double total = 0;
     for (var e in listBloodSugars) {
-      total += e.bloodSugar!;
+      total += e.bloodSugar ?? 0;
     }
     return total;
   }
@@ -97,5 +105,38 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
   void _onChangetype(BloodSugarTypeState type, Emitter emit) {
     typeSelected = type;
     _filter(dateFilter, emit);
+  }
+
+  void _onChangeMode(Emitter emit) {
+    emit(const BloodSugarState.loading());
+    isMgDl = !isMgDl;
+    if (isMgDl) {
+      currentBlood = currentBlood.mmToMg;
+    } else {
+      currentBlood = currentBlood.mgToMm;
+    }
+    emit(const BloodSugarState.loaded());
+  }
+
+  BloodSugarType get typeBlood {
+    return isMgDl ? convertTypeMg(currentBlood) : convertTypeMm(currentBlood);
+  }
+
+  void _onchangeBlood(String value, Emitter emit) {
+    emit(const BloodSugarState.loading());
+    currentBlood = double.parse(value);
+    emit(const BloodSugarState.loaded());
+  }
+
+  void _add(BloodSugarModel model, Emitter emit) async {
+    try {
+      emit(const BloodSugarState.loading());
+      await _bloodSugarUseCase.add(model);
+      currentBlood = 80;
+      emit(const BloodSugarState.addSuccess());
+      _filter(null, emit);
+    } catch (e) {
+      emit(const BloodSugarState.error("Add failure, try again"));
+    }
   }
 }

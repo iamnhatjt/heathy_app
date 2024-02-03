@@ -7,6 +7,7 @@ import 'package:heathy_app/res/widgets/app_button_inner.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
 import 'package:heathy_app/res/widgets/base_app_bar.dart';
 import 'package:heathy_app/res/widgets/base_body_feature.dart';
+import 'package:heathy_app/ui/blood_sugar/widgets/blood_sugar_dialog.dart';
 import 'package:heathy_app/ui/blood_sugar/widgets/pick_type_widget.dart';
 
 class BloodSugarScreen extends StatelessWidget {
@@ -14,6 +15,10 @@ class BloodSugarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onAddData() {
+      bloodSugarDialog(context: context).show();
+    }
+
     return AppScaffold(
       appBar: BaseAppBar(
         title: "Blood sugar",
@@ -31,7 +36,10 @@ class BloodSugarScreen extends StatelessWidget {
           );
         },
         child: BaseBody(
-          onChangeDateRange: (value) {},
+          onTapAdd: onAddData,
+          onChangeDateRange: (value) {
+            context.read<BloodSugarBloc>().add(BloodSugarEvent.started(value));
+          },
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Column(
             children: [totalInfor(context), const PickTypeWidget()],
