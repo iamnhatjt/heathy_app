@@ -27,6 +27,7 @@ class BloodSugarModel extends HiveObject {
     this.bloodSugarType,
     this.age,
     this.sex,
+    this.bloodSugar,
   }) {
     id = const Uuid().v1();
   }

@@ -19,6 +19,13 @@ extension DateTimeExtension on DateTime? {
     }
     return TimeOfDay(hour: this!.hour, minute: this!.day);
   }
+
+  DateTime get sameDate {
+    if (this == null) {
+      return DateTime.now();
+    }
+    return DateTime(this!.year, this!.month, this!.day);
+  }
 }
 
 extension TimeExtension on TimeOfDay {

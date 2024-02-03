@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
 enum BloodSugarTypeState {
@@ -131,4 +132,8 @@ BloodSugarType convertTypeMg(double value) {
     default:
       return BloodSugarType.diabetes;
   }
+}
+
+BloodSugarType? convertBloodSugarFromString(String value) {
+  return BloodSugarType.values.firstWhereOrNull((e) => e.toString() == value);
 }

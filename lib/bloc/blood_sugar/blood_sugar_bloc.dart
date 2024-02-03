@@ -20,6 +20,8 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     on<_OnChangeType>((event, emit) => _onChangetype(event.value, emit));
     on<_OnChangMode>((event, emit) => _onChangeMode(emit));
     on<_OnChangBlood>((event, emit) => _onchangeBlood(event.value, emit));
+    on<_OnChangeSelected>(
+        (event, emit) => _onChangeSelected(event.model, emit));
   }
 
   final BloodSugarUseCase _bloodSugarUseCase = getIt();
@@ -55,6 +57,7 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     try {
       emit(const BloodSugarState.loading());
       await _bloodSugarUseCase.delete(bloodSugarSelected.id!);
+      _filter(dateFilter, emit);
       emit(const BloodSugarState.deleteSuccess());
     } catch (e) {
       emit(const BloodSugarState.error("Delete error, try again"));
@@ -138,5 +141,11 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     } catch (e) {
       emit(const BloodSugarState.error("Add failure, try again"));
     }
+  }
+
+  _onChangeSelected(BloodSugarModel model, Emitter emit) {
+    emit(const BloodSugarState.loading());
+    bloodSugarSelected = model;
+    emit(const BloodSugarState.loaded());
   }
 }

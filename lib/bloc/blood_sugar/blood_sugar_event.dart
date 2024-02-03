@@ -10,4 +10,6 @@ class BloodSugarEvent with _$BloodSugarEvent {
       _OnChangeType;
   const factory BloodSugarEvent.onChangMode() = _OnChangMode;
   const factory BloodSugarEvent.onChangeBlood(String value) = _OnChangBlood;
+  const factory BloodSugarEvent.onChangeSelected(BloodSugarModel model) =
+      _OnChangeSelected;
 }

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:heathy_app/bloc/blood_sugar/blood_sugar_bloc.dart';
+import 'package:heathy_app/data/enums/blood_sugar.dart';
 import 'package:heathy_app/res/styles/styles.dart';
+import 'package:heathy_app/res/util/extensions/datetime_extension.dart';
 import 'package:heathy_app/res/util/extensions/snack_bar_extention.dart';
 import 'package:heathy_app/res/widgets/app_button_inner.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
 import 'package:heathy_app/res/widgets/base_app_bar.dart';
 import 'package:heathy_app/res/widgets/base_body_feature.dart';
+import 'package:heathy_app/res/widgets/confirm_dialog.dart';
+import 'package:heathy_app/ui/blood_sugar/widgets/blood_chart_widget.dart';
 import 'package:heathy_app/ui/blood_sugar/widgets/blood_sugar_dialog.dart';
 import 'package:heathy_app/ui/blood_sugar/widgets/pick_type_widget.dart';
 
@@ -42,7 +46,17 @@ class BloodSugarScreen extends StatelessWidget {
           },
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Column(
-            children: [totalInfor(context), const PickTypeWidget()],
+            children: [
+              const SizedBox(height: 8),
+              totalInfor(context),
+              const SizedBox(height: 8),
+              const PickTypeWidget(),
+              const SizedBox(height: 8),
+              const BloodChart(),
+              const SizedBox(height: 8),
+              const DetailBloodSugar(),
+              const SizedBox(height: 16),
+            ],
           ),
         ),
       ),
@@ -82,6 +96,64 @@ class BloodSugarScreen extends StatelessWidget {
                   style: AppStyle.normalText,
                 ),
                 Text(context.watch<BloodSugarBloc>().max.toString()),
+              ],
+            ),
+          ],
+        ));
+  }
+}
+
+class DetailBloodSugar extends StatelessWidget {
+  const DetailBloodSugar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final bloodSugar = context.watch<BloodSugarBloc>().bloodSugarSelected;
+    void onDelete() {
+      ConfirmDialog(
+        title: "Delete blood sugar",
+        description: "No way to get back this blood sugar infor",
+        onConfirm: () {
+          context.read<BloodSugarBloc>().add(const BloodSugarEvent.delete());
+        },
+      ).show();
+    }
+
+    return AppButtonInner(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Text(
+                    "${bloodSugar.dateTime.defaultFormat()} \n${bloodSugar.dateTime.hourFormat()}")
+              ],
+            ),
+            Column(
+              children: [
+                Text(
+                  bloodSugar.bloodSugar.toString(),
+                  style: AppStyle.buttonLarge,
+                ),
+                const Text(
+                  'mg/dl',
+                  style: AppStyle.normalText,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.heart_broken,
+                  color: convertTypeMg(bloodSugar.bloodSugar!).getColor,
+                ),
+                Text(convertTypeMg(bloodSugar.bloodSugar!).toText),
+                IconButton(
+                  onPressed: onDelete,
+                  icon: const Icon(Icons.delete),
+                  color: Colors.redAccent,
+                )
               ],
             ),
           ],

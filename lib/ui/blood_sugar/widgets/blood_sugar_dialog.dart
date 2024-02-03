@@ -24,6 +24,7 @@ AppDialog bloodSugarDialog(
       final mode = context.read<BloodSugarBloc>().isMgDl;
       final currentBlood = context.read<BloodSugarBloc>().currentBlood;
       BloodSugarModel bloodSugarModel = BloodSugarModel(
+        bloodSugar: currentBlood,
         age: age,
         dateTime: date,
         bloodSugarType:

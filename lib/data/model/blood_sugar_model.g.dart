@@ -22,7 +22,8 @@ class BloodSugarModelAdapter extends TypeAdapter<BloodSugarModel> {
       bloodSugarType: fields[2] as String?,
       age: fields[3] as int?,
       sex: fields[4] as String?,
-    )..bloodSugar = fields[5] as double?;
+      bloodSugar: fields[5] as double?,
+    );
   }
 
   @override
