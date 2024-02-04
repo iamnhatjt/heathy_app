@@ -12,7 +12,7 @@ part 'blood_sugar_event.dart';
 part 'blood_sugar_state.dart';
 
 class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
-  BloodSugarBloc() : super(const BloodSugarState.initial()) {
+  BloodSugarBloc() : super(const BloodSugarState.loading()) {
     on<_Started>((event, emit) => _filter(event.value, emit));
     on<_Delete>((event, emit) => _delete(emit));
     on<_Add>((event, emit) => _add(event.model, emit));
@@ -57,7 +57,10 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     try {
       emit(const BloodSugarState.loading());
       await _bloodSugarUseCase.delete(bloodSugarSelected.id!);
-      _filter(dateFilter, emit);
+      _refreshDataDepen();
+      if (listBloodSugars.isEmpty) {
+        return;
+      }
       emit(const BloodSugarState.deleteSuccess());
     } catch (e) {
       emit(const BloodSugarState.error("Delete error, try again"));
@@ -137,7 +140,7 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
       await _bloodSugarUseCase.add(model);
       currentBlood = 80;
       emit(const BloodSugarState.addSuccess());
-      _filter(null, emit);
+      _refreshDataDepen();
     } catch (e) {
       emit(const BloodSugarState.error("Add failure, try again"));
     }
@@ -147,5 +150,13 @@ class BloodSugarBloc extends Bloc<BloodSugarEvent, BloodSugarState> {
     emit(const BloodSugarState.loading());
     bloodSugarSelected = model;
     emit(const BloodSugarState.loaded());
+  }
+
+  void _refreshDataDepen() {
+    listBloodSugars = _bloodSugarUseCase.filter(dateFilter);
+    if (listBloodSugars.isEmpty) {
+      return;
+    }
+    bloodSugarSelected = listBloodSugars.last;
   }
 }

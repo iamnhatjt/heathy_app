@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:heathy_app/bloc/blood_sugar/blood_sugar_bloc.dart';
 import 'package:heathy_app/data/enums/blood_sugar.dart';
+import 'package:heathy_app/gen/assets.gen.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/util/extensions/datetime_extension.dart';
 import 'package:heathy_app/res/util/extensions/snack_bar_extention.dart';
@@ -13,6 +14,7 @@ import 'package:heathy_app/res/widgets/confirm_dialog.dart';
 import 'package:heathy_app/ui/blood_sugar/widgets/blood_chart_widget.dart';
 import 'package:heathy_app/ui/blood_sugar/widgets/blood_sugar_dialog.dart';
 import 'package:heathy_app/ui/blood_sugar/widgets/pick_type_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class BloodSugarScreen extends StatelessWidget {
   const BloodSugarScreen({super.key});
@@ -45,18 +47,27 @@ class BloodSugarScreen extends StatelessWidget {
             context.read<BloodSugarBloc>().add(BloodSugarEvent.started(value));
           },
           padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: Column(
-            children: [
-              const SizedBox(height: 8),
-              totalInfor(context),
-              const SizedBox(height: 8),
-              const PickTypeWidget(),
-              const SizedBox(height: 8),
-              const BloodChart(),
-              const SizedBox(height: 8),
-              const DetailBloodSugar(),
-              const SizedBox(height: 16),
-            ],
+          child: BlocBuilder<BloodSugarBloc, BloodSugarState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                  loading: () => const CircularProgressIndicator(),
+                  empty: () => LottieBuilder.asset(Assets.jsons.bloodSuggar),
+                  orElse: () {
+                    return Column(
+                      children: [
+                        const SizedBox(height: 8),
+                        totalInfor(context),
+                        const SizedBox(height: 8),
+                        const PickTypeWidget(),
+                        const SizedBox(height: 20),
+                        const BloodChart(),
+                        const SizedBox(height: 8),
+                        const DetailBloodSugar(),
+                        const SizedBox(height: 16),
+                      ],
+                    );
+                  });
+            },
           ),
         ),
       ),
@@ -120,7 +131,7 @@ class DetailBloodSugar extends StatelessWidget {
     }
 
     return AppButtonInner(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:heathy_app/bloc/blood_sugar/blood_sugar_bloc.dart';
 import 'package:heathy_app/res/styles/colors.dart';
 import 'package:heathy_app/res/util/extensions/datetime_extension.dart';
+import 'package:heathy_app/res/widgets/app_button.dart';
 
 class BloodChart extends StatelessWidget {
   const BloodChart({super.key});
@@ -70,27 +71,29 @@ class BloodChart extends StatelessWidget {
       );
 
   Widget getBottomTitles(double value, TitleMeta meta) {
-    const style = TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.bold,
-      fontSize: 14,
-    );
     String text = DateTime.fromMillisecondsSinceEpoch(value.toInt())
         .defaultFormat('d/MM');
+
     return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 4,
-      child: Text(text, style: style),
-    );
+        axisSide: meta.axisSide,
+        space: 4,
+        child: BaseRoundedButton.all(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            margin: EdgeInsets.zero,
+            backgroundColor: Colors.blueAccent,
+            child: Text(
+              text,
+              style: const TextStyle(color: Colors.white, fontSize: 10),
+            )));
   }
 
   Widget getLeftTitles(double value, TitleMeta meta) {
-    const style = TextStyle(
-      color: Colors.black,
-      fontSize: 8,
+    TextStyle style = const TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 12.0,
     );
     return SideTitleWidget(
-      space: 12,
+      space: 8,
       axisSide: meta.axisSide,
       child: Text(value.toInt().toString(), style: style),
     );
