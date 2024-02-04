@@ -17,13 +17,6 @@ class HomeScreen extends StatelessWidget {
         title: "Health Care",
         isDisplayBack: false,
       ),
-      // appBar: AppBar(
-      //     backgroundColor: Colors.transparent,
-      //     centerTitle: true,
-      //     title: const Text(
-      //       "HEALTH CARE",
-      //       style: AppStyle.normalText,
-      //     )),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(

@@ -49,9 +49,9 @@ extension HeartRateActionWidget on HeartRateAction {
       case HeartRateAction.foodScanner:
         return Assets.jsons.qrScanner;
       case HeartRateAction.insight:
-        return Assets.jsons.heartRateAnimation;
+        return Assets.images.insight.path;
       case HeartRateAction.alarm:
-        return Assets.jsons.heartRateAnimation;
+        return Assets.jsons.alarm;
     }
   }
 
@@ -106,7 +106,10 @@ extension HeartRateActionWidget on HeartRateAction {
     final smallActon =
         HeartRateAction.values.getRange(4, HeartRateAction.values.length);
 
-    final iconAnimation = Lottie.asset(pathAnimation);
+    Widget iconAnimation = Lottie.asset(pathAnimation);
+    if (this == HeartRateAction.insight) {
+      iconAnimation = Image.asset(pathAnimation);
+    }
 
     void ontap() {
       context.push(movePath);

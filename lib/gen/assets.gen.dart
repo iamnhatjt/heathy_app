@@ -26,8 +26,11 @@ class $AssetsImagesGen {
   AssetGenImage get background =>
       const AssetGenImage('assets/images/background.png');
 
+  /// File path: assets/images/insight.png
+  AssetGenImage get insight => const AssetGenImage('assets/images/insight.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [background];
+  List<AssetGenImage> get values => [background, insight];
 }
 
 class $AssetsJsonsGen {
