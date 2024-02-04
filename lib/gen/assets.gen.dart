@@ -48,6 +48,9 @@ class $AssetsJsonsGen {
   /// File path: assets/jsons/heart_rate_animation.json
   String get heartRateAnimation => 'assets/jsons/heart_rate_animation.json';
 
+  /// File path: assets/jsons/insight.json
+  String get insight => 'assets/jsons/insight.json';
+
   /// File path: assets/jsons/qr_scanner.json
   String get qrScanner => 'assets/jsons/qr_scanner.json';
 
@@ -61,6 +64,7 @@ class $AssetsJsonsGen {
         bloodPressure,
         bloodSuggar,
         heartRateAnimation,
+        insight,
         qrScanner,
         weightBmi
       ];

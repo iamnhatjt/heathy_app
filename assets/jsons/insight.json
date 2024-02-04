@@ -1,0 +1,143 @@
+[
+  {
+    "title": "What is Diabetes?",
+    "content": [
+      "Diabetes is a metabolic disease that causes high blood sugar resulting from insulin deficiency, insulin resistance, etc.",
+      "Glucose is an important part of our daily function. Our body uses it for energy but requires a hormone called insulin, which is produced by the pancreas. When someone has diabetes, the insulin produced does not work correctly, which leaves more glucose in the bloodstream.",
+      "Diabetes or diabetes mellitus is a severe and complex condition. People with diabetes have to live with it for the rest of their lives since there is currently no cure."
+    ],
+    "icon": "assets/image/svg/ic_blood_sugar_2.svg"
+  },
+  {
+    "title": "What is blood pressure?",
+    "content": [
+      "Blood pressure or blood pressure is essential for the blood to circulate through the blood vessels and thus be able to carry the necessary oxygen and nutrients to all the tissues of the body . It can be defined as the force that the blood exerts on the walls of the arteries , which is highest ( systolic pressure ) when the heart pumps it into the arteries and lowest ( diastolic pressure ) between heartbeats . These two values ( systolic and diastolic ) are used to measure blood pressure.",
+      "When it comes to monitoring general health , blood pressure should be checked , because if it is above normal ( hypertension ) , it can mean a significant risk of serious diseases ( heart disease , heart attack , stroke , kidney failure , etc. ) . It is also important to control low blood pressure ( hypotension ) as it can cause confusion , dizziness , light headedness , fainting , weakness or drowsiness.",
+      "To ensure that the measurement obtained is correct , you must follow a series of instructions : \n- As blood pressure changes throughout the day and night , always take the measurement at the same time\n- Find a quiet room , without noise or interruptions , with a temperature of 20-25 ° C. You must be relaxed . Do not drink , eat , smoke or do physical exercise for half an hour before taking the measurement . Rest for 5 minutes before taking the measurement . Sit comfortably with your back against the back of the chair , do not cross your legs and take off any clothes that might press on your arm . Leave the palm of your hand facing upwards and your elbow slightly bent at the level of your heart . If you use a wrist blood pressure monitor , place the wrist strap at the level of your heart . Do not talk during the measurement."
+    ],
+    "icon": "assets/image/png/ic_blood_pressure.png"
+  },
+  {
+    "title": "What are Normal Blood Sugar Levels?",
+    "content": [
+      "The amount of glucose will change depending on when, what and how much you have eaten, and whether or not you have exercised.",
+      "The normal blood sugar level for adults (without diabetes) who have not eaten for at least 8 hours (fasting) is less than 100 mg/dL. And the level for adults without diabetes two hours after eating is 90 to 110 mg/dL.",
+      "Healthy blood sugar level for children under 6 years of age should be in the range of 80 to 200 mg/dL per day. The average blood sugar level of adolescents should be between 70 and 150 mg/dL during the day."
+    ],
+    "icon": "assets/image/svg/ic_blood_sugar_3.svg"
+
+  },
+  {
+    "title": "Types of blood pressure",
+    "content": [
+      "According to the blood pressure values (the first is the systolic or high blood pressure and the second is the diastolic or low blood pressure), it is classified as follows:",
+      "Hypotension SIS. less than 90 or DIA. less than 60 Normal SIS. 90-120 and DIA. 60-80 Pre-hypertension SIS. 120-140 and DIA. 80-90 Hypertension Phase 1: SIS. 140-160 or DIA. 90-100 Hypertension Phase 2: SIS. greater than 160 or DIA. greater than 100.",
+      "It should be borne in mind that blood pressure values do not remain unchanged throughout the day, but fluctuate according to various factors. This classification defines the existence or not of pathological states. However, there are situations in which there may be a one-off rise or fall in blood pressure which does not necessarily mean that there is a blood pressure problem.",
+      "Thus, stress or dangerous situations can produce a transient but significant increase as a result of elevated secretion of adrenaline and noradrenaline or activation of the parasympathetic nervous system, factors that contribute to an increase in heart rate. Conversely, dehydration, alcohol consumption, the use of certain medications, hypoglycaemia or shock (anaphylaxis, heart attack, etc.), among other causes, can induce a sudden drop in blood pressure."
+    ],
+    "icon": "assets/image/png/ic_types_of_blood_pressure.png"
+  },
+  {
+    "title": "Lifestyle for hypertension",
+    "content": [
+      "According to experts, there are factors that influence hypertension that we cannot control, such as aging, menopause or genetics. However, we can act by combating other factors that influence the onset of hypertension such as obesity, a sedentary lifestyle, poor diet or high salt consumption. Therefore, in order to control our blood pressure figures, the two basic rules are to pay attention to our diet, eliminating salt and following the Mediterranean diet, and to exercise.",
+      "As for the latter recommendation, the World Health Organization (WHO) has included it for three decades among the most important non-pharmacological measures aimed at lowering blood pressure values. Specifically, it recommends that adults should practice at least 150 minutes of moderate-intensity aerobic physical activity or 75 minutes of intense activity per week.",
+      "With regard to diet, the main thing is to eat five portions of fruit and vegetables a day, reduce fats -especially saturated fats- and reduce salt intake to less than 5 grams a day -a teaspoon of coffee- or even eliminate it completely, replacing it with sodium-free herbs and spices. Another recommendation is to eliminate processed foods, which contain large amounts of salt, from the diet. And as for alcohol, excess consumption can lead to an increase in blood pressure, so it is also a good idea to avoid it. For those looking for a diet, you can find it at this link.",
+      "In addition, experts remind us that if high blood pressure appears in smokers, the chances of suffering a stroke or myocardial infarction are multiplied. That is why quitting smoking is also essential."
+    ],
+    "icon": "assets/image/png/ic_heart_rate_3.png"
+
+  },
+  {
+    "title": "Know about Heart Rate",
+    "content": [
+      "Heart rate, also named pulse, is the number of times the heart beats within a period of time (usually a minute).",
+      "When the heart beats, our blood is pumped out to the rest of your body, delivering sufficient oxygen to every cell. Through this process, the cells can gain energy and nutrition.",
+      "The frequency of the heartbeats to circulate blood differentiates as the need for oxygen changes. For instance, when we are exercising, the cells tend to consume more oxygen and energy. Therefore, our heart beats faster than usual.",
+      "Heart rate is divided into resting heart rate and target heart rate. The first kind is to describe(describes) our heart rate when we are at rest. The latter is used to evaluate our bodies while exercising."
+    ],
+    "icon": "assets/image/png/ic_heart_rate_5.png"
+  },
+  {
+    "title": "Hypotension",
+    "content": [
+      "If your readings are below 90/60 mmHg, you are probably hypotensive. You do not need any treatment, as low blood pressure does not cause any harm and usually has no symptoms. However, when your blood pressure often drops suddenly above 20 mmHg, due to some medications, or you feel dizzy, faint, fatigued, etc., you should seek treatment."
+    ],
+    "icon": "assets/image/png/ic_heart_rate_4.png"
+
+  },
+  {
+    "title": "Hypertension: Why is it a risk factory?",
+    "content": [
+      "Hypertension puts a greater strain on the heart, which responds by increasing its muscle mass (left ventricular hypertrophy) to cope with the extra effort. This increase in muscle mass ends up being harmful because it is not accompanied by an equivalent increase in blood flow and can lead to coronary insufficiency and angina pectoris. In addition, the heart muscle becomes more irritable and more arrhythmias occur.",
+      "- In those patients who have already had a cardiovascular problem, hypertension can intensify the damage. It promotes atherosclerosis (accumulation of cholesterol in the arteries) and thrombosis phenomena (can lead to myocardial infarction or cerebral infarction)."
+    ],
+    "icon": "assets/image/png/ic_heart_risk.png"
+  },
+  {
+    "title": "How to Know if You Have Diabetes?",
+    "content": [
+      "No individual has the same symptoms. What you experience won't exactly match those of another person. If you have any of the following symptoms, you should see a doctor to test your blood sugar.",
+      "Feel very thirsty. Feel very hungry. Feel very tired· Urinate a lot, especially at night. Lose weight without trying. Have blurry vision Have cuts and wounds that heal slowly. Have numb or tingling hands or feet. Have more infections than usual. Have nausea, vomiting, or stomach pains (type 1 diabetes)"
+    ],
+    "icon": "assets/image/png/ic_blood_question.png"
+  },
+  {
+    "title": "How Many Types of Diabetes are There?",
+    "content": [
+      "There are three common types of diabetes: type 1, type 2 and gestational.",
+      "Type 1 diabetes occurs most frequently in children and adolescents. People with type 1 diabetes have too high blood sugar levels, meaning that they need daily insulin injections to maintain blood glucose levels under control.",
+      "Type2 diabetes is more common in adults and accounts for around 90% of all diabetes cases. But with the proper treatment and care, people can do well with type 2 diabetes and reduce their risk of developing it.",
+      "Gestational diabetes can develop during pregnancy, often seen in pre-diabetes and a family history of diabetes. Gestational diabetes mellitus usually disappears after pregnancy, but both affected women and their children are at increased risk of developing type 2 diabetes later in life."
+    ],
+    "icon": "assets/image/svg/ic_blood_sugar_3.svg"
+  },
+  {
+    "title": "How is blood pressure measured?",
+    "content": [
+      "Blood pressure is measured by means of devices called sphygmomanometers , popularly known as blood pressure monitors , which must undergo regulatory validation and approval."
+    ],
+    "icon": "assets/image/png/ic_blood_pressure_6.png"
+  },
+  {
+    "title": "How does hypertension affect the brain?",
+    "content": [
+      "When the arteries become stiff and narrow, the blood supply becomes insufficient and leads to cerebral infractions (stroke or ischaemic stroke). High blood pressure can also cause an artery to rupture, resulting in a cerebral haemorrhage (stroke or haemorrhagic stroke)."
+    ],
+    "icon": "assets/image/png/ic_blood_pressure_3.png"
+  },
+  {
+    "title": "How does blood pressure affect the kidneys?",
+    "content": [
+      "Hypertension causes stiffening of the arteries that supply blood to the kidneys. But it also damages the kidney itself, which can lead to kidney failure, even requiring dialysis. On the other hand, damage to the kidney can lead to increased blood pressure."
+    ],
+    "icon": "assets/image/png/ic_kidneys.png"
+  },
+  {
+    "title": "How does blood pressure affect other organs?",
+    "content": [
+      "If it affects the arteries in the legs, it causes pain when walking.",
+      "Damage to the arteries of the retina can cause impaired vision.",
+      "In men it can cause impotence."
+    ],
+    "icon": "assets/image/png/ic_other_organs.png"
+  },
+  {
+    "title": "How Common is Diabetes?",
+    "content": [
+      "Diabetes is one of the world's fastest-growing chronic diseases.",
+      "In 1980, 108 million people worldwide had diabetes. By 2014, that number had risen to 422 million. (World Health Organization [WHO], 2020)",
+      "An estimated 700 million adults worldwide will have diabetes by 2045. (International Diabetes Federation [IDF], 2020)",
+      "There is an increasing tendency for diabetes. Type 2 diabetes is increasing at the fastest pace."
+    ],
+    "icon": "assets/image/png/ic_blood_percent.png"
+  },
+  {
+    "title": "Diagnosing hypertension",
+    "content": [
+      "According to experts, there are factors that influence hypertension that we cannot control, such as aging, menopause or genetics. However, we can act by combating other factors that influence the onset of hypertension such as obesity, a sedentary lifestyle, poor diet or high salt consumption. Therefore, in order to control our blood pressure figures, the two basic rules are to pay attention to our diet, eliminating salt and following the Mediterranean diet, and to exercise",
+      "As for the latter recommendation, the World Health Organization (WHO) has included it for three decades among the most important non-pharmacological measures aimed at lowering blood pressure values. Specifically, it recommends that adults should practice at least 150 minutes of moderate-intensity aerobic physical activity or 75 minutes of intense activity per week."
+    ],
+    "icon": "assets/image/png/ic_heart_rate_6.png"
+  }
+]

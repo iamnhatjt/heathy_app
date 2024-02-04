@@ -8,6 +8,7 @@ import 'package:heathy_app/ui/blood_sugar/blood_sugar_screen.dart';
 import 'package:heathy_app/ui/heart_rate/heart_rate_screen.dart';
 import 'package:heathy_app/ui/heart_rate/measure_heart_screen.dart';
 import 'package:heathy_app/ui/home/home_screen.dart';
+import 'package:heathy_app/ui/insight/insight_screen.dart';
 
 import 'di.dart';
 
@@ -60,6 +61,10 @@ class AppRouter {
         ),
       ),
     ),
+    GoRoute(
+      path: RouterUri.insights,
+      builder: (context, state) => const InsightScreen(),
+    )
   ];
 
   static final GoRouter router = GoRouter(
