@@ -11,9 +11,9 @@ part 'heart_rate_event.dart';
 part 'heart_rate_state.dart';
 
 class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
-  HeartRateBloc() : super(const HeartRateState.initial()) {
+  HeartRateBloc() : super(const HeartRateState.loading()) {
     on<_Started>(_addHeartRate);
-    on<_filterDate>(getListHeartRate);
+    on<_filterDate>((event, emit) => _filterHeartRate(event.dateRange, emit));
     on<_changeSelected>(changeHeartRateSelected);
     on<_delete>(_onDeleteHeartRate);
     on<_update>(_onUpdateHeartRate);
@@ -35,18 +35,22 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     try {
       emit(const HeartRateState.loading());
       await _heartRateUseCase.add((event as _Started).heartRateModel);
-      listHeartRate = _heartRateUseCase.filter(dateRange);
-      emit(HeartRateState.loaded("Add heart rate success", listHeartRate));
+      _refreshDataDepen();
+      emit(const HeartRateState.added());
     } catch (e) {
       emit(const HeartRateState.error("Add heart rate fail, try again"));
     }
   }
 
-  void getListHeartRate(HeartRateEvent event, Emitter<HeartRateState> emit) {
+  void _filterHeartRate(DateTimeRange? range, Emitter<HeartRateState> emit) {
     emit(const HeartRateState.loading());
-    dateRange = (event as _filterDate).dateRange ?? dateRange;
-    listHeartRate = _heartRateUseCase.filter(dateRange);
-    emit(HeartRateState.loaded("Filter success", listHeartRate));
+    dateRange = range ?? dateRange;
+    _refreshDataDepen();
+    if (listHeartRate.isEmpty) {
+      emit(const HeartRateState.empty());
+      return;
+    }
+    emit(const HeartRateState.filtered());
   }
 
   int get minHeartRate {
@@ -82,17 +86,9 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
   void changeHeartRateSelected(
       HeartRateEvent event, Emitter<HeartRateState> emit) {
     emit(const HeartRateState.loading());
-    final dateTime = DateTime.fromMicrosecondsSinceEpoch(
-        (event as _changeSelected).date.toInt());
-    final heartRate = (event).value.toInt();
 
-    heartRateSelected = listHeartRate.firstWhere((element) =>
-        element.dateTime == dateTime || element.heartRate == heartRate);
-    emit(HeartRateState.loaded("update date success", listHeartRate));
-  }
-
-  bool get isShowSelected {
-    return listHeartRate.isNotEmpty;
+    heartRateSelected = (event as _changeSelected).value;
+    emit(const HeartRateState.loaded());
   }
 
   Future _onDeleteHeartRate(
@@ -101,9 +97,12 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     final String id = (event as _delete).id;
     try {
       await _heartRateUseCase.delete(id);
-      listHeartRate = _heartRateUseCase.getAll();
-      heartRateSelected = listHeartRate.first;
-      emit(HeartRateState.loaded("Deleted heart rate", listHeartRate));
+      _refreshDataDepen();
+      if (listHeartRate.isEmpty) {
+        emit(const HeartRateState.empty());
+        return;
+      }
+      emit(const HeartRateState.deleted());
     } catch (e) {
       emit(const HeartRateState.error("Delete failure, try again"));
     }
@@ -114,11 +113,18 @@ class HeartRateBloc extends Bloc<HeartRateEvent, HeartRateState> {
     try {
       emit(const HeartRateState.loading());
       await _heartRateUseCase.update(heartRateSelected.id!, newHeatRate);
-      listHeartRate = _heartRateUseCase.filter(dateRange);
-      heartRateSelected = event.heartRateModel;
-      emit(HeartRateState.loaded("Update success", listHeartRate));
+      _refreshDataDepen();
+      emit(const HeartRateState.updated());
     } catch (e) {
       emit(const HeartRateState.error("Update failure, try again"));
     }
+  }
+
+  void _refreshDataDepen() {
+    listHeartRate = _heartRateUseCase.filter(dateRange);
+    if (listHeartRate.isEmpty) {
+      return;
+    }
+    heartRateSelected = listHeartRate.last;
   }
 }

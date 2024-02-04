@@ -23,7 +23,7 @@ mixin _$HeartRateEvent {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$HeartRateEvent {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$HeartRateEvent {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,7 +168,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) {
     return addHeartRate(heartRateModel);
   }
@@ -181,7 +181,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) {
     return addHeartRate?.call(heartRateModel);
   }
@@ -194,7 +194,7 @@ class _$StartedImpl implements _Started {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) {
     if (addHeartRate != null) {
@@ -325,7 +325,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) {
     return getHeartRate(id);
   }
@@ -338,7 +338,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) {
     return getHeartRate?.call(id);
   }
@@ -351,7 +351,7 @@ class _$getHeartRateImpl implements _getHeartRate {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) {
     if (getHeartRate != null) {
@@ -483,7 +483,7 @@ class _$updateImpl implements _update {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) {
     return update(heartRateModel);
   }
@@ -496,7 +496,7 @@ class _$updateImpl implements _update {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) {
     return update?.call(heartRateModel);
   }
@@ -509,7 +509,7 @@ class _$updateImpl implements _update {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -640,7 +640,7 @@ class _$deleteImpl implements _delete {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) {
     return delete(id);
   }
@@ -653,7 +653,7 @@ class _$deleteImpl implements _delete {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) {
     return delete?.call(id);
   }
@@ -666,7 +666,7 @@ class _$deleteImpl implements _delete {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -798,7 +798,7 @@ class _$filterDateImpl implements _filterDate {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) {
     return filterDate(dateRange);
   }
@@ -811,7 +811,7 @@ class _$filterDateImpl implements _filterDate {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) {
     return filterDate?.call(dateRange);
   }
@@ -824,7 +824,7 @@ class _$filterDateImpl implements _filterDate {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) {
     if (filterDate != null) {
@@ -893,7 +893,7 @@ abstract class _$$changeSelectedImplCopyWith<$Res> {
           $Res Function(_$changeSelectedImpl) then) =
       __$$changeSelectedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({double date, double value});
+  $Res call({HeartRateModel value});
 }
 
 /// @nodoc
@@ -907,18 +907,13 @@ class __$$changeSelectedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
     Object? value = null,
   }) {
     return _then(_$changeSelectedImpl(
-      null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as double,
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double,
+              as HeartRateModel,
     ));
   }
 }
@@ -926,16 +921,14 @@ class __$$changeSelectedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$changeSelectedImpl implements _changeSelected {
-  const _$changeSelectedImpl(this.date, this.value);
+  const _$changeSelectedImpl(this.value);
 
   @override
-  final double date;
-  @override
-  final double value;
+  final HeartRateModel value;
 
   @override
   String toString() {
-    return 'HeartRateEvent.changeSelected(date: $date, value: $value)';
+    return 'HeartRateEvent.changeSelected(value: $value)';
   }
 
   @override
@@ -943,12 +936,11 @@ class _$changeSelectedImpl implements _changeSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$changeSelectedImpl &&
-            (identical(other.date, date) || other.date == date) &&
             (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, date, value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -965,9 +957,9 @@ class _$changeSelectedImpl implements _changeSelected {
     required TResult Function(HeartRateModel heartRateModel) update,
     required TResult Function(String id) delete,
     required TResult Function(DateTimeRange? dateRange) filterDate,
-    required TResult Function(double date, double value) changeSelected,
+    required TResult Function(HeartRateModel value) changeSelected,
   }) {
-    return changeSelected(date, value);
+    return changeSelected(value);
   }
 
   @override
@@ -978,9 +970,9 @@ class _$changeSelectedImpl implements _changeSelected {
     TResult? Function(HeartRateModel heartRateModel)? update,
     TResult? Function(String id)? delete,
     TResult? Function(DateTimeRange? dateRange)? filterDate,
-    TResult? Function(double date, double value)? changeSelected,
+    TResult? Function(HeartRateModel value)? changeSelected,
   }) {
-    return changeSelected?.call(date, value);
+    return changeSelected?.call(value);
   }
 
   @override
@@ -991,11 +983,11 @@ class _$changeSelectedImpl implements _changeSelected {
     TResult Function(HeartRateModel heartRateModel)? update,
     TResult Function(String id)? delete,
     TResult Function(DateTimeRange? dateRange)? filterDate,
-    TResult Function(double date, double value)? changeSelected,
+    TResult Function(HeartRateModel value)? changeSelected,
     required TResult orElse(),
   }) {
     if (changeSelected != null) {
-      return changeSelected(date, value);
+      return changeSelected(value);
     }
     return orElse();
   }
@@ -1045,11 +1037,10 @@ class _$changeSelectedImpl implements _changeSelected {
 }
 
 abstract class _changeSelected implements HeartRateEvent {
-  const factory _changeSelected(final double date, final double value) =
+  const factory _changeSelected(final HeartRateModel value) =
       _$changeSelectedImpl;
 
-  double get date;
-  double get value;
+  HeartRateModel get value;
   @JsonKey(ignore: true)
   _$$changeSelectedImplCopyWith<_$changeSelectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1061,53 +1052,79 @@ mixin _$HeartRateState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            String message, List<HeartRateModel> listHeartRates)
-        loaded,
-    required TResult Function(String message) error,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult Function(String message)? error,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_loading value) loading,
-    required TResult Function(_loaded value) loaded,
-    required TResult Function(_error value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_loading value)? loading,
-    TResult? Function(_loaded value)? loaded,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_loading value)? loading,
-    TResult Function(_loaded value)? loaded,
-    TResult Function(_error value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1171,10 +1188,13 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            String message, List<HeartRateModel> listHeartRates)
-        loaded,
-    required TResult Function(String message) error,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
   }) {
     return initial();
   }
@@ -1184,9 +1204,13 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
   }) {
     return initial?.call();
   }
@@ -1196,9 +1220,13 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult Function(String message)? error,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1211,9 +1239,14 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_loading value) loading,
-    required TResult Function(_loaded value) loaded,
-    required TResult Function(_error value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
   }) {
     return initial(this);
   }
@@ -1222,9 +1255,14 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_loading value)? loading,
-    TResult? Function(_loaded value)? loaded,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
   }) {
     return initial?.call(this);
   }
@@ -1233,9 +1271,14 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_loading value)? loading,
-    TResult Function(_loaded value)? loaded,
-    TResult Function(_error value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1250,25 +1293,25 @@ abstract class _Initial implements HeartRateState {
 }
 
 /// @nodoc
-abstract class _$$loadingImplCopyWith<$Res> {
-  factory _$$loadingImplCopyWith(
-          _$loadingImpl value, $Res Function(_$loadingImpl) then) =
-      __$$loadingImplCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$loadingImplCopyWithImpl<$Res>
-    extends _$HeartRateStateCopyWithImpl<$Res, _$loadingImpl>
-    implements _$$loadingImplCopyWith<$Res> {
-  __$$loadingImplCopyWithImpl(
-      _$loadingImpl _value, $Res Function(_$loadingImpl) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$loadingImpl implements _loading {
-  const _$loadingImpl();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -1278,7 +1321,7 @@ class _$loadingImpl implements _loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$loadingImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -1289,10 +1332,13 @@ class _$loadingImpl implements _loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            String message, List<HeartRateModel> listHeartRates)
-        loaded,
-    required TResult Function(String message) error,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
   }) {
     return loading();
   }
@@ -1302,9 +1348,13 @@ class _$loadingImpl implements _loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
   }) {
     return loading?.call();
   }
@@ -1314,9 +1364,13 @@ class _$loadingImpl implements _loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult Function(String message)? error,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1329,9 +1383,14 @@ class _$loadingImpl implements _loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_loading value) loading,
-    required TResult Function(_loaded value) loaded,
-    required TResult Function(_error value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
   }) {
     return loading(this);
   }
@@ -1340,9 +1399,14 @@ class _$loadingImpl implements _loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_loading value)? loading,
-    TResult? Function(_loaded value)? loaded,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
   }) {
     return loading?.call(this);
   }
@@ -1351,9 +1415,14 @@ class _$loadingImpl implements _loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_loading value)? loading,
-    TResult Function(_loaded value)? loaded,
-    TResult Function(_error value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1363,98 +1432,59 @@ class _$loadingImpl implements _loading {
   }
 }
 
-abstract class _loading implements HeartRateState {
-  const factory _loading() = _$loadingImpl;
+abstract class _Loading implements HeartRateState {
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$loadedImplCopyWith<$Res> {
-  factory _$$loadedImplCopyWith(
-          _$loadedImpl value, $Res Function(_$loadedImpl) then) =
-      __$$loadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message, List<HeartRateModel> listHeartRates});
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$loadedImplCopyWithImpl<$Res>
-    extends _$HeartRateStateCopyWithImpl<$Res, _$loadedImpl>
-    implements _$$loadedImplCopyWith<$Res> {
-  __$$loadedImplCopyWithImpl(
-      _$loadedImpl _value, $Res Function(_$loadedImpl) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-    Object? listHeartRates = null,
-  }) {
-    return _then(_$loadedImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == listHeartRates
-          ? _value._listHeartRates
-          : listHeartRates // ignore: cast_nullable_to_non_nullable
-              as List<HeartRateModel>,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$loadedImpl implements _loaded {
-  const _$loadedImpl(this.message, final List<HeartRateModel> listHeartRates)
-      : _listHeartRates = listHeartRates;
-
-  @override
-  final String message;
-  final List<HeartRateModel> _listHeartRates;
-  @override
-  List<HeartRateModel> get listHeartRates {
-    if (_listHeartRates is EqualUnmodifiableListView) return _listHeartRates;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_listHeartRates);
-  }
+class _$LoadedImpl implements _Loaded {
+  const _$LoadedImpl();
 
   @override
   String toString() {
-    return 'HeartRateState.loaded(message: $message, listHeartRates: $listHeartRates)';
+    return 'HeartRateState.loaded()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$loadedImpl &&
-            (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality()
-                .equals(other._listHeartRates, _listHeartRates));
+        (other.runtimeType == runtimeType && other is _$LoadedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message,
-      const DeepCollectionEquality().hash(_listHeartRates));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$loadedImplCopyWith<_$loadedImpl> get copyWith =>
-      __$$loadedImplCopyWithImpl<_$loadedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            String message, List<HeartRateModel> listHeartRates)
-        loaded,
-    required TResult Function(String message) error,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
   }) {
-    return loaded(message, listHeartRates);
+    return loaded();
   }
 
   @override
@@ -1462,11 +1492,15 @@ class _$loadedImpl implements _loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
   }) {
-    return loaded?.call(message, listHeartRates);
+    return loaded?.call();
   }
 
   @override
@@ -1474,13 +1508,17 @@ class _$loadedImpl implements _loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult Function(String message)? error,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(message, listHeartRates);
+      return loaded();
     }
     return orElse();
   }
@@ -1489,9 +1527,14 @@ class _$loadedImpl implements _loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_loading value) loading,
-    required TResult Function(_loaded value) loaded,
-    required TResult Function(_error value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
   }) {
     return loaded(this);
   }
@@ -1500,9 +1543,14 @@ class _$loadedImpl implements _loaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_loading value)? loading,
-    TResult? Function(_loaded value)? loaded,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
   }) {
     return loaded?.call(this);
   }
@@ -1511,9 +1559,14 @@ class _$loadedImpl implements _loaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_loading value)? loading,
-    TResult Function(_loaded value)? loaded,
-    TResult Function(_error value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1523,44 +1576,36 @@ class _$loadedImpl implements _loaded {
   }
 }
 
-abstract class _loaded implements HeartRateState {
-  const factory _loaded(
-          final String message, final List<HeartRateModel> listHeartRates) =
-      _$loadedImpl;
-
-  String get message;
-  List<HeartRateModel> get listHeartRates;
-  @JsonKey(ignore: true)
-  _$$loadedImplCopyWith<_$loadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _Loaded implements HeartRateState {
+  const factory _Loaded() = _$LoadedImpl;
 }
 
 /// @nodoc
-abstract class _$$errorImplCopyWith<$Res> {
-  factory _$$errorImplCopyWith(
-          _$errorImpl value, $Res Function(_$errorImpl) then) =
-      __$$errorImplCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String error});
 }
 
 /// @nodoc
-class __$$errorImplCopyWithImpl<$Res>
-    extends _$HeartRateStateCopyWithImpl<$Res, _$errorImpl>
-    implements _$$errorImplCopyWith<$Res> {
-  __$$errorImplCopyWithImpl(
-      _$errorImpl _value, $Res Function(_$errorImpl) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? error = null,
   }) {
-    return _then(_$errorImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+    return _then(_$ErrorImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1568,45 +1613,48 @@ class __$$errorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$errorImpl implements _error {
-  const _$errorImpl(this.message);
+class _$ErrorImpl implements _Error {
+  const _$ErrorImpl(this.error);
 
   @override
-  final String message;
+  final String error;
 
   @override
   String toString() {
-    return 'HeartRateState.error(message: $message)';
+    return 'HeartRateState.error(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$errorImpl &&
-            (identical(other.message, message) || other.message == message));
+            other is _$ErrorImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$errorImplCopyWith<_$errorImpl> get copyWith =>
-      __$$errorImplCopyWithImpl<_$errorImpl>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            String message, List<HeartRateModel> listHeartRates)
-        loaded,
-    required TResult Function(String message) error,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
   }) {
-    return error(message);
+    return error(this.error);
   }
 
   @override
@@ -1614,11 +1662,15 @@ class _$errorImpl implements _error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
   }) {
-    return error?.call(message);
+    return error?.call(this.error);
   }
 
   @override
@@ -1626,13 +1678,17 @@ class _$errorImpl implements _error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message, List<HeartRateModel> listHeartRates)?
-        loaded,
-    TResult Function(String message)? error,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message);
+      return error(this.error);
     }
     return orElse();
   }
@@ -1641,9 +1697,14 @@ class _$errorImpl implements _error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_loading value) loading,
-    required TResult Function(_loaded value) loaded,
-    required TResult Function(_error value) error,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
   }) {
     return error(this);
   }
@@ -1652,9 +1713,14 @@ class _$errorImpl implements _error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_loading value)? loading,
-    TResult? Function(_loaded value)? loaded,
-    TResult? Function(_error value)? error,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
   }) {
     return error?.call(this);
   }
@@ -1663,9 +1729,14 @@ class _$errorImpl implements _error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_loading value)? loading,
-    TResult Function(_loaded value)? loaded,
-    TResult Function(_error value)? error,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1675,11 +1746,731 @@ class _$errorImpl implements _error {
   }
 }
 
-abstract class _error implements HeartRateState {
-  const factory _error(final String message) = _$errorImpl;
+abstract class _Error implements HeartRateState {
+  const factory _Error(final String error) = _$ErrorImpl;
 
-  String get message;
+  String get error;
   @JsonKey(ignore: true)
-  _$$errorImplCopyWith<_$errorImpl> get copyWith =>
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatedImplCopyWith<$Res> {
+  factory _$$UpdatedImplCopyWith(
+          _$UpdatedImpl value, $Res Function(_$UpdatedImpl) then) =
+      __$$UpdatedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdatedImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$UpdatedImpl>
+    implements _$$UpdatedImplCopyWith<$Res> {
+  __$$UpdatedImplCopyWithImpl(
+      _$UpdatedImpl _value, $Res Function(_$UpdatedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdatedImpl implements _Updated {
+  const _$UpdatedImpl();
+
+  @override
+  String toString() {
+    return 'HeartRateState.updated()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdatedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
+  }) {
+    return updated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
+  }) {
+    return updated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (updated != null) {
+      return updated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return updated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
+  }) {
+    return updated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (updated != null) {
+      return updated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Updated implements HeartRateState {
+  const factory _Updated() = _$UpdatedImpl;
+}
+
+/// @nodoc
+abstract class _$$DeletedImplCopyWith<$Res> {
+  factory _$$DeletedImplCopyWith(
+          _$DeletedImpl value, $Res Function(_$DeletedImpl) then) =
+      __$$DeletedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DeletedImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$DeletedImpl>
+    implements _$$DeletedImplCopyWith<$Res> {
+  __$$DeletedImplCopyWithImpl(
+      _$DeletedImpl _value, $Res Function(_$DeletedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DeletedImpl implements _Deleted {
+  const _$DeletedImpl();
+
+  @override
+  String toString() {
+    return 'HeartRateState.deleted()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DeletedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
+  }) {
+    return deleted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
+  }) {
+    return deleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return deleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
+  }) {
+    return deleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Deleted implements HeartRateState {
+  const factory _Deleted() = _$DeletedImpl;
+}
+
+/// @nodoc
+abstract class _$$AddedImplCopyWith<$Res> {
+  factory _$$AddedImplCopyWith(
+          _$AddedImpl value, $Res Function(_$AddedImpl) then) =
+      __$$AddedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddedImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$AddedImpl>
+    implements _$$AddedImplCopyWith<$Res> {
+  __$$AddedImplCopyWithImpl(
+      _$AddedImpl _value, $Res Function(_$AddedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AddedImpl implements _Added {
+  const _$AddedImpl();
+
+  @override
+  String toString() {
+    return 'HeartRateState.added()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AddedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
+  }) {
+    return added();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
+  }) {
+    return added?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (added != null) {
+      return added();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return added(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
+  }) {
+    return added?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (added != null) {
+      return added(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Added implements HeartRateState {
+  const factory _Added() = _$AddedImpl;
+}
+
+/// @nodoc
+abstract class _$$FilteredImplCopyWith<$Res> {
+  factory _$$FilteredImplCopyWith(
+          _$FilteredImpl value, $Res Function(_$FilteredImpl) then) =
+      __$$FilteredImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FilteredImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$FilteredImpl>
+    implements _$$FilteredImplCopyWith<$Res> {
+  __$$FilteredImplCopyWithImpl(
+      _$FilteredImpl _value, $Res Function(_$FilteredImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FilteredImpl implements _Filtered {
+  const _$FilteredImpl();
+
+  @override
+  String toString() {
+    return 'HeartRateState.filtered()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FilteredImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
+  }) {
+    return filtered();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
+  }) {
+    return filtered?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (filtered != null) {
+      return filtered();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return filtered(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
+  }) {
+    return filtered?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (filtered != null) {
+      return filtered(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Filtered implements HeartRateState {
+  const factory _Filtered() = _$FilteredImpl;
+}
+
+/// @nodoc
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$HeartRateStateCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyImpl implements _Empty {
+  const _$EmptyImpl();
+
+  @override
+  String toString() {
+    return 'HeartRateState.empty()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function(String error) error,
+    required TResult Function() updated,
+    required TResult Function() deleted,
+    required TResult Function() added,
+    required TResult Function() filtered,
+    required TResult Function() empty,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function()? updated,
+    TResult? Function()? deleted,
+    TResult? Function()? added,
+    TResult? Function()? filtered,
+    TResult? Function()? empty,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function(String error)? error,
+    TResult Function()? updated,
+    TResult Function()? deleted,
+    TResult Function()? added,
+    TResult Function()? filtered,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Added value) added,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Added value)? added,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Empty value)? empty,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Added value)? added,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Empty implements HeartRateState {
+  const factory _Empty() = _$EmptyImpl;
 }

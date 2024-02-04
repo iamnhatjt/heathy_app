@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -8,7 +10,6 @@ import 'package:heathy_app/data/model/heart_rate_model.dart';
 import 'package:heathy_app/gen/assets.gen.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/util/extensions/snack_bar_extention.dart';
-import 'package:heathy_app/res/util/navigation_service.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:heathy_app/res/widgets/app_button_inner.dart';
 import 'package:heathy_app/res/widgets/app_scaffold.dart';
@@ -40,13 +41,16 @@ class _HeartRateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<HeartRateBloc, HeartRateState>(
         listener: (context, state) {
-          state.when(
-            initial: () {},
-            loading: () {},
-            loaded: (message, value) {},
-            error: (message) {
-              currentContext.showSuccessSnackBar(message: message);
-            },
+          state.whenOrNull(
+            added: () =>
+                context.showSuccessSnackBar(message: "Added heart rate"),
+            deleted: () =>
+                context.showSuccessSnackBar(message: "Deleted heart rate"),
+            filtered: () =>
+                context.showSuccessSnackBar(message: "Filtered heart rate"),
+            error: (e) => context.showSuccessSnackBar(message: e),
+            updated: () =>
+                context.showSuccessSnackBar(message: "Updated heart rate"),
           );
         },
         child: const _Body());
@@ -58,20 +62,6 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HeartRateBloc, HeartRateState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-          loaded: (message, listHeartRates) =>
-              loadedState(context, listHeartRates),
-          orElse: () => const SizedBox.shrink(),
-          loading: () => const CircularProgressIndicator(),
-        );
-      },
-    );
-  }
-
-  BaseBody loadedState(
-      BuildContext context, List<HeartRateModel> listHeartRates) {
     final HeartRateBloc heartRateBloc = context.read<HeartRateBloc>();
 
     void onTapConfirm(DateTime date, int age, SexEnum sex, int value) {
@@ -99,94 +89,131 @@ class _Body extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          AppButtonInner(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              innerColors: Colors.lightGreen,
-              radius: 12,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      const Text(
-                        "Min",
-                        style: AppStyle.normalText,
-                      ),
-                      Text(context
-                          .watch<HeartRateBloc>()
-                          .minHeartRate
-                          .toString()),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        "Average",
-                        style: AppStyle.normalText,
-                      ),
-                      Text(context.watch<HeartRateBloc>().average.toString()),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        "Max",
-                        style: AppStyle.normalText,
-                      ),
-                      Text(context
-                          .watch<HeartRateBloc>()
-                          .maxHeartRate
-                          .toString()),
-                    ],
-                  ),
-                ],
-              )),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32),
-              child: HeartRateChartDialog(
-                listHeartRate: listHeartRates,
-              ),
-            ),
+          BlocBuilder<HeartRateBloc, HeartRateState>(
+            builder: (context, state) {
+              log(state.toString());
+              return state.maybeWhen(
+                loading: () => const CircularProgressIndicator(),
+                empty: () => emtyWidget(),
+                orElse: () => showHeartRate(context),
+              );
+            },
           ),
-          context.watch<HeartRateBloc>().isShowSelected
-              ? const HeartRateSeletectedWidget()
-              : const SizedBox.shrink(),
           const SizedBox(
             height: 20,
           ),
-          BaseRoundedButton.all(
-              onTap: () async {
-                await context.push(RouterUri.measureHeartRate);
-                if (context.mounted) {
-                  context
-                      .read<HeartRateBloc>()
-                      .add(const HeartRateEvent.filterDate());
-                }
-              },
-              gradient: const LinearGradient(colors: [
-                Colors.greenAccent,
-                Colors.green,
-              ]),
-              backgroundColor: Colors.greenAccent,
-              radius: 20,
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-              child: Row(
-                children: [
-                  Lottie.asset(Assets.jsons.heartRateAnimation, height: 40),
-                  const Spacer(),
-                  Text(
-                    "Measure now",
-                    style: AppStyle.buttonLarge.copyWith(color: Colors.white),
-                  ),
-                  const Spacer(),
-                ],
-              )),
+          measureButton(context),
           const SizedBox(
             height: 20,
           )
         ],
       ),
     );
+  }
+
+  Expanded emtyWidget() =>
+      Expanded(child: Lottie.asset(Assets.jsons.heartRateAnimation));
+
+  Widget showHeartRate(BuildContext context) {
+    return Expanded(
+      child: Column(
+        children: [
+          heartRateAverage(context),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32),
+              child: HeartRateChartDialog(
+                listHeartRate: context.watch<HeartRateBloc>().listHeartRate,
+              ),
+            ),
+          ),
+          const HeartRateSeletectedWidget()
+        ],
+      ),
+    );
+  }
+
+  BaseRoundedButton measureButton(BuildContext context) {
+    return BaseRoundedButton.all(
+        onTap: () async {
+          final int value =
+              await context.push(RouterUri.measureHeartRate) as int;
+          if (context.mounted) {
+            await hearRateDialog(
+                    context: context,
+                    onTapConfirm: (date, age, sex, heartRate) {
+                      final currentHeartRate = HeartRateModel(
+                          heartRate: heartRate,
+                          age: age,
+                          sex: sex.toString(),
+                          dateTime: date);
+                      HeartRateBloc()
+                          .add(HeartRateEvent.addHeartRate(currentHeartRate));
+                      context.pop();
+                    },
+                    heartRateModel: HeartRateModel(heartRate: value))
+                .show()
+                .then((_) => context
+                    .read<HeartRateBloc>()
+                    .add(const HeartRateEvent.filterDate()));
+          }
+        },
+        gradient: const LinearGradient(colors: [
+          Colors.greenAccent,
+          Colors.green,
+        ]),
+        backgroundColor: Colors.greenAccent,
+        radius: 20,
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        child: Row(
+          children: [
+            Lottie.asset(Assets.jsons.heartRateAnimation, height: 40),
+            const Spacer(),
+            Text(
+              "Measure now",
+              style: AppStyle.buttonLarge.copyWith(color: Colors.white),
+            ),
+            const Spacer(),
+          ],
+        ));
+  }
+
+  AppButtonInner heartRateAverage(BuildContext context) {
+    return AppButtonInner(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        innerColors: Colors.lightGreen,
+        radius: 12,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                const Text(
+                  "Min",
+                  style: AppStyle.normalText,
+                ),
+                Text(context.watch<HeartRateBloc>().minHeartRate.toString()),
+              ],
+            ),
+            Column(
+              children: [
+                const Text(
+                  "Average",
+                  style: AppStyle.normalText,
+                ),
+                Text(context.watch<HeartRateBloc>().average.toString()),
+              ],
+            ),
+            Column(
+              children: [
+                const Text(
+                  "Max",
+                  style: AppStyle.normalText,
+                ),
+                Text(context.watch<HeartRateBloc>().maxHeartRate.toString()),
+              ],
+            ),
+          ],
+        ));
   }
 }

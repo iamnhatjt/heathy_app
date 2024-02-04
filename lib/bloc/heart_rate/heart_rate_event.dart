@@ -11,6 +11,6 @@ class HeartRateEvent with _$HeartRateEvent {
   const factory HeartRateEvent.filterDate({DateTimeRange? dateRange}) =
       _filterDate;
 
-  const factory HeartRateEvent.changeSelected(double date, double value) =
+  const factory HeartRateEvent.changeSelected(HeartRateModel value) =
       _changeSelected;
 }

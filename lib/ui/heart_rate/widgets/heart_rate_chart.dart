@@ -1,10 +1,10 @@
-import 'dart:developer';
-
+import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/data/model/heart_rate_model.dart';
+import 'package:heathy_app/res/util/extensions/datetime_extension.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:intl/intl.dart';
 
@@ -24,11 +24,21 @@ final class HeartRateChartDialog extends StatelessWidget {
       ),
       touchCallback: (flTouchEvent, touchResponse) {
         if ((touchResponse?.lineBarSpots ?? []).isNotEmpty) {
+          final groupByDate = groupBy(
+              listHeartRate,
+              (heartRate) =>
+                  heartRate.dateTime.sameDate.millisecondsSinceEpoch);
           TouchLineBarSpot touchLineBarSpot =
               touchResponse!.lineBarSpots!.first;
 
-          context.read<HeartRateBloc>().add(HeartRateEvent.changeSelected(
-              touchLineBarSpot.x, touchLineBarSpot.y));
+          final currentModel = groupByDate.entries
+              .toList()[touchLineBarSpot.barIndex]
+              .value
+              .last;
+
+          context
+              .read<HeartRateBloc>()
+              .add(HeartRateEvent.changeSelected(currentModel));
         }
       },
       getTouchedSpotIndicator: (barData, spotIndexes) {
@@ -64,7 +74,6 @@ final class HeartRateChartDialog extends StatelessWidget {
   FlTitlesData get titleData1 => FlTitlesData(
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
-            interval: 86400000,
             showTitles: true,
             getTitlesWidget: bottomTitleWidget,
           ),
@@ -77,10 +86,11 @@ final class HeartRateChartDialog extends StatelessWidget {
         ),
         leftTitles: AxisTitles(
           sideTitles: SideTitles(
-              showTitles: true,
-              getTitlesWidget: leftSideWidget,
-              interval: 1,
-              reservedSize: 50),
+            showTitles: true,
+            getTitlesWidget: leftSideWidget,
+            // interval: 1,
+            // reservedSize: 50
+          ),
         ),
       );
 
@@ -116,6 +126,11 @@ final class HeartRateChartDialog extends StatelessWidget {
   Widget bottomTitleWidget(double value, TitleMeta meta) {
     final convertToDate = DateTime.fromMillisecondsSinceEpoch(value.toInt());
     final displayDateTime = DateFormat('dd/MM').format(convertToDate);
+    if (!listHeartRate.any((element) =>
+        element.dateTime!.sameDate.millisecondsSinceEpoch ==
+        convertToDate.sameDate.millisecondsSinceEpoch)) {
+      return const SizedBox.shrink();
+    }
 
     return SideTitleWidget(
         angle: 100,
@@ -131,33 +146,18 @@ final class HeartRateChartDialog extends StatelessWidget {
             )));
   }
 
-  List<LineChartBarData> lineBarsData() {
-    final List<FlSpot> listFlSpot = [];
-    for (var element in listHeartRate) {
-      listFlSpot.add(FlSpot(
-        element.dateTime!.millisecondsSinceEpoch.toDouble(),
-        element.heartRate!.toDouble(),
-      ));
-    }
-
-    log(listFlSpot.toString());
-
-    return [
-      LineChartBarData(
-        isCurved: true,
-        dotData: FlDotData(
-          show: true,
-          getDotPainter: (p0, p1, p2, p3) {
-            return FlDotCirclePainter(
-              radius: 7,
-              color: Colors.blueAccent,
-            );
-          },
-        ),
-        color: Colors.transparent,
-        spots: listFlSpot,
-      )
-    ];
+  List<LineChartBarData> lineBarsData(BuildContext context) {
+    final groupByDate = groupBy(listHeartRate,
+        (heartRate) => heartRate.dateTime.sameDate.millisecondsSinceEpoch);
+    return groupByDate.entries
+        .map((e) => LineChartBarData(
+            spots: e.value
+                .map((e) => FlSpot(
+                      e.dateTime.sameDate.millisecondsSinceEpoch.toDouble(),
+                      e.heartRate?.toDouble() ?? 0,
+                    ))
+                .toList()))
+        .toList();
   }
 
   @override
@@ -167,13 +167,25 @@ final class HeartRateChartDialog extends StatelessWidget {
           lineTouchData: lineTouchData(context),
           titlesData: titleData1,
           gridData: gridDate,
-          lineBarsData: lineBarsData(),
+          lineBarsData: lineBarsData(context),
           maxY: 251,
           minY: 40,
+          minX: context
+              .read<HeartRateBloc>()
+              .dateRange
+              .start
+              .millisecondsSinceEpoch
+              .toDouble(),
+          maxX: context
+              .read<HeartRateBloc>()
+              .dateRange
+              .end
+              .add(const Duration(days: 2))
+              .millisecondsSinceEpoch
+              .toDouble(),
           borderData: FlBorderData(show: false)),
 
       duration: const Duration(milliseconds: 150), // Optional
-      curve: Curves.linear,
     );
   }
 }

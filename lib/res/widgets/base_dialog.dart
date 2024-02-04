@@ -18,8 +18,8 @@ class BaseDialog {
 
   void confirmAction(BuildContext context) {}
 
-  void show() {
-    showDialog(
+  Future show() async {
+    await showDialog(
       barrierDismissible: false,
       context: currentContext,
       builder: (context) {
