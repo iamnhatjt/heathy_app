@@ -93,7 +93,7 @@ class BloodChart extends StatelessWidget {
       fontSize: 12.0,
     );
     return SideTitleWidget(
-      space: 8,
+      space: 0,
       axisSide: meta.axisSide,
       child: Text(value.toInt().toString(), style: style),
     );

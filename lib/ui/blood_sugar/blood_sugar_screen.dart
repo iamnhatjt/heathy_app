@@ -145,7 +145,7 @@ class DetailBloodSugar extends StatelessWidget {
               children: [
                 Text(
                   bloodSugar.bloodSugar.toString(),
-                  style: AppStyle.buttonLarge,
+                  style: AppStyle.normalText,
                 ),
                 const Text(
                   'mg/dl',
@@ -161,6 +161,10 @@ class DetailBloodSugar extends StatelessWidget {
                 ),
                 Text(convertTypeMg(bloodSugar.bloodSugar!).toText),
                 IconButton(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 0,
+                  ),
                   onPressed: onDelete,
                   icon: const Icon(Icons.delete),
                   color: Colors.redAccent,

@@ -31,6 +31,8 @@ dependencies:
   collection: ^1.18.0
   camera: ^0.10.5+9
   percent_indicator: ^4.2.3
+  permission_handler: ^11.2.0
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
   flutter_test:
