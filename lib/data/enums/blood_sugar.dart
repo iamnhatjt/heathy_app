@@ -91,6 +91,7 @@ extension ExtensionBloodSugarType on BloodSugarType {
         return "5.5-7.0";
       case BloodSugarType.diabetes:
         return ">7.0";
+      //trinh duong nhatb
     }
   }
 

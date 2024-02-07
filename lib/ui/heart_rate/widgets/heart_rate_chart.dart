@@ -30,7 +30,6 @@ final class HeartRateChartDialog extends StatelessWidget {
                   heartRate.dateTime.sameDate.millisecondsSinceEpoch);
           TouchLineBarSpot touchLineBarSpot =
               touchResponse!.lineBarSpots!.first;
-
           final currentModel = groupByDate.entries
               .toList()[touchLineBarSpot.barIndex]
               .value

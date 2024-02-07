@@ -1,5 +1,6 @@
 import 'package:heathy_app/config/hive/hive_config.dart';
 import 'package:heathy_app/data/model/blood_sugar_model.dart';
+import 'package:heathy_app/data/model/weight_bmi_model.dart';
 
 import '../model/heart_rate_model.dart';
 
@@ -54,5 +55,27 @@ class LocalRepository {
   Future<void> deleteBloodSugar(String id) {
     final index = getAllSugarBox().indexWhere((element) => element.id == id);
     return _hiveConfig.bloodSugarBox.deleteAt(index);
+  }
+
+  // handle box weight bmi
+  List<WeightBMIModel> getAllWeightBox() {
+    return _hiveConfig.weightBmiBox.values.toList();
+  }
+
+  Future<void> addWeightBmi(WeightBMIModel model) {
+    return _hiveConfig.weightBmiBox.add(model);
+  }
+
+  Future<void> updateWeightBmi(WeightBMIModel model, String id) {
+    final listWeightBmi = getAllWeightBox();
+    final indexCurrentModel =
+        listWeightBmi.indexWhere((element) => element.id == id);
+    return _hiveConfig.weightBmiBox.putAt(indexCurrentModel, model);
+  }
+
+  Future<void> deleteWeightBmi(String id) {
+    final indexCurrentModel =
+        getAllWeightBox().indexWhere((element) => element.id == id);
+    return _hiveConfig.weightBmiBox.deleteAt(indexCurrentModel);
   }
 }
