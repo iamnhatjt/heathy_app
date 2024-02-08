@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:heathy_app/config/hive/hive_constansts.dart';
+import 'package:heathy_app/data/enums/bmi.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:uuid/uuid.dart';
 
@@ -29,5 +30,34 @@ class WeightBMIModel extends HiveObject {
     this.sex,
   }) {
     id = const Uuid().v1();
+  }
+}
+
+extension WeightBmiExtention on WeightBMIModel {
+  BmiTypeEnum get toBmi {
+    final double bmi = weight! / height! / height!;
+    if (bmi < 16.0) {
+      return BmiTypeEnum.verySeverelyUnderWeight;
+    }
+    if (bmi < 16.9) {
+      return BmiTypeEnum.severelyUnderWeight;
+    }
+    if (bmi < 18.4) {
+      return BmiTypeEnum.underWeight;
+    }
+    if (bmi < 24.9) {
+      return BmiTypeEnum.normal;
+    }
+    if (bmi < 29.9) {
+      return BmiTypeEnum.overWeight;
+    }
+    if (bmi < 34.9) {
+      return BmiTypeEnum.obeseclassI;
+    }
+    if (bmi < 39.9) {
+      return BmiTypeEnum.obeseclassII;
+    } else {
+      return BmiTypeEnum.obeseclassIII;
+    }
   }
 }

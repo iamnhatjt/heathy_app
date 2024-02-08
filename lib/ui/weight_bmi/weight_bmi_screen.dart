@@ -22,7 +22,7 @@ class _WeightBMI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onTapAdd() {
-      weightBMIDialog().show();
+      weightBMIDialog(context: context).show();
     }
 
     return BaseBody(
@@ -32,7 +32,7 @@ class _WeightBMI extends StatelessWidget {
       ),
       onChangeDateRange: (value) {},
       onTapAdd: onTapAdd,
-      child: const Column(children: []),
+      child: Column(children: []),
     );
   }
 }
