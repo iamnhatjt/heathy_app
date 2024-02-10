@@ -19,56 +19,32 @@ mixin _$WeightBmiEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeModeHeight,
-    required TResult Function() changeModeWeight,
-    required TResult Function(double value) changeHeight,
-    required TResult Function(double value) changeWeight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeModeHeight,
-    TResult? Function()? changeModeWeight,
-    TResult? Function(double value)? changeHeight,
-    TResult? Function(double value)? changeWeight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeModeHeight,
-    TResult Function()? changeModeWeight,
-    TResult Function(double value)? changeHeight,
-    TResult Function(double value)? changeWeight,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_ChangeModeHeight value) changeModeHeight,
-    required TResult Function(_ChangeModeWeight value) changeModeWeight,
-    required TResult Function(_ChangeHeight value) changeHeight,
-    required TResult Function(_ChangeWeight value) changeWeight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult? Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult? Function(_ChangeHeight value)? changeHeight,
-    TResult? Function(_ChangeWeight value)? changeWeight,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult Function(_ChangeHeight value)? changeHeight,
-    TResult Function(_ChangeWeight value)? changeWeight,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,10 +107,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() changeModeHeight,
-    required TResult Function() changeModeWeight,
-    required TResult Function(double value) changeHeight,
-    required TResult Function(double value) changeWeight,
   }) {
     return started();
   }
@@ -143,10 +115,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? changeModeHeight,
-    TResult? Function()? changeModeWeight,
-    TResult? Function(double value)? changeHeight,
-    TResult? Function(double value)? changeWeight,
   }) {
     return started?.call();
   }
@@ -155,10 +123,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? changeModeHeight,
-    TResult Function()? changeModeWeight,
-    TResult Function(double value)? changeHeight,
-    TResult Function(double value)? changeWeight,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -171,10 +135,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_ChangeModeHeight value) changeModeHeight,
-    required TResult Function(_ChangeModeWeight value) changeModeWeight,
-    required TResult Function(_ChangeHeight value) changeHeight,
-    required TResult Function(_ChangeWeight value) changeWeight,
   }) {
     return started(this);
   }
@@ -183,10 +143,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult? Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult? Function(_ChangeHeight value)? changeHeight,
-    TResult? Function(_ChangeWeight value)? changeWeight,
   }) {
     return started?.call(this);
   }
@@ -195,10 +151,6 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult Function(_ChangeHeight value)? changeHeight,
-    TResult Function(_ChangeWeight value)? changeWeight,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -210,548 +162,6 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements WeightBmiEvent {
   const factory _Started() = _$StartedImpl;
-}
-
-/// @nodoc
-abstract class _$$ChangeModeHeightImplCopyWith<$Res> {
-  factory _$$ChangeModeHeightImplCopyWith(_$ChangeModeHeightImpl value,
-          $Res Function(_$ChangeModeHeightImpl) then) =
-      __$$ChangeModeHeightImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ChangeModeHeightImplCopyWithImpl<$Res>
-    extends _$WeightBmiEventCopyWithImpl<$Res, _$ChangeModeHeightImpl>
-    implements _$$ChangeModeHeightImplCopyWith<$Res> {
-  __$$ChangeModeHeightImplCopyWithImpl(_$ChangeModeHeightImpl _value,
-      $Res Function(_$ChangeModeHeightImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ChangeModeHeightImpl implements _ChangeModeHeight {
-  const _$ChangeModeHeightImpl();
-
-  @override
-  String toString() {
-    return 'WeightBmiEvent.changeModeHeight()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangeModeHeightImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() changeModeHeight,
-    required TResult Function() changeModeWeight,
-    required TResult Function(double value) changeHeight,
-    required TResult Function(double value) changeWeight,
-  }) {
-    return changeModeHeight();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? changeModeHeight,
-    TResult? Function()? changeModeWeight,
-    TResult? Function(double value)? changeHeight,
-    TResult? Function(double value)? changeWeight,
-  }) {
-    return changeModeHeight?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? changeModeHeight,
-    TResult Function()? changeModeWeight,
-    TResult Function(double value)? changeHeight,
-    TResult Function(double value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeModeHeight != null) {
-      return changeModeHeight();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_ChangeModeHeight value) changeModeHeight,
-    required TResult Function(_ChangeModeWeight value) changeModeWeight,
-    required TResult Function(_ChangeHeight value) changeHeight,
-    required TResult Function(_ChangeWeight value) changeWeight,
-  }) {
-    return changeModeHeight(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult? Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult? Function(_ChangeHeight value)? changeHeight,
-    TResult? Function(_ChangeWeight value)? changeWeight,
-  }) {
-    return changeModeHeight?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult Function(_ChangeHeight value)? changeHeight,
-    TResult Function(_ChangeWeight value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeModeHeight != null) {
-      return changeModeHeight(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeModeHeight implements WeightBmiEvent {
-  const factory _ChangeModeHeight() = _$ChangeModeHeightImpl;
-}
-
-/// @nodoc
-abstract class _$$ChangeModeWeightImplCopyWith<$Res> {
-  factory _$$ChangeModeWeightImplCopyWith(_$ChangeModeWeightImpl value,
-          $Res Function(_$ChangeModeWeightImpl) then) =
-      __$$ChangeModeWeightImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ChangeModeWeightImplCopyWithImpl<$Res>
-    extends _$WeightBmiEventCopyWithImpl<$Res, _$ChangeModeWeightImpl>
-    implements _$$ChangeModeWeightImplCopyWith<$Res> {
-  __$$ChangeModeWeightImplCopyWithImpl(_$ChangeModeWeightImpl _value,
-      $Res Function(_$ChangeModeWeightImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ChangeModeWeightImpl implements _ChangeModeWeight {
-  const _$ChangeModeWeightImpl();
-
-  @override
-  String toString() {
-    return 'WeightBmiEvent.changeModeWeight()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangeModeWeightImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() changeModeHeight,
-    required TResult Function() changeModeWeight,
-    required TResult Function(double value) changeHeight,
-    required TResult Function(double value) changeWeight,
-  }) {
-    return changeModeWeight();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? changeModeHeight,
-    TResult? Function()? changeModeWeight,
-    TResult? Function(double value)? changeHeight,
-    TResult? Function(double value)? changeWeight,
-  }) {
-    return changeModeWeight?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? changeModeHeight,
-    TResult Function()? changeModeWeight,
-    TResult Function(double value)? changeHeight,
-    TResult Function(double value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeModeWeight != null) {
-      return changeModeWeight();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_ChangeModeHeight value) changeModeHeight,
-    required TResult Function(_ChangeModeWeight value) changeModeWeight,
-    required TResult Function(_ChangeHeight value) changeHeight,
-    required TResult Function(_ChangeWeight value) changeWeight,
-  }) {
-    return changeModeWeight(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult? Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult? Function(_ChangeHeight value)? changeHeight,
-    TResult? Function(_ChangeWeight value)? changeWeight,
-  }) {
-    return changeModeWeight?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult Function(_ChangeHeight value)? changeHeight,
-    TResult Function(_ChangeWeight value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeModeWeight != null) {
-      return changeModeWeight(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeModeWeight implements WeightBmiEvent {
-  const factory _ChangeModeWeight() = _$ChangeModeWeightImpl;
-}
-
-/// @nodoc
-abstract class _$$ChangeHeightImplCopyWith<$Res> {
-  factory _$$ChangeHeightImplCopyWith(
-          _$ChangeHeightImpl value, $Res Function(_$ChangeHeightImpl) then) =
-      __$$ChangeHeightImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({double value});
-}
-
-/// @nodoc
-class __$$ChangeHeightImplCopyWithImpl<$Res>
-    extends _$WeightBmiEventCopyWithImpl<$Res, _$ChangeHeightImpl>
-    implements _$$ChangeHeightImplCopyWith<$Res> {
-  __$$ChangeHeightImplCopyWithImpl(
-      _$ChangeHeightImpl _value, $Res Function(_$ChangeHeightImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$ChangeHeightImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeHeightImpl implements _ChangeHeight {
-  const _$ChangeHeightImpl(this.value);
-
-  @override
-  final double value;
-
-  @override
-  String toString() {
-    return 'WeightBmiEvent.changeHeight(value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeHeightImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeHeightImplCopyWith<_$ChangeHeightImpl> get copyWith =>
-      __$$ChangeHeightImplCopyWithImpl<_$ChangeHeightImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() changeModeHeight,
-    required TResult Function() changeModeWeight,
-    required TResult Function(double value) changeHeight,
-    required TResult Function(double value) changeWeight,
-  }) {
-    return changeHeight(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? changeModeHeight,
-    TResult? Function()? changeModeWeight,
-    TResult? Function(double value)? changeHeight,
-    TResult? Function(double value)? changeWeight,
-  }) {
-    return changeHeight?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? changeModeHeight,
-    TResult Function()? changeModeWeight,
-    TResult Function(double value)? changeHeight,
-    TResult Function(double value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeHeight != null) {
-      return changeHeight(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_ChangeModeHeight value) changeModeHeight,
-    required TResult Function(_ChangeModeWeight value) changeModeWeight,
-    required TResult Function(_ChangeHeight value) changeHeight,
-    required TResult Function(_ChangeWeight value) changeWeight,
-  }) {
-    return changeHeight(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult? Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult? Function(_ChangeHeight value)? changeHeight,
-    TResult? Function(_ChangeWeight value)? changeWeight,
-  }) {
-    return changeHeight?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult Function(_ChangeHeight value)? changeHeight,
-    TResult Function(_ChangeWeight value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeHeight != null) {
-      return changeHeight(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeHeight implements WeightBmiEvent {
-  const factory _ChangeHeight(final double value) = _$ChangeHeightImpl;
-
-  double get value;
-  @JsonKey(ignore: true)
-  _$$ChangeHeightImplCopyWith<_$ChangeHeightImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangeWeightImplCopyWith<$Res> {
-  factory _$$ChangeWeightImplCopyWith(
-          _$ChangeWeightImpl value, $Res Function(_$ChangeWeightImpl) then) =
-      __$$ChangeWeightImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({double value});
-}
-
-/// @nodoc
-class __$$ChangeWeightImplCopyWithImpl<$Res>
-    extends _$WeightBmiEventCopyWithImpl<$Res, _$ChangeWeightImpl>
-    implements _$$ChangeWeightImplCopyWith<$Res> {
-  __$$ChangeWeightImplCopyWithImpl(
-      _$ChangeWeightImpl _value, $Res Function(_$ChangeWeightImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$ChangeWeightImpl(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeWeightImpl implements _ChangeWeight {
-  const _$ChangeWeightImpl(this.value);
-
-  @override
-  final double value;
-
-  @override
-  String toString() {
-    return 'WeightBmiEvent.changeWeight(value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeWeightImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeWeightImplCopyWith<_$ChangeWeightImpl> get copyWith =>
-      __$$ChangeWeightImplCopyWithImpl<_$ChangeWeightImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() changeModeHeight,
-    required TResult Function() changeModeWeight,
-    required TResult Function(double value) changeHeight,
-    required TResult Function(double value) changeWeight,
-  }) {
-    return changeWeight(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? changeModeHeight,
-    TResult? Function()? changeModeWeight,
-    TResult? Function(double value)? changeHeight,
-    TResult? Function(double value)? changeWeight,
-  }) {
-    return changeWeight?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? changeModeHeight,
-    TResult Function()? changeModeWeight,
-    TResult Function(double value)? changeHeight,
-    TResult Function(double value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeWeight != null) {
-      return changeWeight(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_ChangeModeHeight value) changeModeHeight,
-    required TResult Function(_ChangeModeWeight value) changeModeWeight,
-    required TResult Function(_ChangeHeight value) changeHeight,
-    required TResult Function(_ChangeWeight value) changeWeight,
-  }) {
-    return changeWeight(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult? Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult? Function(_ChangeHeight value)? changeHeight,
-    TResult? Function(_ChangeWeight value)? changeWeight,
-  }) {
-    return changeWeight?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_ChangeModeHeight value)? changeModeHeight,
-    TResult Function(_ChangeModeWeight value)? changeModeWeight,
-    TResult Function(_ChangeHeight value)? changeHeight,
-    TResult Function(_ChangeWeight value)? changeWeight,
-    required TResult orElse(),
-  }) {
-    if (changeWeight != null) {
-      return changeWeight(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeWeight implements WeightBmiEvent {
-  const factory _ChangeWeight(final double value) = _$ChangeWeightImpl;
-
-  double get value;
-  @JsonKey(ignore: true)
-  _$$ChangeWeightImplCopyWith<_$ChangeWeightImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

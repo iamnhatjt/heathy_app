@@ -105,3 +105,48 @@ extension BmiTypeExtention on BmiTypeEnum {
     return color;
   }
 }
+
+class BMIProtoco {
+  BMIProtoco._();
+  static BmiTypeEnum convertType(double bmi) {
+    if (bmi < 16.0) {
+      return BmiTypeEnum.verySeverelyUnderWeight;
+    }
+    if (bmi < 16.9) {
+      return BmiTypeEnum.severelyUnderWeight;
+    }
+    if (bmi < 18.4) {
+      return BmiTypeEnum.underWeight;
+    }
+    if (bmi < 24.9) {
+      return BmiTypeEnum.normal;
+    }
+    if (bmi < 29.9) {
+      return BmiTypeEnum.overWeight;
+    }
+    if (bmi < 34.9) {
+      return BmiTypeEnum.obeseclassI;
+    }
+    if (bmi < 39.9) {
+      return BmiTypeEnum.obeseclassII;
+    } else {
+      return BmiTypeEnum.obeseclassIII;
+    }
+  }
+
+  static kgToIb(double value) {
+    return value * 2.2;
+  }
+
+  static ibToKg(double value) {
+    return value / 2.2;
+  }
+
+  static cmToFt(double value) {
+    return value * 0.0328;
+  }
+
+  static ftToCm(double value) {
+    return value / 0.0328;
+  }
+}

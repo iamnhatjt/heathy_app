@@ -3,17 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 
 class AppInput extends StatelessWidget {
-  const AppInput({super.key, this.controller, this.width, this.inputText});
+  const AppInput(
+      {super.key, this.controller, this.width, this.inputText, this.onChange});
 
   final TextEditingController? controller;
   final double? width;
   final String? inputText;
+  final Function(String)? onChange;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? 200,
       child: TextFormField(
+        onChanged: onChange,
         initialValue: inputText,
         controller: controller,
         inputFormatters: [

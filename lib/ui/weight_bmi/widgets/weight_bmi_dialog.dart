@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:heathy_app/bloc/weight_bmi/weight_bmi_bloc.dart';
+import 'package:heathy_app/bloc/weight_bmi/cu_weight_bmi/cu_weight_bmi_bloc.dart';
 import 'package:heathy_app/data/enums/sex.dart';
 import 'package:heathy_app/data/model/weight_bmi_model.dart';
+import 'package:heathy_app/res/util/debouce.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
 import 'package:heathy_app/res/widgets/app_button_inner.dart';
 import 'package:heathy_app/res/widgets/app_dialog.dart';
 import 'package:heathy_app/res/widgets/app_input.dart';
+import 'package:heathy_app/ui/weight_bmi/widgets/weight_bmi_cacular_widget.dart';
 import 'package:heathy_app/ui/weight_bmi/widgets/weight_bmi_info.dart';
 
 AppDialog weightBMIDialog({
   required BuildContext context,
   final WeightBMIModel? model,
-  Function(DateTime, int, SexEnum)? confirm,
 }) {
   Widget child() {
     return Column(mainAxisSize: MainAxisSize.min, children: [
@@ -23,6 +24,9 @@ AppDialog weightBMIDialog({
           const _HeightInput(),
         ],
       ),
+      const SizedBox(height: 12),
+      const BMICacularWidget(),
+      const SizedBox(height: 12),
       const WeightBmiInfo(),
     ]);
   }
@@ -31,9 +35,15 @@ AppDialog weightBMIDialog({
     initAge: model?.age,
     sex: getSex(model?.sex),
     initDate: model?.dateTime,
-    confirm: confirm,
+    confirm: (dateTime, age, sex) {
+      if (model == null) {
+        context.read<CuWeightBmiBloc>().add(CuWeightBmiEvent.addModel(
+            age: age, dateTime: dateTime, sex: sex.toString()));
+      }
+      //TODO: add update
+    },
     child: BlocProvider.value(
-      value: context.read<WeightBmiBloc>(),
+      value: context.read<CuWeightBmiBloc>(),
       child: child(),
     ),
   );
@@ -50,7 +60,18 @@ class _WeightInput extends StatelessWidget {
       children: [
         changeMode(),
         AppInput(
-          inputText: model?.weight?.toString(),
+          key: UniqueKey(),
+          onChange: (value) {
+            final Debounce debounce =
+                Debounce(const Duration(milliseconds: 1800));
+            debounce.call(() {
+              context
+                  .read<CuWeightBmiBloc>()
+                  .add(CuWeightBmiEvent.changeWeight(value));
+            });
+          },
+          inputText:
+              context.watch<CuWeightBmiBloc>().currentWeight.toStringAsFixed(1),
           width: 120,
         ),
       ],
@@ -60,11 +81,11 @@ class _WeightInput extends StatelessWidget {
   Widget changeMode() {
     return Builder(
       builder: (context) {
-        final unit = context.watch<WeightBmiBloc>().isWeightKG ? "Kg" : 'Ib';
+        final unit = context.watch<CuWeightBmiBloc>().isWeightKG ? "Kg" : 'Ib';
         return BaseRoundedButton.all(
           onTap: () => context
-              .read<WeightBmiBloc>()
-              .add(const WeightBmiEvent.changeModeWeight()),
+              .read<CuWeightBmiBloc>()
+              .add(const CuWeightBmiEvent.changeModeWeight()),
           padding: const EdgeInsets.all(8),
           radius: 8,
           margin: const EdgeInsets.all(8),
@@ -95,8 +116,22 @@ class _HeightInput extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           changeMode(),
-          const AppInput(
+          AppInput(
+            key: UniqueKey(),
+            onChange: (value) {
+              final Debounce debounce =
+                  Debounce(const Duration(milliseconds: 1800));
+              debounce.call(() {
+                context
+                    .read<CuWeightBmiBloc>()
+                    .add(CuWeightBmiEvent.changeHeight(value));
+              });
+            },
             width: 120,
+            inputText: context
+                .watch<CuWeightBmiBloc>()
+                .currentHeight
+                .toStringAsFixed(1),
           ),
         ],
       ),
@@ -106,11 +141,11 @@ class _HeightInput extends StatelessWidget {
   Widget changeMode() {
     return Builder(
       builder: (context) {
-        final unit = context.watch<WeightBmiBloc>().isHeightCM ? 'Cm' : 'Fit';
+        final unit = context.watch<CuWeightBmiBloc>().isHeightCM ? 'Cm' : 'Fit';
         return BaseRoundedButton.all(
           onTap: () => context
-              .read<WeightBmiBloc>()
-              .add(const WeightBmiEvent.changeModeHeight()),
+              .read<CuWeightBmiBloc>()
+              .add(const CuWeightBmiEvent.changeModeHeight()),
           padding: const EdgeInsets.all(8),
           radius: 8,
           margin: const EdgeInsets.all(8),

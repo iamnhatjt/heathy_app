@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:heathy_app/bloc/blood_sugar/blood_sugar_bloc.dart';
 import 'package:heathy_app/bloc/heart_rate/heart_rate_bloc.dart';
 import 'package:heathy_app/bloc/measure_heart_rate/measure_heart_rate_bloc.dart';
+import 'package:heathy_app/bloc/weight_bmi/cu_weight_bmi/cu_weight_bmi_bloc.dart';
 import 'package:heathy_app/bloc/weight_bmi/weight_bmi_bloc.dart';
 import 'package:heathy_app/res/util/navigation_service.dart';
 import 'package:heathy_app/ui/blood_sugar/blood_sugar_screen.dart';
@@ -74,8 +75,15 @@ class AppRouter {
     ),
     GoRoute(
       path: RouterUri.weightBMI,
-      builder: (context, state) => BlocProvider(
-        create: (context) => WeightBmiBloc(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => WeightBmiBloc(),
+          ),
+          BlocProvider(
+            create: (context) => CuWeightBmiBloc(),
+          ),
+        ],
         child: const WeightBMIScreen(),
       ),
     ),

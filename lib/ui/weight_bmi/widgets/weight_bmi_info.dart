@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:heathy_app/bloc/weight_bmi/cu_weight_bmi/cu_weight_bmi_bloc.dart';
 import 'package:heathy_app/data/enums/bmi.dart';
 import 'package:heathy_app/res/styles/styles.dart';
 import 'package:heathy_app/res/widgets/app_button.dart';
@@ -14,11 +16,15 @@ class WeightBmiInfo extends StatelessWidget {
       DialogInfo('BMI', infoBMI(), context).show();
     }
 
+    final bmi = context.watch<CuWeightBmiBloc>().bmi;
+    final bmiType = BMIProtoco.convertType(bmi);
+
     return BaseRoundedButton.all(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       onTap: onTap,
-      child: const Row(children: [
-        Expanded(child: Center(child: Text("Trinh Nhat"))),
-        Icon(Icons.info_outline),
+      child: Row(children: [
+        Expanded(child: Center(child: Text(bmiType.bmiInfo))),
+        const Icon(Icons.info_outline),
       ]),
     );
   }
